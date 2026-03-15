@@ -27,28 +27,32 @@ const CompromisoSocial = () => {
         </section>
 
         <section className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
             {fichas.map((ficha, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="p-1 bg-gradient-to-r from-blue-600 to-green-500"></div>
-                <div className="p-8">
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+                <div className="p-1 bg-gradient-to-r from-blue-700 to-green-500"></div>
+                <div className="p-8 flex-grow">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 mb-4 uppercase">
                     {ficha.type}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 h-14">
+                  <h3 className="text-xl font-bold text-gray-800 mb-6 h-12">
                     {ficha.title}
                   </h3>
                   <a 
                     href={ficha.file} 
                     download
-                    className="flex items-center justify-center w-full bg-blue-900 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition-colors gap-2"
+                    className="inline-flex items-center justify-center w-full bg-blue-900 text-white py-3 px-6 rounded-xl font-bold hover:bg-green-600 transition-colors shadow-md"
                   >
-                    <span>Descargar PDF</span>
+                    Descargar PDF
                   </a>
                 </div>
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="mt-20 text-center opacity-50">
+           <p className="italic text-gray-600">"La quimio jugando se pasa volando"</p>
         </section>
       </main>
 
