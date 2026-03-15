@@ -10,8 +10,9 @@ const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#propiedades", label: "Propiedades Seleccionadas" },
   { href: "#vender", label: "Vender con Nosotros" },
-  { href: "#equipo", label: "Sobre Carmen y Elena" },
+  { href: "#equipo", label: "El equipo" },
   { href: "#contacto", label: "Contacto" },
+  { href: "/compromiso-social", label: "Acción Social" },
 ];
 
 export function Header() {
