@@ -1,8 +1,6 @@
-"use client"; 
+"use client";
 
 import React from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export default function CompromisoSocialPage() {
   const fichas = [
@@ -15,35 +13,42 @@ export default function CompromisoSocialPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
-      <Header />
-      <main className="pt-32 pb-20">
+    <div className="bg-white min-h-screen font-sans">
+      {/* Header Integrado para evitar errores de importación */}
+      <nav className="bg-[#003366] text-white p-6 shadow-xl">
+        <div className="container mx-auto flex justify-between items-center">
+          <span className="text-xl font-bold tracking-tighter">PROMOCIÓN Y GESTIÓN INMOBILIARIA</span>
+          <a href="/" className="bg-white text-[#003366] px-4 py-2 rounded-lg font-bold text-sm">VOLVER A INICIO</a>
+        </div>
+      </nav>
+
+      <main className="pt-20 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-[#003366] mb-6 uppercase">
-              Compromiso Social
+            <h1 className="text-4xl md:text-6xl font-black text-[#003366] mb-6">
+              COMPROMISO SOCIAL
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              En <strong>PROMOCIÓN Y GESTIÓN INMOBILIARIA</strong>, nuestra labor va más allá de los inmuebles. 
-              Junto a <strong>Juegaterapia</strong>, impulsamos el reciclaje creativo para los más pequeños.
+              Cuidamos el hogar de todos. Junto a <strong>Juegaterapia</strong>, ayudamos a los pequeños guerreros a aprender reciclaje jugando.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {fichas.map((ficha, index) => (
-              <div key={index} className="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+              <div key={index} className="bg-gray-50 rounded-[2.5rem] p-10 border border-gray-100 hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group">
                 <div>
-                  <span className="text-xs font-black tracking-widest text-blue-500 uppercase">
+                  <div className="w-12 h-1 bg-blue-500 mb-4 rounded-full"></div>
+                  <span className="text-xs font-black tracking-[0.2em] text-blue-500 uppercase">
                     {ficha.type}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-800 mt-2 mb-6 uppercase leading-tight">
+                  <h3 className="text-2xl font-bold text-gray-800 mt-4 mb-8 uppercase leading-tight italic">
                     {ficha.title}
                   </h3>
                 </div>
                 <a 
                   href={ficha.file} 
                   download
-                  className="inline-flex w-full items-center justify-center bg-[#003366] text-white py-4 rounded-2xl font-bold hover:bg-green-600 transition-all shadow-lg active:scale-95"
+                  className="inline-flex w-full items-center justify-center bg-[#003366] text-white py-5 rounded-2xl font-black hover:bg-green-600 transition-all shadow-xl active:scale-95"
                 >
                   DESCARGAR PDF
                 </a>
@@ -52,7 +57,10 @@ export default function CompromisoSocialPage() {
           </div>
         </div>
       </main>
-      <Footer />
+
+      <footer className="bg-gray-100 py-10 text-center text-gray-400 text-sm">
+        <p>© 2026 PROMOCIÓN Y GESTIÓN INMOBILIARIA | Proyecto Solidario Juegaterapia</p>
+      </footer>
     </div>
   );
 }
