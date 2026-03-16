@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function CompromisoSocialPage() {
-  // Datos actualizados con los nuevos nombres de archivos en /public
+  // Datos basados en tus archivos limpios en /public
   const papelFichas = [
     { 
       title: 'Papel: Versión Color', 
@@ -53,7 +53,7 @@ export default function CompromisoSocialPage() {
       <Header />
       
       <main className="pt-24 pb-20">
-        {/* Banner de Colaboración con fondo suave */}
+        {/* Banner de Colaboración */}
         <section className="bg-[#f8fafc] py-12 border-b border-gray-100 mb-16 shadow-inner">
           <div className="container mx-auto px-4 flex justify-center">
             <img 
@@ -65,7 +65,7 @@ export default function CompromisoSocialPage() {
         </section>
 
         <div className="container mx-auto px-4 lg:px-8">
-          {/* Título y Manifiesto Corporativo */}
+          {/* Título y Manifiesto */}
           <div className="text-center mb-20">
             <h1 className="text-4xl md:text-6xl font-black text-[#147a2a] mb-6 tracking-tighter uppercase italic">
               Compromiso Social PYGI
@@ -83,15 +83,17 @@ export default function CompromisoSocialPage() {
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-10 border-b-4 border-[#147a2a] pb-4">
                 <div className="bg-[#147a2a] text-white p-3 rounded-2xl shadow-lg">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
                 </div>
                 <h2 className="text-3xl font-black text-[#147a2a] uppercase tracking-tight">Reciclaje Papel</h2>
               </div>
 
               <div className="grid gap-8">
                 {papelFichas.map((ficha, i) => (
-                  <div key={i} className="flex gap-6 p-6 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                    <div className="w-28 h-40 bg-white rounded-2xl flex-shrink-0 overflow-hidden shadow-md border border-gray-200 group-hover:rotate-2 transition-transform">
+                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
+                    <div className="w-full sm:w-28 h-40 bg-white rounded-2xl flex-shrink-0 overflow-hidden shadow-md border border-gray-200 group-hover:rotate-2 transition-transform">
                       <img src={ficha.thumb} alt="Vista previa" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex flex-col justify-between py-2">
@@ -102,9 +104,9 @@ export default function CompromisoSocialPage() {
                       <a 
                         href={ficha.file} 
                         download 
-                        className="inline-flex items-center text-[#147a2a] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform"
+                        className="inline-flex items-center text-[#147a2a] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform mt-4"
                       >
-                        Descargar PDF <span className="ml-2">↓</span>
+                        Descargar PDF <span className="ml-2 text-lg">↓</span>
                       </a>
                     </div>
                   </div>
@@ -114,4 +116,44 @@ export default function CompromisoSocialPage() {
 
             {/* COLUMNA PLÁSTICO (Naranja Contenedor) */}
             <div className="flex-1">
-              <div className="flex items-center gap-4 mb-10 border-b-4 border-[#e67e22]
+              <div className="flex items-center gap-4 mb-10 border-b-4 border-[#e67e22] pb-4">
+                <div className="bg-[#e67e22] text-white p-3 rounded-2xl shadow-lg">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </div>
+                <h2 className="text-3xl font-black text-[#e67e22] uppercase tracking-tight">Reciclaje Plástico</h2>
+              </div>
+
+              <div className="grid gap-8">
+                {plasticoFichas.map((ficha, i) => (
+                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
+                    <div className="w-full sm:w-28 h-40 bg-white rounded-2xl flex-shrink-0 overflow-hidden shadow-md border border-gray-200 group-hover:-rotate-2 transition-transform">
+                      <img src={ficha.thumb} alt="Vista previa" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex flex-col justify-between py-2">
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">{ficha.title}</h3>
+                        <p className="text-sm text-gray-500 leading-tight">{ficha.desc}</p>
+                      </div>
+                      <a 
+                        href={ficha.file} 
+                        download 
+                        className="inline-flex items-center text-[#e67e22] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform mt-4"
+                      >
+                        Descargar PDF <span className="ml-2 text-lg">↓</span>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
