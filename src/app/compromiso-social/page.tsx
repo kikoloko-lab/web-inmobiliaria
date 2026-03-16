@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function CompromisoSocialPage() {
-  // Datos basados en tus archivos limpios en /public
+  // Datos basados en tus archivos finales en /public
   const papelFichas = [
     { 
       title: 'Papel: Versión Color', 
@@ -53,8 +53,8 @@ export default function CompromisoSocialPage() {
       <Header />
       
       <main className="pt-24 pb-20">
-        {/* Banner de Colaboración */}
-        <section className="bg-[#f8fafc] py-12 border-b border-gray-100 mb-16 shadow-inner">
+        {/* Banner de Colaboración - Tu Logotipo */}
+        <section className="bg-[#f8fafc] py-12 border-b border-gray-100 mb-16 shadow-inner text-center">
           <div className="container mx-auto px-4 flex justify-center">
             <img 
               src="/logo_colaboracion.png" 
@@ -65,7 +65,7 @@ export default function CompromisoSocialPage() {
         </section>
 
         <div className="container mx-auto px-4 lg:px-8">
-          {/* Título y Manifiesto */}
+          {/* Título y Manifiesto Corporativo */}
           <div className="text-center mb-20">
             <h1 className="text-4xl md:text-6xl font-black text-[#147a2a] mb-6 tracking-tighter uppercase italic">
               Compromiso Social PYGI
@@ -82,10 +82,8 @@ export default function CompromisoSocialPage() {
             {/* COLUMNA PAPEL (Verde Corporativo) */}
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-10 border-b-4 border-[#147a2a] pb-4">
-                <div className="bg-[#147a2a] text-white p-3 rounded-2xl shadow-lg">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                <div className="bg-[#147a2a] text-white p-3 rounded-2xl shadow-lg font-bold">
+                  📄
                 </div>
                 <h2 className="text-3xl font-black text-[#147a2a] uppercase tracking-tight">Reciclaje Papel</h2>
               </div>
@@ -114,13 +112,11 @@ export default function CompromisoSocialPage() {
               </div>
             </div>
 
-            {/* COLUMNA PLÁSTICO (Naranja Contenedor) */}
+            {/* COLUMNA PLÁSTICO (Naranja Contenedor Amarillo) */}
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-10 border-b-4 border-[#e67e22] pb-4">
-                <div className="bg-[#e67e22] text-white p-3 rounded-2xl shadow-lg">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                  </svg>
+                <div className="bg-[#e67e22] text-white p-3 rounded-2xl shadow-lg font-bold">
+                  ♻️
                 </div>
                 <h2 className="text-3xl font-black text-[#e67e22] uppercase tracking-tight">Reciclaje Plástico</h2>
               </div>
