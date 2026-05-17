@@ -25,7 +25,7 @@ export function WhatsAppButton() {
     };
   }, []);
 
-  const phoneNumber = "34600000000"; // Replace with actual number
+  const phoneNumber = "34616385515"; // Replace with actual number
   const message = "Hola! Me gustaria obtener mas informacion sobre sus servicios inmobiliarios.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
