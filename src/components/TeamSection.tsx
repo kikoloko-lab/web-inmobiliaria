@@ -10,25 +10,49 @@ export function TeamSection() {
           {/* Image Side */}
           <div className="relative">
             {/* Main Image */}
-            <div className="grid grid-cols-2 gap-4 aspect-[4/5] w-full">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl group h-full">
+            <div className="grid grid-cols-2 gap-4 w-full">
+            {/* Foto 1 */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl group aspect-[4/5]">
               <img
-                src="/03_varmen (1).jpeg"
-                alt="Carmen - Promocion y Gestion Inmobiliaria"
+                src="/01.jpeg"
+                alt="Equipo - Promocion y Gestion Inmobiliaria"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent flex items-end p-4">
-                <span className="text-white font-medium tracking-wide">Carmen</span>
-              </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl group h-full">
+
+            {/* Foto 2 - Elena */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl group aspect-[4/5]">
               <img
                 src="/02_ele.jpeg"
                 alt="Elena - Promocion y Gestion Inmobiliaria"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent flex items-end p-4">
-                <span className="text-white font-medium tracking-wide">Elena</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent flex items-end p-3">
+                <span className="text-white font-medium tracking-wide text-sm">Elena</span>
+              </div>
+            </div>
+
+            {/* Foto 3 - Carmen */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl group aspect-[4/5]">
+              <img
+                src="/03_varmen (1).jpeg"
+                alt="Carmen - Promocion y Gestion Inmobiliaria"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent flex items-end p-3">
+                <span className="text-white font-medium tracking-wide text-sm">Carmen</span>
+              </div>
+            </div>
+
+            {/* Foto 4 - Luis */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl group aspect-[4/5]">
+              <img
+                src="/04_luis.jpeg"
+                alt="Luis - Promocion y Gestion Inmobiliaria"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent flex items-end p-3">
+                <span className="text-white font-medium tracking-wide text-sm">Luis</span>
               </div>
             </div>
           </div>
