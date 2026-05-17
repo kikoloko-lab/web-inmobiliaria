@@ -89,7 +89,7 @@ export function Header() {
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span className="hidden xl:inline">+34 600 000 000</span>
+              <span className="hidden xl:inline">+34 616 385 515</span>
             </a>
             <Button variant="gold" size="default">
               Quiero vender mi propiedad
@@ -138,11 +138,11 @@ export function Header() {
 
                 <div className="pt-8 border-t border-forest/10">
                   <a
-                    href="tel:+34600000000"
+                    href="tel:+34616385515"
                     className="flex items-center gap-3 text-forest mb-6"
                   >
                     <Phone className="w-5 h-5 text-gold" />
-                    <span className="font-medium">+34 600 000 000</span>
+                    <span className="font-medium">+34 616 385 515</span>
                   </a>
                   <Button variant="gold" size="lg" className="w-full">
                     Quiero vender mi propiedad
@@ -156,3 +156,4 @@ export function Header() {
     </header>
   );
 }
+export default Header;
