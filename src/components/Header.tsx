@@ -15,7 +15,7 @@ const navLinks = [
   { href: "/compromiso-social", label: "Acción Social" },
 ];
 
-export function Header() {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
