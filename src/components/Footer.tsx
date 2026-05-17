@@ -18,7 +18,7 @@ const legalLinks = [
   { href: "/legal", label: "Aviso Legal" },
 ];
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-forest text-white">
       <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-20">
