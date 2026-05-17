@@ -42,7 +42,7 @@ export function ContactSection() {
             {/* Contact Info */}
             <div className="space-y-6 mb-12">
               <a
-                href="tel:+34600000000"
+                href="tel:+34616385515"
                 className="flex items-center gap-4 text-forest hover:text-gold transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/10 transition-colors">
@@ -50,7 +50,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-forest-light">Telefono</p>
-                  <p className="font-medium">+34 600 000 000</p>
+                  <p className="font-medium">+34 616 385 515</p>
                 </div>
               </a>
 
