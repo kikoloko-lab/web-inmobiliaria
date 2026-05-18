@@ -43,7 +43,7 @@ export function ServicesSection() {
                   <p className="text-forest-light leading-relaxed mb-6">
                     Buscas al comprador ideal? Carmen se encarga de que tu propiedad
                     destaque en el mercado con integridad y resultados rapidos.
-                    Valoracion profesional, marketing exclusivo y acompanamiento
+                    Valoracion profesional, marketing exclusivo y acompañamiento
                     en cada paso del proceso.
                   </p>
 
@@ -100,7 +100,7 @@ export function ServicesSection() {
                     {[
                       "Acceso a propiedades exclusivas",
                       "Busqueda personalizada segun tus necesidades",
-                      "Visitas acompanadas y asesoradas",
+                      "Visitas acompañadas y asesoradas",
                       "Apoyo en todo el proceso de compra",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3 text-sm text-forest">

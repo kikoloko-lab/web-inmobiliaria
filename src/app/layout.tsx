@@ -5,7 +5,7 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Promocion y Gestion Inmobiliaria | Hoyo de Manzanares",
-  description: "Especialistas en Hoyo de Manzanares y la Sierra de Guadarrama. Compra, venta y gestion de propiedades exclusivas con el trato humano que mereces. Carmen y Elena te acompanan a casa.",
+  description: "Especialistas en Hoyo de Manzanares y la Sierra de Guadarrama. Compra, venta y gestion de propiedades exclusivas con el trato humano que mereces. Carmen y Elena te acompañan a casa.",
   keywords: "inmobiliaria hoyo de manzanares, casas sierra de guadarrama, vender casa hoyo, comprar casa hoyo de manzanares, la pedriza, propiedades exclusivas madrid",
   authors: [{ name: "Promocion y Gestion Inmobiliaria" }],
   openGraph: {
