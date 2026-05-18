@@ -7,7 +7,7 @@ export function TeamSection() {
   const teamMembers = [
     {
       name: "Claudia",
-      image: "/01.jpeg",
+      image: "/image.png",
       role: "Asesora Inmobiliaria & Marketing",
       description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y redes sociales. Se encarga de que cada propiedad brille en el mercado y de conectar de forma cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra.",
     },
@@ -133,7 +133,7 @@ export function TeamSection() {
 
             <div>
               <Button variant="gold" size="lg" className="px-8 py-6 text-base">
-                Agenda una cita con nosotras
+                Agenda una cita con nosotros
               </Button>
             </div>
           </div>
