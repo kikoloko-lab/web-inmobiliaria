@@ -100,7 +100,7 @@ function Footer() {
               </a>
               {/* 🌟 CORREO ACTUALIZADO */}
               <a
-                href="mailto:info@pyghoyo.com"
+                href="mailto:contacto@pygi.es"
                 className="flex items-center gap-3 text-white/70 hover:text-gold transition-colors text-sm"
               >
                 <Mail className="w-4 h-4 text-gold" />
