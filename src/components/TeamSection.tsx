@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function TeamSection() {
-  // Array de datos para renderizar la fila superior y el desglose inferior alternado
   const teamMembers = [
     {
+      id: "claudia",
       name: "Claudia",
       image: "/image.png",
       role: "Consultora Inmobiliaria",
@@ -13,6 +14,7 @@ export function TeamSection() {
       description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y redes sociales. Se encarga de que cada propiedad brille en el mercado y de conectar de forma cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra.",
     },
     {
+      id: "elena",
       name: "Elena",
       image: "/02_ele.jpeg",
       role: "Consultora Inmobiliaria",
@@ -20,6 +22,7 @@ export function TeamSection() {
       description: "Elena aporta una sensibilidad especial para entender las necesidades de cada familia antes incluso de que las expresen. Su empatía y capacidad de escucha activa hacen que la búsqueda de una vivienda se convierta en una experiencia tranquila, guiada y totalmente personalizada.",
     },
     {
+      id: "carmen",
       name: "Carmen",
       image: "/03_varmen (1).jpeg",
       role: "Fundadora",
@@ -27,6 +30,7 @@ export function TeamSection() {
       description: "Carmen, fundadora con integridad y compromiso, lidera un equipo donde cada cliente es una prioridad, no un número. Su conocimiento profundo del mercado de Hoyo de Manzanares y la Sierra de Guadarrama es fruto de más de 15 años de dedicación exclusiva a esta zona.",
     },
     {
+      id: "luis",
       name: "Luis",
       image: "/04_luis.jpeg",
       role: "Gestión Patrimonial",
@@ -36,7 +40,7 @@ export function TeamSection() {
   ];
 
   return (
-    <section id="equipo" className="py-24 lg:py-32 bg-white overflow-hidden">
+    <section id="equipo" className="py-24 lg:py-32 bg-white overflow-hidden[scroll-behavior:smooth]">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col gap-20">
           
@@ -57,19 +61,24 @@ export function TeamSection() {
             </p>
           </div>
 
-          {/* 2. FILA DE IMÁGENES CON NOMBRE Y ROLES DEBAJO */}
+          {/* 2. FILA DE IMÁGENES CON ENLACE DE ANCLA */}
           <div className="relative">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full">
               {teamMembers.map((member) => (
                 <div key={member.name} className="flex flex-col items-center text-center group">
-                  {/* Imagen */}
-                  <div className="relative rounded-2xl overflow-hidden shadow-md w-full aspect-[4/5] mb-4">
+                  
+                  {/* 🌟 ENLACE INTERNO: Ahora la imagen te lleva a su ID abajo */}
+                  <Link 
+                    href={`#perfil-${member.id}`}
+                    className="relative rounded-2xl overflow-hidden shadow-md w-full aspect-[4/5] mb-4 cursor-pointer block"
+                  >
                     <img
                       src={member.image}
                       alt={`${member.name} - Promoción y Gestión Inmobiliaria`}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                  </div>
+                  </Link>
+
                   {/* Nombre Debajo */}
                   <h4 className="font-display text-xl font-medium text-forest">{member.name}</h4>
                   
@@ -91,15 +100,16 @@ export function TeamSection() {
             <div className="hidden lg:block absolute -top-8 -left-8 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
           </div>
 
-          {/* 3. DESGLOSE INDIVIDUAL ALTERNADO */}
+          {/* 3. DESGLOSE INDIVIDUAL ALTERNADO (CON IDENTIFICADORES ID) */}
           <div className="mt-12 space-y-20 lg:space-y-28 border-t border-cream-dark pt-20">
             {teamMembers.map((member, index) => {
               const isEven = index % 2 === 0;
 
               return (
                 <div 
+                  id={`perfil-${member.id}`} // 🌟 ID ÚNICO PARA HACER EL ANCLAJE
                   key={member.name}
-                  className="grid md:grid-cols-12 gap-8 lg:gap-16 items-center"
+                  className="grid md:grid-cols-12 gap-8 lg:gap-16 items-center scroll-mt-24" // scroll-mt evita que el header tape el perfil
                 >
                   {/* Bloque Imagen */}
                   <div className={`md:col-span-5 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
@@ -154,7 +164,6 @@ export function TeamSection() {
             </div>
 
             <div>
-              {/* 🌟 ENLACE DE WHATSAPP CON TEXTO PERSONALIZADO */}
               <a 
                 href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20inmobiliarios."
                 target="_blank"
