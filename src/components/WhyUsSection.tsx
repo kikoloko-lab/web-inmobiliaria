@@ -10,7 +10,7 @@ const pillars = [
   },
   {
     icon: Heart,
-    title: "Acompanamiento Humano",
+    title: "Acompañamiento Humano",
     description: "No somos una agencia, somos tus aliadas en Hoyo. Entendemos que comprar o vender una casa es una decision de vida.",
   },
   {
