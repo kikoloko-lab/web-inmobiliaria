@@ -1,4 +1,4 @@
-import { Header } from "@/components/Header";
+import  Header  from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { WhyUsSection } from "@/components/WhyUsSection";
 import { PropertyShowcase } from "@/components/PropertyShowcase";
