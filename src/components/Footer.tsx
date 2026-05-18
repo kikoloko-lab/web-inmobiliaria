@@ -92,7 +92,7 @@ const legalLinks = [
             </h4>
             <div className="space-y-4">
               <a
-                href="tel:+34600000000"
+                href="tel:+34616385515"
                 className="flex items-center gap-3 text-white/70 hover:text-gold transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 text-gold" />
