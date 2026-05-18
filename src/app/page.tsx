@@ -6,7 +6,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { TeamSection } from "@/components/TeamSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
+import  Footer  from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { LeadMagnet } from "@/components/LeadMagnet";
 
