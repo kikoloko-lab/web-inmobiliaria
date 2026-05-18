@@ -3,30 +3,34 @@
 import { Button } from "@/components/ui/button";
 
 export function TeamSection() {
-  // Array de datos para renderizar la fila superior y el desglose inferior alternado
+  // 🌟 DATOS SEPARADOS: Rol principal en dorado y subroles en verde forest
   const teamMembers = [
     {
       name: "Claudia",
       image: "/image.png",
-      role: "Consultora Inmobiliaria - Graduada en Derecho",
+      role: "Consultora Inmobiliaria",
+      subrole: "Graduada en Derecho",
       description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y redes sociales. Se encarga de que cada propiedad brille en el mercado y de conectar de forma cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra.",
     },
     {
       name: "Elena",
       image: "/02_ele.jpeg",
       role: "Consultora Inmobiliaria",
+      subrole: "", 
       description: "Elena aporta una sensibilidad especial para entender las necesidades de cada familia antes incluso de que las expresen. Su empatía y capacidad de escucha activa hacen que la búsqueda de una vivienda se convierta en una experiencia tranquila, guiada y totalmente personalizada.",
     },
     {
       name: "Carmen",
       image: "/03_varmen (1).jpeg",
-      role: "Abogada en ejercicio",
+      role: "Fundadora",
+      subrole: "Abogada en ejercicio",
       description: "Carmen, fundadora con integridad y compromiso, lidera un equipo donde cada cliente es una prioridad, no un número. Su conocimiento profundo del mercado de Hoyo de Manzanares y la Sierra de Guadarrama es fruto de más de 15 años de dedicación exclusiva a esta zona.",
     },
     {
       name: "Luis",
       image: "/04_luis.jpeg",
-      role: "Arquitecto Superior con 33 años de experiencia",
+      role: "Gestión Patrimonial",
+      subrole: "Arquitecto Superior con 33 años de experiencia",
       description: "Luis es el pilar técnico y legal del equipo. Con una sólida trayectoria en la gestión patrimonial y análisis financiero, aporta la rigurosidad, seguridad y el marco legal impecable que nuestros clientes necesitan para tomar decisiones patrimoniales con absoluta tranquilidad.",
     },
   ];
@@ -36,7 +40,7 @@ export function TeamSection() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col gap-20">
           
-          {/* 1. TEXTO DE INTRODUCCIÓN (AHORA EN LA PARTE SUPERIOR) */}
+          {/* 1. TEXTO DE INTRODUCCIÓN */}
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
               Conócenos
@@ -53,7 +57,7 @@ export function TeamSection() {
             </p>
           </div>
 
-          {/* 2. FILA DE IMÁGENES CON NOMBRE DEBAJO */}
+          {/* 2. FILA DE IMÁGENES CON NOMBRE Y ROLES DEBAJO */}
           <div className="relative">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full">
               {teamMembers.map((member) => (
@@ -68,7 +72,16 @@ export function TeamSection() {
                   </div>
                   {/* Nombre Debajo */}
                   <h4 className="font-display text-xl font-medium text-forest">{member.name}</h4>
-                  <p className="text-xs text-gold tracking-wider uppercase mt-1">{member.role.split(" & ")[0]}</p>
+                  
+                  {/* Rol principal en Dorado */}
+                  <p className="text-xs text-gold tracking-wider uppercase mt-1 font-medium">{member.role}</p>
+                  
+                  {/* Subrole abajo en Verde Forest */}
+                  {member.subrole && (
+                    <p className="text-xs text-forest/80 font-normal mt-0.5 max-w-[180px]">
+                      {member.subrole}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -78,18 +91,17 @@ export function TeamSection() {
             <div className="hidden lg:block absolute -top-8 -left-8 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
           </div>
 
-          {/* 3. DESGLOSE INDIVIDUAL ALTERNADO (FOTO-TEXTO / TEXTO-FOTO) */}
+          {/* 3. DESGLOSE INDIVIDUAL ALTERNADO */}
           <div className="mt-12 space-y-20 lg:space-y-28 border-t border-cream-dark pt-20">
             {teamMembers.map((member, index) => {
-              // Determina si va a la izquierda o derecha según si el índice es par o impar
               const isEven = index % 2 === 0;
 
               return (
                 <div 
                   key={member.name}
-                  className={`grid md:grid-cols-12 gap-8 lg:gap-16 items-center`}
+                  className="grid md:grid-cols-12 gap-8 lg:gap-16 items-center"
                 >
-                  {/* Bloque Imagen (Usa orden de grid para alternar) */}
+                  {/* Bloque Imagen */}
                   <div className={`md:col-span-5 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
                     <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5] max-w-sm mx-auto">
                       <img 
@@ -102,9 +114,19 @@ export function TeamSection() {
 
                   {/* Bloque Texto */}
                   <div className={`md:col-span-7 flex flex-col ${isEven ? 'md:order-2 text-left' : 'md:order-1 text-left md:text-right items-start md:items-end'}`}>
-                    <span className="text-gold text-xs font-medium tracking-widest uppercase mb-2">
-                      {member.role}
-                    </span>
+                    <div className="flex flex-col mb-2">
+                      {/* Rol principal en Dorado */}
+                      <span className="text-gold text-xs font-medium tracking-widest uppercase">
+                        {member.role}
+                      </span>
+                      {/* Subrole abajo en Verde Forest */}
+                      {member.subrole && (
+                        <span className="text-xs text-forest/80 font-normal tracking-wide mt-0.5">
+                          {member.subrole}
+                        </span>
+                      )}
+                    </div>
+                    
                     <h3 className="font-display text-2xl md:text-3xl font-light text-forest mb-4">
                       {member.name}
                     </h3>
