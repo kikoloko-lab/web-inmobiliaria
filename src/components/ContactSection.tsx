@@ -34,66 +34,56 @@ export function ContactSection() {
             <div className="w-24 h-px bg-gradient-to-r from-gold to-transparent mb-8" />
 
             <p className="text-forest-light leading-relaxed mb-10">
-              Estamos aqui para ayudarte en cada paso. Ya sea que quieras vender,
+              Estamos aquí para ayudarte en cada paso. Ya sea que quieras vender,
               comprar o simplemente conocer el mercado de Hoyo de Manzanares,
               estaremos encantadas de atenderte.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-6 mb-12">
+              {/* Teléfono */}
               <a
                 href="tel:+34616385515"
                 className="flex items-center gap-4 text-forest hover:text-gold transition-colors group"
               >
-                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/10 transition-colors shrink-0">
                   <Phone className="w-5 h-5 text-gold" />
                 </div>
                 <div>
-                  <p className="text-sm text-forest-light">Telefono</p>
+                  <p className="text-sm text-forest-light">Teléfono</p>
                   <p className="font-medium">+34 616 385 515</p>
                 </div>
               </a>
 
+              {/* Email Actualizado */}
               <a
-                href="mailto:info@pyghoyo.com"
+                href="mailto:contacto@pygi.es"
                 className="flex items-center gap-4 text-forest hover:text-gold transition-colors group"
               >
-                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/10 transition-colors shrink-0">
                   <Mail className="w-5 h-5 text-gold" />
                 </div>
                 <div>
                   <p className="text-sm text-forest-light">Email</p>
-                  <p className="font-medium">conatcto@pygi.es</p>
+                  <p className="font-medium">contacto@pygi.es</p>
                 </div>
               </a>
 
-              {/* Bloque de Email */}
-<div className="flex items-start gap-4">
-  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 mt-1">
-    <Mail className="w-5 h-5 text-gold" />
-  </div>
-  <div>
-    <p className="text-xs text-gold tracking-wider uppercase font-medium mb-1">Email</p>
-    <a href="mailto:contacto@pygi.es" className="text-forest hover:text-gold transition-colors text-base">
-      contacto@pygi.es
-    </a>
-  </div>
-</div>
-
-{/* Bloque de Ubicación */}
-<div className="flex items-start gap-4">
-  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 mt-1">
-    <MapPin className="w-5 h-5 text-gold" />
-  </div>
-  <div>
-    <p className="text-xs text-gold tracking-wider uppercase font-medium mb-1">Ubicación</p>
-    <div className="text-forest text-base space-y-1">
-      <p>Paseo Mayor 15, Local 3</p>
-      <p>Plaza de la Iglesia 7, Local 3 y 4</p>
-      <p className="text-sm text-forest-light">Hoyo de Manzanares, Madrid</p>
-    </div>
-  </div>
-</div>
+              {/* Ubicación Doble Actualizada */}
+              <div className="flex items-start gap-4 text-forest group">
+                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5 text-gold" />
+                </div>
+                <div>
+                  <p className="text-sm text-forest-light mb-0.5">Ubicación</p>
+                  <div className="font-medium space-y-0.5 text-base">
+                    <p>Paseo Mayor 15, Local 3</p>
+                    <p>Plaza de la Iglesia 7, Local 3 y 4</p>
+                    <p className="text-sm font-normal text-forest-light">Hoyo de Manzanares, Madrid</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Lead Magnet */}
             <div className="p-6 bg-cream rounded-xl border border-gold/20">
@@ -103,13 +93,13 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-display text-lg font-semibold text-forest mb-2">
-                    Guia Exclusiva Gratuita
+                    Guía Exclusiva Gratuita
                   </h4>
                   <p className="text-sm text-forest-light mb-4">
-                    Como valorar tu casa en Hoyo de Manzanares en 2026
+                    Cómo valorar tu casa en Hoyo de Manzanares en 2026
                   </p>
                   <Button variant="gold" size="sm">
-                    Descargar guia
+                    Descargar guía
                   </Button>
                 </div>
               </div>
@@ -119,7 +109,7 @@ export function ContactSection() {
           {/* Right Side - Form */}
           <div className="bg-cream rounded-2xl p-8 lg:p-10">
             <h3 className="font-display text-2xl font-semibold text-forest mb-6">
-              Envianos un mensaje
+              Envíanos un mensaje
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -140,12 +130,12 @@ export function ContactSection() {
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-forest mb-2">
-                  Telefono
+                  Teléfono
                 </label>
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="Tu telefono"
+                  placeholder="Tu teléfono"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="bg-white border-cream-dark focus:border-gold"
@@ -155,11 +145,11 @@ export function ContactSection() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-forest mb-2">
-                  Como podemos ayudarte hoy?
+                  ¿Cómo podemos ayudarte hoy?
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Cuentanos sobre tu proyecto..."
+                  placeholder="Cuéntanos sobre tu proyecto..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="bg-white border-cream-dark focus:border-gold min-h-[120px]"
@@ -173,7 +163,7 @@ export function ContactSection() {
               </Button>
 
               <p className="text-xs text-forest-light text-center">
-                Al enviar este formulario, aceptas nuestra politica de privacidad.
+                Al enviar este formulario, aceptas nuestra política de privacidad.
               </p>
             </form>
           </div>
