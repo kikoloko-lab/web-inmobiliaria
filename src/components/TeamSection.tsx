@@ -8,7 +8,7 @@ export function TeamSection() {
     {
       name: "Claudia",
       image: "/image.png",
-      role: "Asesora Inmobiliaria & Marketing",
+      role: "Consultora Inmobiliaria - Graduada en Derecho",
       description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y redes sociales. Se encarga de que cada propiedad brille en el mercado y de conectar de forma cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra.",
     },
     {
@@ -20,13 +20,13 @@ export function TeamSection() {
     {
       name: "Carmen",
       image: "/03_varmen (1).jpeg",
-      role: "Fundadora & Directora",
+      role: "Abogada en ejercicio",
       description: "Carmen, fundadora con integridad y compromiso, lidera un equipo donde cada cliente es una prioridad, no un número. Su conocimiento profundo del mercado de Hoyo de Manzanares y la Sierra de Guadarrama es fruto de más de 15 años de dedicación exclusiva a esta zona.",
     },
     {
       name: "Luis",
       image: "/04_luis.jpeg",
-      role: "Gestión Patrimonial & Legal",
+      role: "Arquitecto Superior con 33 años de experiencia",
       description: "Luis es el pilar técnico y legal del equipo. Con una sólida trayectoria en la gestión patrimonial y análisis financiero, aporta la rigurosidad, seguridad y el marco legal impecable que nuestros clientes necesitan para tomar decisiones patrimoniales con absoluta tranquilidad.",
     },
   ];
