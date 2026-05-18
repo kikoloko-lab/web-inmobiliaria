@@ -63,20 +63,37 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-forest-light">Email</p>
-                  <p className="font-medium">info@pyghoyo.com</p>
+                  <p className="font-medium">conatcto@pygi.es</p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 text-forest">
-                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-gold" />
-                </div>
-                <div>
-                  <p className="text-sm text-forest-light">Ubicacion</p>
-                  <p className="font-medium">Hoyo de Manzanares, Madrid</p>
-                </div>
-              </div>
-            </div>
+              {/* Bloque de Email */}
+<div className="flex items-start gap-4">
+  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 mt-1">
+    <Mail className="w-5 h-5 text-gold" />
+  </div>
+  <div>
+    <p className="text-xs text-gold tracking-wider uppercase font-medium mb-1">Email</p>
+    <a href="mailto:contacto@pygi.es" className="text-forest hover:text-gold transition-colors text-base">
+      contacto@pygi.es
+    </a>
+  </div>
+</div>
+
+{/* Bloque de Ubicación */}
+<div className="flex items-start gap-4">
+  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 mt-1">
+    <MapPin className="w-5 h-5 text-gold" />
+  </div>
+  <div>
+    <p className="text-xs text-gold tracking-wider uppercase font-medium mb-1">Ubicación</p>
+    <div className="text-forest text-base space-y-1">
+      <p>Paseo Mayor 15, Local 3</p>
+      <p>Plaza de la Iglesia 7, Local 3 y 4</p>
+      <p className="text-sm text-forest-light">Hoyo de Manzanares, Madrid</p>
+    </div>
+  </div>
+</div>
 
             {/* Lead Magnet */}
             <div className="p-6 bg-cream rounded-xl border border-gold/20">
