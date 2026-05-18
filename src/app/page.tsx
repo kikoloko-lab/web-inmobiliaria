@@ -19,8 +19,9 @@ export default function Home() {
         <WhyUsSection />
         <PropertyShowcase />
         <ServicesSection />
-        <TestimonialsSection />
         <TeamSection />
+                <TestimonialsSection />
+
         <ContactSection />
       </main>
       <Footer />
