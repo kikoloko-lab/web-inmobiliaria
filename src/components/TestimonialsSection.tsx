@@ -58,9 +58,9 @@ export function TestimonialsSection() {
           <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
             Testimonios
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-white mb-6">
-            Lo que dicen de <span className="italic font-semibold text-gold">Carmen y Elena</span>
-          </h2>
+        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-white mb-6">
+  Los resultados de <span className="italic font-semibold text-gold">nuestro equipo</span>
+</h2>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
         </div>
 
