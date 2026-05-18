@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 
 export function TeamSection() {
-  // 🌟 DATOS SEPARADOS: Rol principal en dorado y subroles en verde forest
+  // Array de datos para renderizar la fila superior y el desglose inferior alternado
   const teamMembers = [
     {
       name: "Claudia",
@@ -154,9 +154,17 @@ export function TeamSection() {
             </div>
 
             <div>
-              <Button variant="gold" size="lg" className="px-8 py-6 text-base">
-                Agenda una cita con nosotros
-              </Button>
+              {/* 🌟 ENLACE DE WHATSAPP CON TEXTO PERSONALIZADO */}
+              <a 
+                href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20inmobiliarios."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button variant="gold" size="lg" className="px-8 py-6 text-base cursor-pointer">
+                  Agenda una cita con nosotros
+                </Button>
+              </a>
             </div>
           </div>
 
