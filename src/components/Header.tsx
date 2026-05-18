@@ -15,7 +15,7 @@ const navLinks = [
   { href: "/compromiso-social", label: "Acción Social" },
 ];
 
- function Header() {
+function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -83,7 +83,7 @@ const navLinks = [
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+34600000000"
+              href="tel:+34616385515"
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                 isScrolled ? "text-forest" : "text-white"
               }`}
@@ -91,9 +91,18 @@ const navLinks = [
               <Phone className="w-4 h-4" />
               <span className="hidden xl:inline">+34 616 385 515</span>
             </a>
-            <Button variant="gold" size="default">
-              Quiero vender mi propiedad
-            </Button>
+            
+            {/* 🌟 WHATSAPP ADAPTADO EN ESCRITORIO */}
+            <a 
+              href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button variant="gold" size="default" className="cursor-pointer">
+                Quiero vender mi propiedad
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu */}
@@ -144,9 +153,19 @@ const navLinks = [
                     <Phone className="w-5 h-5 text-gold" />
                     <span className="font-medium">+34 616 385 515</span>
                   </a>
-                  <Button variant="gold" size="lg" className="w-full">
-                    Quiero vender mi propiedad
-                  </Button>
+
+                  {/* 🌟 WHATSAPP ADAPTADO EN MENÚ MÓVIL */}
+                  <a 
+                    href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Button variant="gold" size="lg" className="w-full cursor-pointer">
+                      Quiero vender mi propiedad
+                    </Button>
+                  </a>
                 </div>
               </div>
             </SheetContent>
@@ -156,4 +175,5 @@ const navLinks = [
     </header>
   );
 }
+
 export default Header;
