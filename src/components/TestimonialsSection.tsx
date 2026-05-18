@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     id: 4,
-    text: "Despues de anos trabajando con diferentes agencias, por fin encontramos un equipo que realmente se preocupa por sus clientes. Muy recomendables.",
+    text: "Despues de años trabajando con diferentes agencias, por fin encontramos un equipo que realmente se preocupa por sus clientes. Muy recomendables.",
     author: "Carlos Martinez",
     role: "Inversor",
     rating: 5,

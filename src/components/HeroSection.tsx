@@ -43,7 +43,7 @@ export function HeroSection() {
           <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto mb-10">
             En Promocion y Gestion Inmobiliaria unimos la exclusividad de Hoyo de Manzanares
             con el trato humano que mereces.
-            <span className="font-medium text-gold-light"> Carmen y Elena te acompanan a casa.</span>
+            <span className="font-medium text-gold-light"> Carmen y Elena te acompañan a casa.</span>
           </p>
 
           {/* CTA Buttons */}
@@ -60,7 +60,7 @@ export function HeroSection() {
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-white/70 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
-              <span>+15 anos en la Sierra</span>
+              <span>+15 años en la Sierra</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
