@@ -48,10 +48,19 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="gold" size="lg" className="text-base px-8">
-              Quiero vender mi propiedad
-            </Button>
-            <Button variant="outline" size="lg" className="text-base px-8 border-white/50 text-white hover:bg-white/10 hover:text-white hover:border-white">
+            {/* 🌟 BOTÓN DORADO ADAPTADO PARA WHATSAPP */}
+            <a 
+              href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full sm:w-auto"
+            >
+              <Button variant="gold" size="lg" className="text-base px-8 cursor-pointer w-full">
+                Quiero vender mi propiedad
+              </Button>
+            </a>
+            
+            <Button variant="outline" size="lg" className="text-base px-8 border-white/50 text-white hover:bg-white/10 hover:text-white hover:border-white w-full sm:w-auto">
               Ver propiedades exclusivas
             </Button>
           </div>
