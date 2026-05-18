@@ -96,7 +96,7 @@ const legalLinks = [
                 className="flex items-center gap-3 text-white/70 hover:text-gold transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 text-gold" />
-                +34 600 000 000
+                +34 616 385 515
               </a>
               <a
                 href="mailto:info@pyghoyo.com"
