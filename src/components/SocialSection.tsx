@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Heart, Leaf } from "lucide-react";
+import { Download, Leaf, Heart } from "lucide-react";
 
 const SocialSection = () => {
   const fichas = [
@@ -19,10 +19,10 @@ const SocialSection = () => {
   ];
 
   return (
-    <section id="social" className="py-24 lg:py-32 bg-cream">
+    <section id="social" className="py-24 lg:py-32 bg-cream text-forest">
       <div className="container mx-auto px-4 lg:px-8">
         
-        {/* 1. CABECERA EDITORIAL (Igual que el resto de secciones premium) */}
+        {/* 1. CABECERA EDITORIAL DE LA WEB */}
         <div className="text-center mb-16">
           <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
             Valores con Propósito
@@ -33,13 +33,18 @@ const SocialSection = () => {
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
         </div>
 
-        {/* 2. LOGO DE COLABORACIÓN (Ubicación premium sugerida) */}
+        {/* 2. LOGO DE COLABORACIÓN */}
         <div className="max-w-3xl mx-auto mb-20">
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-cream-dark flex flex-col items-center justify-center gap-6 group hover:shadow-md transition-all duration-300">
+            {/* Si la imagen sigue sin verse, revisa que esté en la carpeta public con este nombre exacto */}
             <img 
-              src="/logo-colaboracion.png." 
-              alt="Colaboración Fundación Juegaterapia y P&G" 
-              className="max-h-32 w-auto object-contain"
+              src="/logo-colaboracion.png" 
+              alt="Colaboración Fundación Juegaterapia" 
+              className="max-h-32 w-auto object-contain block mx-auto"
+              onError={(e) => {
+                console.log("Error cargando la imagen, intentando con extensión doble");
+                (e.target as HTMLImageElement).src = "/logo-colaboracion.png.png";
+              }}
             />
             <p className="text-forest-light text-center max-w-xl text-base leading-relaxed">
               En colaboración con la <strong className="text-forest font-semibold">Fundación Juegaterapia</strong>, impulsamos iniciativas donde el aprendizaje y el cuidado del entorno se convierten en un juego vital para los más pequeños.
@@ -47,7 +52,7 @@ const SocialSection = () => {
           </div>
         </div>
 
-        {/* 3. SUBTÍTULO INTERMEDIO CON ICONO */}
+        {/* 3. SUBTÍTULO RECURSOS */}
         <div className="max-w-4xl mx-auto flex items-center gap-3 mb-8 justify-center md:justify-start">
           <Leaf className="w-5 h-5 text-gold" />
           <h3 className="font-display text-2xl text-forest font-light">
@@ -55,7 +60,7 @@ const SocialSection = () => {
           </h3>
         </div>
 
-        {/* 4. CUADRÍCULA DE FICHAS CON ESTÉTICA DE LA WEB */}
+        {/* 4. CUADRÍCULA DE FICHAS */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {fichas.map((ficha, index) => (
             <div 
@@ -66,7 +71,7 @@ const SocialSection = () => {
                 <span className="text-[10px] font-bold tracking-widest uppercase text-gold bg-gold/10 px-3 py-1 rounded-full inline-block mb-4">
                   Descarga Didáctica
                 </span>
-                <h4 className="font-display text-2xl font-semibold text-forest mb-3 transition-colors group-hover:text-gold-dark">
+                <h4 className="font-display text-2xl font-semibold text-forest mb-3">
                   {ficha.title}
                 </h4>
                 <p className="text-forest-light text-sm leading-relaxed mb-8">
@@ -74,13 +79,13 @@ const SocialSection = () => {
                 </p>
               </div>
 
-              {/* Botón oficial envuelto para descarga del PDF nativo */}
+              {/* Botón de descarga con el estilo dorado de la inmobiliaria */}
               <a 
                 href={ficha.file} 
                 download 
                 className="inline-block w-full"
               >
-                <Button variant="gold" className="w-full gap-2 cursor-pointer group/btn">
+                <Button variant="gold" className="w-full gap-2 cursor-pointer">
                   <Download className="w-4 h-4" />
                   Descargar PDF
                 </Button>
@@ -89,7 +94,7 @@ const SocialSection = () => {
           ))}
         </div>
 
-        {/* 5. CIERRE CON DETALLE AFECTIVO */}
+        {/* 5. CIERRE */}
         <div className="mt-20 text-center max-w-md mx-auto">
           <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
           <p className="text-xs text-forest-light italic">
