@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
 
-// 🌟 El botón de "Inicio" se mantiene completamente eliminado del menú
+// El botón de "Inicio" se mantiene completamente eliminado del menú
 const navLinks = [
   { href: "#vender", label: "Vender con Nosotros" },
   { href: "#equipo", label: "El equipo" },
@@ -26,6 +26,9 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Mensaje optimizado para la consulta general desde el botón del teléfono
+  const whatsappConsultaUrl = "https://wa.me/34616385515?text=%C2%A1Hola%21%20Estaba%20viendo%20vuestra%20p%C3%A1gina%20web%20y%20ten%C3%ADa%20una%20consulta.%20%C2%BFMe%20podr%C3%ADais%20ayudar%3F%20Gracias.";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -40,20 +43,15 @@ function Header() {
           {/* 🎯 LOGOTIPO ADAPTADO (Muestra solo el isotipo gráfico y limpia el fondo blanco) */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              {/* Contenedor circular estético que protege la visualización del logo */}
               <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden ${
                 isScrolled ? "bg-transparent" : "bg-white/90 backdrop-blur-sm p-1 shadow-sm"
               }`}>
-                {/* 'mixBlendMode: "multiply"' oculta el fondo blanco del JPG haciéndolo transparente por código.
-                  'objectPosition: "top"' junto con 'scale-110' recorta las letras verdes de abajo para dejar solo el isotipo limpio.
-                */}
                 <img 
                   src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg" 
                   alt="Isotipo Promoción y Gestión Inmobiliaria"
                   className="w-full h-full object-cover object-top scale-110"
                   style={{ mixBlendMode: "multiply" }} 
                   onError={(e) => {
-                    // Fallback de seguridad en caso de que en producción se alteren los espacios del archivo
                     const target = e.target as HTMLImageElement;
                     if (!target.src.includes('logotipo-inmobiliaria.jpg')) {
                       target.src = "/logotipo-inmobiliaria.jpg";
@@ -96,9 +94,12 @@ function Header() {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
+            {/* 📞 TELÉFONO ACTUALIZADO: Ahora redirige a WhatsApp con mensaje personalizado */}
             <a
-              href="tel:+34616385515"
-              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
+              href={whatsappConsultaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 hover:text-gold ${
                 isScrolled ? "text-forest" : "text-white"
               }`}
             >
@@ -164,9 +165,13 @@ function Header() {
                 </nav>
 
                 <div className="pt-8 border-t border-forest/10">
+                  {/* Enlace de WhatsApp también actualizado en el menú móvil */}
                   <a
-                    href="tel:+34616385515"
-                    className="flex items-center gap-3 text-forest mb-6"
+                    href={whatsappConsultaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-forest mb-6 hover:text-gold transition-colors"
+                    onClick={() => setIsOpen(false)}
                   >
                     <Phone className="w-5 h-5 text-gold" />
                     <span className="font-medium">+34 616 385 515</span>
