@@ -164,16 +164,17 @@ export function TeamSection() {
             </div>
 
             <div>
-              <a 
-                href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20inmobiliarios."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Button variant="gold" size="lg" className="px-8 py-6 text-base cursor-pointer">
-                  Agenda una cita con nosotros
-                </Button>
-              </a>
+              {/* 🌟 ENLACE OPTIMIZADO PARA AGENDAR UNA CITA */}
+<a 
+  href="https://wa.me/34616385515?text=%C2%A1Hola%21%20He%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20vosotros%20para%20recibir%20asesoramiento%20inmobiliario.%20%C2%BFCu%C3%A1ndo%20tendr%C3%ADais%20disponibilidad%3F%20Muchas%20gracias."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <Button variant="gold" className="cursor-pointer">
+    Agenda una cita con nosotros
+  </Button>
+</a>
             </div>
           </div>
 
