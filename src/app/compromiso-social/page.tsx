@@ -7,6 +7,25 @@ import { Button } from "@/components/ui/button";
 import { Download, Leaf, Heart } from "lucide-react";
 
 export default function CompromisoSocialPage() {
+  // Datos basados en tus archivos finales en /public
+  const papelFichas = [
+    { 
+      title: 'Papel: Versión ColorAquí tienes el código completo de tu `page.tsx` con la modificación en el contenedor del logo para que se estire y ocupe todo el espacio del recuadro, eliminando el "aire" blanco que tenía antes.
+
+He quitado el relleno (`p-8 md:p-12`) que creaba ese margen interior y he configurado la imagen para que se estire a lo ancho y alto del contenedor (`w-full h-full`), usando `object-cover` para asegurarnos de que la rellene por completo sin deformarla. Como la imagen original tiene una relación de aspecto muy apaisada, esto hará que se vea mucho más grande y "estirada" en comparación con la versión anterior.
+
+Copia este bloque entero y pégalo reemplazando **todo** el contenido de tu archivo:
+
+```tsx
+"use client";
+
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Button } from "@/components/ui/button";
+import { Download, Leaf, Heart } from "lucide-react";
+
+export default function CompromisoSocialPage() {
   // Mantenemos tus 6 fichas y rutas de archivos intactas
   const papelFichas = [
     { 
@@ -71,16 +90,17 @@ export default function CompromisoSocialPage() {
           </p>
         </div>
 
-        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL */}
-        <section className="max-w-4xl mx-auto mb-24 px-4">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-cream-dark flex items-center justify-center min-h-[200px] transition-all duration-500 hover:shadow-md">
-            {/* 🛠️ Corregido el nombre del archivo a logo-colaboracion.png */}
+        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL (ESTIRADO A TODA LA CAJA) */}
+        <section className="max-w-4xl mx-auto mb-24 px-4 relative">
+          <div className="w-full relative aspect-[16/6] md:aspect-[16/5] bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden">
+            {/* 🌟 CAMBIO CLAVE AQUÍ: La imagen ahora ocupa todo el contenedor sin márgenes interiores */}
             <img 
               src="/logo-colaboracion.png" 
               alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
-              className="max-w-full h-auto max-h-36 object-contain"
+              // w-full h-full object-cover para que rellene todo el espacio del recuadro
+              className="w-full h-full object-cover block mx-auto rounded-3xl"
               onError={(e) => {
-                // Sistema de seguridad por si acaso mantuviera la doble extensión
+                // Sistema de seguridad por si acaso mantuviera la doble extensión antigua
                 const target = e.target as HTMLImageElement;
                 if (!target.src.includes('logo-colaboracion.png.png')) {
                   target.src = "/logo-colaboracion.png.png";
@@ -91,7 +111,7 @@ export default function CompromisoSocialPage() {
         </section>
 
         {/* 3. GRID DE MATERIALES DIDÁCTICOS (Papel vs Plástico) */}
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+        <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
             
             {/* COLUMNA PAPEL */}
@@ -108,74 +128,4 @@ export default function CompromisoSocialPage() {
               <div className="space-y-6">
                 {papelFichas.map((ficha, i) => (
                   <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
-                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
-                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="flex flex-col justify-between flex-1">
-                      <div>
-                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
-                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
-                      </div>
-                      <a href={ficha.file} download className="block w-full sm:w-fit">
-                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
-                          <Download className="w-3.5 h-3.5" />
-                          Descargar PDF
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* COLUMNA PLÁSTICO */}
-            <div>
-              <div className="flex items-center gap-3 pb-4 border-b border-gold/20 mb-8">
-                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shadow-sm">
-                  <Leaf className="w-4 h-4 text-gold-dark" />
-                </div>
-                <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-gold-dark">
-                  Reciclaje Plástico
-                </h2>
-              </div>
-
-              <div className="space-y-6">
-                {plasticoFichas.map((ficha, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
-                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
-                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="flex flex-col justify-between flex-1">
-                      <div>
-                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
-                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
-                      </div>
-                      <a href={ficha.file} download className="block w-full sm:w-fit">
-                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
-                          <Download className="w-3.5 h-3.5" />
-                          Descargar PDF
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* 4. CIERRE AFECTIVO */}
-        <div className="mt-24 text-center max-w-md mx-auto px-4">
-          <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
-          <p className="text-xs text-forest-light italic">
-            "Pequeños gestos que transforman entornos y regalan sonrisas."
-          </p>
-        </div>
-
-      </main>
-
-      <Footer />
-    </div>
-  );
-}
+                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-
