@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
 
-// El botón de "Inicio" se mantiene completamente eliminado del menú
 const navLinks = [
   { href: "#vender", label: "Vender con Nosotros" },
   { href: "#equipo", label: "El equipo" },
@@ -26,7 +25,6 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Enlace a WhatsApp optimizado para el botón de teléfono superior derecho
   const whatsappConsultaUrl = "https://wa.me/34616385515?text=%C2%A1Hola%21%20Estaba%20viendo%20vuestra%20p%C3%A1gina%20web%20y%20ten%C3%ADa%20una%20consulta.%20%C2%BFMe%20podr%C3%ADais%20ayudar%3F%20Gracias.";
 
   return (
@@ -40,30 +38,25 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* 🎯 LOGOTIPO CON MEDIDAS Y PROPORCIONES ORIGINALES (Sin cortes) */}
-          <Link href="/" className="flex items-center gap-4 group">
-            <div className="flex items-center">
-              {/* Contenedor flexible que respeta la altura del menú y el ancho natural de la imagen */}
-              <div className="h-11 w-auto flex items-center justify-start">
-                {/* 'object-contain' asegura que todo el logotipo sea visible al 100% sin recortar nada.
-                  Se elimina el escalado y desplazamientos anteriores para respetar el diseño original.
-                */}
-                <img 
-                  src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-                  alt="Isotipo Promoción y Gestión Inmobiliaria"
-                  className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+          {/* 🎯 LOGOTIPO Y TEXTOS PERFECTAMENTE ALINEADOS */}
+          <Link href="/" className="flex items-center gap-3 group select-none">
+            {/* Contenedor equilibrado para centrar el eje óptico del isotipo */}
+            <div className="flex items-center justify-center h-12">
+              <img 
+                src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
+                alt="Isotipo Promoción y Gestión Inmobiliaria"
+                className="h-9 w-auto object-contain object-center transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
 
-            {/* Texto corporativo premium alineado al lado de tu isotipo */}
-            <div className="hidden sm:block">
-              <p className={`font-display text-lg font-semibold leading-tight transition-colors duration-300 ${
+            {/* Textos de identidad corporativa alineados en altura con el gráfico */}
+            <div className="hidden sm:flex flex-col justify-center">
+              <p className={`font-display text-lg font-semibold leading-none mb-1 transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}>
                 Promocion y Gestion
               </p>
-              <p className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
+              <p className={`text-[11px] tracking-widest uppercase leading-none transition-colors duration-300 ${
                 isScrolled ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
@@ -89,7 +82,6 @@ function Header() {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* 📞 Botón del teléfono conectado directamente a WhatsApp con el mensaje personalizado */}
             <a
               href={whatsappConsultaUrl}
               target="_blank"
@@ -127,20 +119,21 @@ function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
+                
+                {/* Cabecera del menú móvil también perfectamente alineada */}
                 <div className="flex items-center gap-3 mb-12">
-                  {/* Logotipo en versión móvil con proporciones íntegras */}
-                  <div className="h-9 w-auto flex items-center">
+                  <div className="flex items-center justify-center h-10">
                     <img 
                       src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-                      alt="Logo"
-                      className="h-full w-auto object-contain"
+                      alt="Logo móvil"
+                      className="h-8 w-auto object-contain object-center"
                     />
                   </div>
-                  <div>
-                    <p className="font-display text-lg font-semibold text-forest">
+                  <div className="flex flex-col justify-center">
+                    <p className="font-display text-lg font-semibold text-forest leading-none mb-1">
                       Promocion y Gestion
                     </p>
-                    <p className="text-xs tracking-widest uppercase text-forest-light">
+                    <p className="text-[11px] tracking-widest uppercase text-forest-light leading-none">
                       Inmobiliaria
                     </p>
                   </div>
@@ -160,7 +153,6 @@ function Header() {
                 </nav>
 
                 <div className="pt-8 border-t border-forest/10">
-                  {/* WhatsApp integrado en móvil */}
                   <a
                     href={whatsappConsultaUrl}
                     target="_blank"
