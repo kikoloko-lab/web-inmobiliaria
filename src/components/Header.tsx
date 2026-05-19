@@ -45,18 +45,18 @@ function Header() {
               <img 
                 src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                 alt="Isotipo Promoción y Gestión Inmobiliaria"
-                className="h-9 w-auto object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                className="h-10 w-auto object-contain object-center"
               />
             </div>
 
-            {/* Textos de identidad corporativa alineados en altura con el gráfico */}
+            {/* Textos de identidad corporativa con leading-none para control total de alineación */}
             <div className="hidden sm:flex flex-col justify-center">
-              <p className={`font-display text-lg font-semibold leading-none mb-1 transition-colors duration-300 ${
+              <p className={`font-display text-lg font-semibold leading-tight mb-0.5 transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}>
                 Promocion y Gestion
               </p>
-              <p className={`text-[11px] tracking-widest uppercase leading-none transition-colors duration-300 ${
+              <p className={`text-[10px] tracking-[0.2em] uppercase leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
@@ -120,7 +120,7 @@ function Header() {
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
                 
-                {/* Cabecera del menú móvil también perfectamente alineada */}
+                {/* Cabecera del menú móvil corregida */}
                 <div className="flex items-center gap-3 mb-12">
                   <div className="flex items-center justify-center h-10">
                     <img 
@@ -130,10 +130,10 @@ function Header() {
                     />
                   </div>
                   <div className="flex flex-col justify-center">
-                    <p className="font-display text-lg font-semibold text-forest leading-none mb-1">
+                    <p className="font-display text-base font-semibold text-forest leading-tight mb-0.5">
                       Promocion y Gestion
                     </p>
-                    <p className="text-[11px] tracking-widest uppercase text-forest-light leading-none">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-forest-light leading-tight">
                       Inmobiliaria
                     </p>
                   </div>
@@ -162,18 +162,6 @@ function Header() {
                   >
                     <Phone className="w-5 h-5 text-gold" />
                     <span className="font-medium">+34 616 385 515</span>
-                  </a>
-
-                  <a 
-                    href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block w-full"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Button variant="gold" size="lg" className="w-full cursor-pointer">
-                      Quiero vender mi propiedad
-                    </Button>
                   </a>
                 </div>
               </div>
