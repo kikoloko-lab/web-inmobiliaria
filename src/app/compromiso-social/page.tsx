@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Download, Leaf, Heart } from "lucide-react";
 
 export default function CompromisoSocialPage() {
-  // Mantenemos tus 6 fichas y rutas de archivos intactas
+  // Datos basados en tus archivos finales en /public
   const papelFichas = [
     { 
       title: 'Papel: Versión Color', 
@@ -71,17 +71,16 @@ export default function CompromisoSocialPage() {
           </p>
         </div>
 
-        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL (ESTIRADO A TODA LA CAJA) */}
-        <section className="max-w-4xl mx-auto mb-24 px-4 relative">
-          <div className="w-full relative aspect-[16/6] md:aspect-[16/5] bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden">
-            {/* 🌟 CAMBIO CLAVE AQUÍ: La imagen ahora ocupa todo el contenedor sin márgenes interiores */}
+        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL */}
+        <section className="max-w-4xl mx-auto mb-24 px-4">
+          {/* Quitamos paddings para aprovechar el espacio y fijamos una altura elegante */}
+          <div className="w-full h-48 md:h-64 bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden p-4 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
               alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
-              // w-full h-full object-cover para que rellene todo el espacio del recuadro
-              className="w-full h-full object-cover block mx-auto rounded-3xl"
+              // Ocupa el 100% del contenedor adaptándose de manera óptima sin pixelarse
+              className="w-full h-full object-contain block"
               onError={(e) => {
-                // Sistema de seguridad por si acaso mantuviera la doble extensión antigua
                 const target = e.target as HTMLImageElement;
                 if (!target.src.includes('logo-colaboracion.png.png')) {
                   target.src = "/logo-colaboracion.png.png";
@@ -109,4 +108,74 @@ export default function CompromisoSocialPage() {
               <div className="space-y-6">
                 {papelFichas.map((ficha, i) => (
                   <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
-                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-
+                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
+                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div className="flex flex-col justify-between flex-1">
+                      <div>
+                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
+                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
+                      </div>
+                      <a href={ficha.file} download className="block w-full sm:w-fit">
+                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
+                          <Download className="w-3.5 h-3.5" />
+                          Descargar PDF
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* COLUMNA PLÁSTICO */}
+            <div>
+              <div className="flex items-center gap-3 pb-4 border-b border-gold/20 mb-8">
+                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shadow-sm">
+                  <Leaf className="w-4 h-4 text-gold-dark" />
+                </div>
+                <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-gold-dark">
+                  Reciclaje Plástico
+                </h2>
+              </div>
+
+              <div className="space-y-6">
+                {plasticoFichas.map((ficha, i) => (
+                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
+                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
+                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div className="flex flex-col justify-between flex-1">
+                      <div>
+                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
+                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
+                      </div>
+                      <a href={ficha.file} download className="block w-full sm:w-fit">
+                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
+                          <Download className="w-3.5 h-3.5" />
+                          Descargar PDF
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 4. CIERRE AFECTIVO */}
+        <div className="mt-24 text-center max-w-md mx-auto px-4 relative z-10">
+          <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
+          <p className="text-xs text-forest-light italic">
+            "Pequeños gestos que transforman entornos y regalan sonrisas."
+          </p>
+        </div>
+
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
