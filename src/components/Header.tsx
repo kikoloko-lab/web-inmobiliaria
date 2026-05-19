@@ -40,23 +40,23 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* 🎯 LOGOTIPO PNG TRANSPARENTE (Muestra solo el isotipo de la montaña y la torre sin las letras de abajo) */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              {/* Contenedor circular limpio para encuadrar tu nuevo PNG transparente */}
-              <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden">
-                {/* 'objectPosition: "top"' junto con 'scale-110' hace el encuadre perfecto 
-                  para ocultar el texto verde inferior de la imagen original.
+          {/* 🎯 LOGOTIPO RECTANGULAR NATURAL (Sin círculos que lo corten) */}
+          <Link href="/" className="flex items-center gap-4 group">
+            <div className="relative flex items-center">
+              {/* Contenedor rectangular adaptado a la forma del logo de la montaña y la torre */}
+              <div className="h-12 w-auto max-w-[120px] flex items-center justify-start overflow-hidden">
+                {/* 'object-cover' y 'object-top' junto con 'scale-[1.2]' permiten encuadrar el isotipo, 
+                  haciendo foco en la silueta superior y recortando limpiamente las letras verdes inferiores.
                 */}
                 <img 
                   src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                   alt="Isotipo Promoción y Gestión Inmobiliaria"
-                  className="w-full h-full object-cover object-top scale-110"
+                  className="h-full w-full object-cover object-top scale-[1.2] origin-top transition-transform duration-300 group-hover:scale-[1.25]"
                 />
               </div>
             </div>
 
-            {/* Texto corporativo premium al lado del isotipo */}
+            {/* Texto corporativo premium alineado al lado de tu isotipo */}
             <div className="hidden sm:block">
               <p className={`font-display text-lg font-semibold leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
@@ -89,7 +89,7 @@ function Header() {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* 📞 Botón del teléfono que ahora redirige al WhatsApp con tu mensaje personalizado */}
+            {/* 📞 Botón del teléfono conectado directamente a WhatsApp con el mensaje personalizado */}
             <a
               href={whatsappConsultaUrl}
               target="_blank"
@@ -128,11 +128,12 @@ function Header() {
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
                 <div className="flex items-center gap-3 mb-12">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center p-0.5 overflow-hidden">
+                  {/* Logotipo en versión móvil optimizado también en formato libre rectangular */}
+                  <div className="h-10 w-auto max-w-[80px] flex items-center overflow-hidden">
                     <img 
                       src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                       alt="Logo"
-                      className="w-full h-full object-cover object-top scale-110"
+                      className="h-full w-full object-cover object-top scale-[1.2] origin-top"
                     />
                   </div>
                   <div>
@@ -159,7 +160,7 @@ function Header() {
                 </nav>
 
                 <div className="pt-8 border-t border-forest/10">
-                  {/* WhatsApp integrado también para la versión móvil */}
+                  {/* WhatsApp integrado en móvil */}
                   <a
                     href={whatsappConsultaUrl}
                     target="_blank"
