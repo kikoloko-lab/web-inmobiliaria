@@ -32,29 +32,31 @@ function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-transparent py-6"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          <Link href="/" className="flex items-center gap-3 group select-none">
-            {/* Alineación vertical estricta mediante flex */}
-            <div className="flex items-center h-10">
+          {/* Logo y Texto Principal */}
+          <Link href="/" className="flex items-center gap-4 group select-none">
+            {/* Contenedor del logo grande y alineado */}
+            <div className="flex items-center h-16">
               <img 
                 src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-                alt="Logo"
+                alt="Logo P&G"
                 className="h-full w-auto object-contain"
               />
             </div>
 
-            <div className="hidden sm:flex flex-col justify-center">
-              <p className={`font-display text-lg font-semibold leading-tight transition-colors duration-300 ${
+            {/* Texto alineado verticalmente con el logo */}
+            <div className="hidden sm:flex flex-col justify-center gap-0">
+              <p className={`font-display text-xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}>
                 Promocion y Gestion
               </p>
-              <p className={`text-[10px] tracking-[0.2em] uppercase leading-tight transition-colors duration-300 ${
+              <p className={`text-[12px] tracking-[0.25em] uppercase transition-colors duration-300 ${
                 isScrolled ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
@@ -62,79 +64,37 @@ function Header() {
             </div>
           </Link>
 
+          {/* Menú Desktop */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium tracking-wide transition-all duration-300 hover:text-gold relative group ${
-                  isScrolled ? "text-forest" : "text-white"
-                }`}
-              >
+              <Link key={link.href} href={link.href} className={`text-sm font-medium ${isScrolled ? "text-forest" : "text-white"}`}>
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
+          {/* Botones Derecha */}
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href={whatsappConsultaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 hover:text-gold ${
-                isScrolled ? "text-forest" : "text-white"
-              }`}
-            >
-              <Phone className="w-4 h-4" />
-              <span className="hidden xl:inline">+34 616 385 515</span>
+            <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium ${isScrolled ? "text-forest" : "text-white"}`}>
+              <Phone className="w-4 h-4" /> +34 616 385 515
             </a>
-            
-            <a 
-              href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
-              <Button variant="gold" size="default" className="cursor-pointer">
-                Quiero vender mi propiedad
-              </Button>
-            </a>
+            <Button variant="gold">Quiero vender mi propiedad</Button>
           </div>
 
+          {/* Menú Móvil */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className={isScrolled ? "text-forest" : "text-white"}>
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
-              <div className="flex flex-col h-full py-8">
-                <div className="flex items-center gap-3 mb-12">
-                  <div className="flex items-center h-8">
-                    <img 
-                      src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-                      alt="Logo móvil"
-                      className="h-full w-auto object-contain"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <p className="font-display text-base font-semibold text-forest leading-tight">
-                      Promocion y Gestion
-                    </p>
-                    <p className="text-[10px] tracking-[0.2em] uppercase text-forest-light leading-tight">
-                      Inmobiliaria
-                    </p>
-                  </div>
-                </div>
-
-                <nav className="flex flex-col gap-6 flex-1">
-                  {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
+            <SheetContent side="right">
+              <div className="flex flex-col gap-6 pt-10">
+                {navLinks.map((link) => (
+                  <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </SheetContent>
           </Sheet>
