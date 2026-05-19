@@ -4,11 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 
-// 🌟 Se ha eliminado "Propiedades Seleccionadas" de este array
+// 🌟 Se ha eliminado "Inicio" y "Propiedades Seleccionadas" de este array
 const navLinks = [
-  { href: "#inicio", label: "Inicio" },
   { href: "#vender", label: "Vender con Nosotros" },
   { href: "#equipo", label: "El equipo" },
   { href: "#contacto", label: "Contacto" },
