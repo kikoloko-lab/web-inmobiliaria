@@ -71,15 +71,17 @@ export default function CompromisoSocialPage() {
           </p>
         </div>
 
-        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL */}
+        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL - REDISEÑADO A MEDIDA MAXIMIZADA */}
         <section className="max-w-4xl mx-auto mb-24 px-4">
-          {/* Quitamos paddings para aprovechar el espacio y fijamos una altura elegante */}
-          <div className="w-full h-48 md:h-64 bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden p-4 flex items-center justify-center">
+          {/* Ajustamos el contenedor con aspect-video (16:9) en pantallas pequeñas 
+            y un formato panorámico aspect-[16/7] en pantallas más grandes para rellenar el espacio perfectamente
+          */}
+          <div className="w-full aspect-video md:aspect-[16/7] bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden p-6 md:p-10 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
               alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
-              // Ocupa el 100% del contenedor adaptándose de manera óptima sin pixelarse
-              className="w-full h-full object-contain block"
+              // w-full h-full y object-contain maximizan la escala sin recortar las esquinas ni pixelar la imagen corporativa
+              className="w-full h-full object-contain block mx-auto select-none pointer-events-none"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 if (!target.src.includes('logo-colaboracion.png.png')) {
