@@ -38,20 +38,18 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* 🎯 LOGOTIPO Y TEXTOS PERFECTAMENTE ALINEADOS */}
           <Link href="/" className="flex items-center gap-3 group select-none">
-            {/* Contenedor equilibrado para centrar el eje óptico del isotipo */}
-            <div className="flex items-center justify-center h-12">
+            {/* Alineación vertical estricta mediante flex */}
+            <div className="flex items-center h-10">
               <img 
                 src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-                alt="Isotipo Promoción y Gestión Inmobiliaria"
-                className="h-10 w-auto object-contain object-center"
+                alt="Logo"
+                className="h-full w-auto object-contain"
               />
             </div>
 
-            {/* Textos de identidad corporativa con leading-none para control total de alineación */}
             <div className="hidden sm:flex flex-col justify-center">
-              <p className={`font-display text-lg font-semibold leading-tight mb-0.5 transition-colors duration-300 ${
+              <p className={`font-display text-lg font-semibold leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}>
                 Promocion y Gestion
@@ -64,7 +62,6 @@ function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -80,7 +77,6 @@ function Header() {
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={whatsappConsultaUrl}
@@ -106,31 +102,24 @@ function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button
-                variant="ghost"
-                size="icon"
-                className={isScrolled ? "text-forest" : "text-white"}
-              >
+              <Button variant="ghost" size="icon" className={isScrolled ? "text-forest" : "text-white"}>
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
-                
-                {/* Cabecera del menú móvil corregida */}
                 <div className="flex items-center gap-3 mb-12">
-                  <div className="flex items-center justify-center h-10">
+                  <div className="flex items-center h-8">
                     <img 
                       src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                       alt="Logo móvil"
-                      className="h-8 w-auto object-contain object-center"
+                      className="h-full w-auto object-contain"
                     />
                   </div>
                   <div className="flex flex-col justify-center">
-                    <p className="font-display text-base font-semibold text-forest leading-tight mb-0.5">
+                    <p className="font-display text-base font-semibold text-forest leading-tight">
                       Promocion y Gestion
                     </p>
                     <p className="text-[10px] tracking-[0.2em] uppercase text-forest-light leading-tight">
@@ -141,29 +130,11 @@ function Header() {
 
                 <nav className="flex flex-col gap-6 flex-1">
                   {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-forest hover:text-gold transition-colors"
-                    >
+                    <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
                       {link.label}
                     </Link>
                   ))}
                 </nav>
-
-                <div className="pt-8 border-t border-forest/10">
-                  <a
-                    href={whatsappConsultaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-forest mb-6 hover:text-gold transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Phone className="w-5 h-5 text-gold" />
-                    <span className="font-medium">+34 616 385 515</span>
-                  </a>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
