@@ -3,9 +3,11 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Button } from "@/components/ui/button";
+import { Download, Leaf, Heart } from "lucide-react";
 
 export default function CompromisoSocialPage() {
-  // Datos basados en tus archivos finales en /public
+  // Mantenemos tus 6 fichas y rutas de archivos intactas
   const papelFichas = [
     { 
       title: 'Papel: Versión Color', 
@@ -49,62 +51,76 @@ export default function CompromisoSocialPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-[#147a2a] selection:text-white">
+    <div className="bg-cream min-h-screen text-forest selection:bg-forest selection:text-white">
       <Header />
       
-      <main className="pt-24 pb-20">
-        {/* Banner de Colaboración - Tu Logotipo */}
-        <section className="bg-[#f8fafc] py-12 border-b border-gray-100 mb-16 shadow-inner text-center">
-          <div className="container mx-auto px-4 flex justify-center">
+      <main className="pt-32 pb-24">
+        
+        {/* 1. SECCIÓN HERO / MANIFIESTO CORPORATIVO */}
+        <div className="max-w-4xl mx-auto text-center mb-16 px-4">
+          <span className="text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4 block">
+            Valores con Propósito
+          </span>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-forest mb-8">
+            Nuestro <span className="italic font-semibold">compromiso social</span>
+          </h1>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
+          <p className="text-lg md:text-xl text-forest-light leading-relaxed font-light italic max-w-3xl mx-auto">
+            "En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. 
+            Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños."
+          </p>
+        </div>
+
+        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL */}
+        <section className="max-w-4xl mx-auto mb-24 px-4">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-cream-dark flex items-center justify-center min-h-[200px] transition-all duration-500 hover:shadow-md">
+            {/* 🛠️ Corregido el nombre del archivo a logo-colaboracion.png */}
             <img 
-              src="/logo_colaboracion.png" 
-              alt="Alianza PYGI y Juegaterapia" 
-              className="max-w-full h-auto md:h-64 object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500"
+              src="/logo-colaboracion.png" 
+              alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
+              className="max-w-full h-auto max-h-36 object-contain"
+              onError={(e) => {
+                // Sistema de seguridad por si acaso mantuviera la doble extensión
+                const target = e.target as HTMLImageElement;
+                if (!target.src.includes('logo-colaboracion.png.png')) {
+                  target.src = "/logo-colaboracion.png.png";
+                }
+              }}
             />
           </div>
         </section>
 
-        <div className="container mx-auto px-4 lg:px-8">
-          {/* Título y Manifiesto Corporativo */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-6xl font-black text-[#147a2a] mb-6 tracking-tighter uppercase italic">
-              Compromiso Social PYGI
-            </h1>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
-              En <span className="text-gray-800 font-bold">Promoción y Gestión Inmobiliaria</span> creemos que cuidar el entorno es cuidar nuestro hogar. 
-              Junto a <span className="text-[#147a2a] font-bold">Juegaterapia</span>, convertimos el aprendizaje en un juego para los más pequeños.
-            </p>
-          </div>
-
-          {/* Columnas Paralelas: Papel vs Plástico */}
-          <div className="flex flex-col lg:flex-row gap-12 xl:gap-20">
+        {/* 3. GRID DE MATERIALES DIDÁCTICOS (Papel vs Plástico) */}
+        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
             
-            {/* COLUMNA PAPEL (Verde Corporativo) */}
-            <div className="flex-1">
-              <div className="flex items-center gap-4 mb-10 border-b-4 border-[#147a2a] pb-4">
-                <div className="bg-[#147a2a] text-white p-3 rounded-2xl shadow-lg font-bold">
-                  📄
+            {/* COLUMNA PAPEL */}
+            <div>
+              <div className="flex items-center gap-3 pb-4 border-b border-forest/10 mb-8">
+                <div className="w-8 h-8 rounded-full bg-forest flex items-center justify-center shadow-sm">
+                  <Leaf className="w-4 h-4 text-gold" />
                 </div>
-                <h2 className="text-3xl font-black text-[#147a2a] uppercase tracking-tight">Reciclaje Papel</h2>
+                <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-forest">
+                  Reciclaje Papel
+                </h2>
               </div>
 
-              <div className="grid gap-8">
+              <div className="space-y-6">
                 {papelFichas.map((ficha, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                    <div className="w-full sm:w-28 h-40 bg-white rounded-2xl flex-shrink-0 overflow-hidden shadow-md border border-gray-200 group-hover:rotate-2 transition-transform">
-                      <img src={ficha.thumb} alt="Vista previa" className="w-full h-full object-cover" />
+                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
+                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
+                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
                     </div>
-                    <div className="flex flex-col justify-between py-2">
+                    <div className="flex flex-col justify-between flex-1">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">{ficha.title}</h3>
-                        <p className="text-sm text-gray-400 leading-tight">{ficha.desc}</p>
+                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
+                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
                       </div>
-                      <a 
-                        href={ficha.file} 
-                        download 
-                        className="inline-flex items-center text-[#147a2a] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform mt-4"
-                      >
-                        Descargar PDF <span className="ml-2 text-lg">↓</span>
+                      <a href={ficha.file} download className="block w-full sm:w-fit">
+                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
+                          <Download className="w-3.5 h-3.5" />
+                          Descargar PDF
+                        </Button>
                       </a>
                     </div>
                   </div>
@@ -112,32 +128,33 @@ export default function CompromisoSocialPage() {
               </div>
             </div>
 
-            {/* COLUMNA PLÁSTICO (Naranja Contenedor Amarillo) */}
-            <div className="flex-1">
-              <div className="flex items-center gap-4 mb-10 border-b-4 border-[#e67e22] pb-4">
-                <div className="bg-[#e67e22] text-white p-3 rounded-2xl shadow-lg font-bold">
-                  ♻️
+            {/* COLUMNA PLÁSTICO */}
+            <div>
+              <div className="flex items-center gap-3 pb-4 border-b border-gold/20 mb-8">
+                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shadow-sm">
+                  <Leaf className="w-4 h-4 text-gold-dark" />
                 </div>
-                <h2 className="text-3xl font-black text-[#e67e22] uppercase tracking-tight">Reciclaje Plástico</h2>
+                <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-gold-dark">
+                  Reciclaje Plástico
+                </h2>
               </div>
 
-              <div className="grid gap-8">
+              <div className="space-y-6">
                 {plasticoFichas.map((ficha, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                    <div className="w-full sm:w-28 h-40 bg-white rounded-2xl flex-shrink-0 overflow-hidden shadow-md border border-gray-200 group-hover:-rotate-2 transition-transform">
-                      <img src={ficha.thumb} alt="Vista previa" className="w-full h-full object-cover" />
+                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
+                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
+                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
                     </div>
-                    <div className="flex flex-col justify-between py-2">
+                    <div className="flex flex-col justify-between flex-1">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">{ficha.title}</h3>
-                        <p className="text-sm text-gray-500 leading-tight">{ficha.desc}</p>
+                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
+                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
                       </div>
-                      <a 
-                        href={ficha.file} 
-                        download 
-                        className="inline-flex items-center text-[#e67e22] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform mt-4"
-                      >
-                        Descargar PDF <span className="ml-2 text-lg">↓</span>
+                      <a href={ficha.file} download className="block w-full sm:w-fit">
+                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
+                          <Download className="w-3.5 h-3.5" />
+                          Descargar PDF
+                        </Button>
                       </a>
                     </div>
                   </div>
@@ -147,6 +164,15 @@ export default function CompromisoSocialPage() {
 
           </div>
         </div>
+
+        {/* 4. CIERRE AFECTIVO */}
+        <div className="mt-24 text-center max-w-md mx-auto px-4">
+          <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
+          <p className="text-xs text-forest-light italic">
+            "Pequeños gestos que transforman entornos y regalan sonrisas."
+          </p>
+        </div>
+
       </main>
 
       <Footer />
