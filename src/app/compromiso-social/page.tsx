@@ -7,25 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Download, Leaf, Heart } from "lucide-react";
 
 export default function CompromisoSocialPage() {
-  // Datos basados en tus archivos finales en /public
-  const papelFichas = [
-    { 
-      title: 'Papel: Versión ColorAquí tienes el código completo de tu `page.tsx` con la modificación en el contenedor del logo para que se estire y ocupe todo el espacio del recuadro, eliminando el "aire" blanco que tenía antes.
-
-He quitado el relleno (`p-8 md:p-12`) que creaba ese margen interior y he configurado la imagen para que se estire a lo ancho y alto del contenedor (`w-full h-full`), usando `object-cover` para asegurarnos de que la rellene por completo sin deformarla. Como la imagen original tiene una relación de aspecto muy apaisada, esto hará que se vea mucho más grande y "estirada" en comparación con la versión anterior.
-
-Copia este bloque entero y pégalo reemplazando **todo** el contenido de tu archivo:
-
-```tsx
-"use client";
-
-import React from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Button } from "@/components/ui/button";
-import { Download, Leaf, Heart } from "lucide-react";
-
-export default function CompromisoSocialPage() {
   // Mantenemos tus 6 fichas y rutas de archivos intactas
   const papelFichas = [
     { 
