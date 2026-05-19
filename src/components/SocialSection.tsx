@@ -1,34 +1,102 @@
+"use client";
+
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Download, Heart, Leaf } from "lucide-react";
 
 const SocialSection = () => {
   const fichas = [
-    { title: 'Papel y Cartón', file: '/00_PAPEL a color.pdf', color: 'border-blue-500' },
-    { title: 'Plásticos y Envases', file: '/00_PLASTICO a color.pdf', color: 'border-yellow-500' },
+    { 
+      title: 'Ficha: Papel y Cartón', 
+      file: '/00_PAPEL a color.pdf', 
+      description: 'Material didáctico interactivo diseñado para enseñar el valor de la reutilización del cartón y el cuidado de nuestros bosques.' 
+    },
+    { 
+      title: 'Ficha: Plásticos y Envases', 
+      file: '/00_PLASTICO a color.pdf', 
+      description: 'Ficha educativa estructurada para aprender a identificar el contenedor amarillo y reducir el impacto ambiental en el entorno.' 
+    },
   ];
 
   return (
-    <section id="social" className="py-20 bg-white">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-4 text-gray-800">Nuestro Compromiso Social</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-          En colaboración con la <strong>Fundación Juegaterapia</strong>, ayudamos a que la estancia de los niños en hospitales sea más amena a través del aprendizaje y el reciclaje.
-        </p>
+    <section id="social" className="py-24 lg:py-32 bg-cream">
+      <div className="container mx-auto px-4 lg:px-8">
+        
+        {/* 1. CABECERA EDITORIAL (Igual que el resto de secciones premium) */}
+        <div className="text-center mb-16">
+          <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
+            Valores con Propósito
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
+            Nuestro <span className="italic font-semibold">compromiso social</span>
+          </h2>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
+        </div>
 
+        {/* 2. LOGO DE COLABORACIÓN (Ubicación premium sugerida) */}
+        <div className="max-w-3xl mx-auto mb-20">
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-cream-dark flex flex-col items-center justify-center gap-6 group hover:shadow-md transition-all duration-300">
+            <img 
+              src="/logo-colaboracion.png.png" 
+              alt="Colaboración Fundación Juegaterapia y P&G" 
+              className="max-h-32 w-auto object-contain"
+            />
+            <p className="text-forest-light text-center max-w-xl text-base leading-relaxed">
+              En colaboración con la <strong className="text-forest font-semibold">Fundación Juegaterapia</strong>, impulsamos iniciativas donde el aprendizaje y el cuidado del entorno se convierten en un juego vital para los más pequeños.
+            </p>
+          </div>
+        </div>
+
+        {/* 3. SUBTÍTULO INTERMEDIO CON ICONO */}
+        <div className="max-w-4xl mx-auto flex items-center gap-3 mb-8 justify-center md:justify-start">
+          <Leaf className="w-5 h-5 text-gold" />
+          <h3 className="font-display text-2xl text-forest font-light">
+            Recursos <span className="italic font-medium">educativos</span>
+          </h3>
+        </div>
+
+        {/* 4. CUADRÍCULA DE FICHAS CON ESTÉTICA DE LA WEB */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {fichas.map((ficha, index) => (
-            <div key={index} className={`p-6 border-2 ${ficha.color} rounded-2xl bg-gray-50 hover:shadow-lg transition`}>
-              <h3 className="text-xl font-semibold mb-4">{ficha.title}</h3>
-              <p className="text-sm text-gray-500 mb-6">Descarga esta ficha educativa para los más pequeños.</p>
+            <div 
+              key={index} 
+              className="group relative bg-white p-8 rounded-2xl shadow-sm border border-cream-dark hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-bold tracking-widest uppercase text-gold bg-gold/10 px-3 py-1 rounded-full inline-block mb-4">
+                  Descarga Didáctica
+                </span>
+                <h4 className="font-display text-2xl font-semibold text-forest mb-3 transition-colors group-hover:text-gold-dark">
+                  {ficha.title}
+                </h4>
+                <p className="text-forest-light text-sm leading-relaxed mb-8">
+                  {ficha.description}
+                </p>
+              </div>
+
+              {/* Botón oficial envuelto para descarga del PDF nativo */}
               <a 
                 href={ficha.file} 
                 download 
-                className="bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-black transition"
+                className="inline-block w-full"
               >
-                Descargar PDF
+                <Button variant="gold" className="w-full gap-2 cursor-pointer group/btn">
+                  <Download className="w-4 h-4" />
+                  Descargar PDF
+                </Button>
               </a>
             </div>
           ))}
         </div>
+
+        {/* 5. CIERRE CON DETALLE AFECTIVO */}
+        <div className="mt-20 text-center max-w-md mx-auto">
+          <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
+          <p className="text-xs text-forest-light italic">
+            "Pequeños gestos que transforman entornos y regalan sonrisas."
+          </p>
+        </div>
+
       </div>
     </section>
   );
