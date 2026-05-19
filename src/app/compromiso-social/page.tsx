@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Download, Leaf, Heart } from "lucide-react";
 
 export default function CompromisoSocialPage() {
+  // 📚 Aquí están declaradas todas tus fichas educativas (Papel)
   const papelFichas = [
     { 
       title: 'Papel: Versión Color', 
@@ -14,9 +15,21 @@ export default function CompromisoSocialPage() {
       thumb: '/pre_papel_color.jpg', 
       desc: 'Ficha educativa completa con los colores de Juegaterapia.' 
     },
-    // ...resto de fichas...
+    { 
+      title: 'Papel: Para Colorear', 
+      file: '/papel_bn.pdf', 
+      thumb: '/pre_papel_bn.jpg', 
+      desc: 'Versión en blanco y negro ideal para pintar en casa.' 
+    },
+    { 
+      title: 'Guía: Qué sí y qué no', 
+      file: '/papel_guia.pdf', 
+      thumb: '/pre_papel_guia.jpg', 
+      desc: 'Manual rápido para identificar residuos de papel y cartón.' 
+    },
   ];
 
+  // 📚 Aquí están declaradas todas tus fichas educativas (Plástico)
   const plasticoFichas = [
     { 
       title: 'Plástico: Versión Color', 
@@ -24,7 +37,18 @@ export default function CompromisoSocialPage() {
       thumb: '/pre_plastico_color.jpg', 
       desc: 'Ficha didáctica para aprender sobre el contenedor amarillo.' 
     },
-    // ...resto de fichas...
+    { 
+      title: 'Plástico: Para Colorear', 
+      file: '/plastico_bn.pdf', 
+      thumb: '/pre_plastico_bn.jpg', 
+      desc: 'Divertida ficha para colorear mientras aprenden a reciclar.' 
+    },
+    { 
+      title: 'Guía: Qué sí y qué no', 
+      file: '/plastico_guia.pdf', 
+      thumb: '/pre_plastico_guia.jpg', 
+      desc: 'Aprende qué envases van realmente al cubo de plástico.' 
+    },
   ];
 
   return (
@@ -33,7 +57,7 @@ export default function CompromisoSocialPage() {
       
       <main className="pt-32 pb-24">
         
-        {/* 1. HERO Y MANIFIESTO */}
+        {/* 1. SECCIÓN HERO / MANIFIESTO CORPORATIVO */}
         <div className="max-w-4xl mx-auto text-center mb-16 px-4">
           <span className="text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4 block">
             Valores con Propósito
@@ -48,14 +72,12 @@ export default function CompromisoSocialPage() {
           </p>
         </div>
 
-        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL CON RELLENO COMPLETO */}
+        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL (RELLENO COMPLETO RECTÁNGULO) */}
         <section className="max-w-4xl mx-auto mb-24 px-4 relative">
           <div className="w-full relative aspect-[16/7] bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden">
-            {/* 🌟 CAMBIO CLAVE AQUÍ: object-fit: cover */}
             <img 
               src="/logo-colaboracion.png" 
               alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
-              // object-fit: cover rellena el rectángulo sin perder calidad
               className="w-full h-full object-cover block mx-auto rounded-3xl"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
@@ -67,7 +89,7 @@ export default function CompromisoSocialPage() {
           </div>
         </section>
 
-        {/* 3. GRID DE MATERIALES DIDÁCTICOS (Papel vs Plástico) */}
+        {/* 3. GRID DE MATERIALES DIDÁCTICOS (Mapea dinámicamente todos los PDFs de las listas de arriba) */}
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
             
