@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
 
-// 🌟 Se ha eliminado "Inicio" y "Propiedades Seleccionadas" de este array
+// 🌟 El botón de "Inicio" se mantiene completamente eliminado del menú
 const navLinks = [
   { href: "#vender", label: "Vender con Nosotros" },
   { href: "#equipo", label: "El equipo" },
@@ -36,26 +36,41 @@ function Header() {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
+          
+          {/* 🎯 LOGOTIPO ADAPTADO (Muestra solo el isotipo gráfico y limpia el fondo blanco) */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                isScrolled ? "bg-forest" : "bg-white/20 backdrop-blur-sm"
+              {/* Contenedor circular estético que protege la visualización del logo */}
+              <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden ${
+                isScrolled ? "bg-transparent" : "bg-white/90 backdrop-blur-sm p-1 shadow-sm"
               }`}>
-                <span className={`font-display text-xl font-bold ${
-                  isScrolled ? "text-gold" : "text-white"
-                }`}>
-                  P&G
-                </span>
+                {/* 'mixBlendMode: "multiply"' oculta el fondo blanco del JPG haciéndolo transparente por código.
+                  'objectPosition: "top"' junto con 'scale-110' recorta las letras verdes de abajo para dejar solo el isotipo limpio.
+                */}
+                <img 
+                  src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg" 
+                  alt="Isotipo Promoción y Gestión Inmobiliaria"
+                  className="w-full h-full object-cover object-top scale-110"
+                  style={{ mixBlendMode: "multiply" }} 
+                  onError={(e) => {
+                    // Fallback de seguridad en caso de que en producción se alteren los espacios del archivo
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('logotipo-inmobiliaria.jpg')) {
+                      target.src = "/logotipo-inmobiliaria.jpg";
+                    }
+                  }}
+                />
               </div>
             </div>
+
+            {/* Bloque de texto corporativo al lado del isotipo */}
             <div className="hidden sm:block">
-              <p className={`font-display text-lg font-semibold leading-tight transition-colors ${
+              <p className={`font-display text-lg font-semibold leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}>
                 Promocion y Gestion
               </p>
-              <p className={`text-xs tracking-widest uppercase transition-colors ${
+              <p className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
                 isScrolled ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
@@ -83,7 +98,7 @@ function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:+34616385515"
-              className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}
             >
@@ -117,8 +132,13 @@ function Header() {
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
                 <div className="flex items-center gap-3 mb-12">
-                  <div className="w-12 h-12 rounded-full bg-forest flex items-center justify-center">
-                    <span className="font-display text-xl font-bold text-gold">P&G</span>
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden shadow-sm">
+                    <img 
+                      src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg" 
+                      alt="Logo"
+                      className="w-full h-full object-cover object-top scale-110"
+                      style={{ mixBlendMode: "multiply" }}
+                    />
                   </div>
                   <div>
                     <p className="font-display text-lg font-semibold text-forest">
