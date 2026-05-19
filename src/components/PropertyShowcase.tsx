@@ -54,9 +54,18 @@ export function PropertyShowcase() {
               Hogares <span className="italic font-semibold">exclusivos</span>
             </h2>
           </div>
-          <Button variant="outline" className="self-start lg:self-auto">
-            Ver todas las propiedades
-          </Button>
+          
+          {/* 🌟 ENLACE DE IDEALISTA APLICADO AQUÍ */}
+          <a
+            href="https://www.idealista.com/pro/promocion-y-gestion-inmobiliaria/venta-viviendas/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start lg:self-auto block"
+          >
+            <Button variant="outline" className="cursor-pointer w-full lg:w-auto">
+              Ver todas las propiedades
+            </Button>
+          </a>
         </div>
 
         {/* Properties Grid */}
@@ -87,7 +96,7 @@ export function PropertyShowcase() {
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <Button variant="secondary" size="sm" className="gap-2">
                     <Eye className="w-4 h-4" />
-                    Ver detalles
+                    <span className="font-medium">Ver detalles</span>
                   </Button>
                 </div>
               </div>
@@ -130,7 +139,7 @@ export function PropertyShowcase() {
                       {property.price} EUR
                     </p>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-gold hover:text-gold-dark">
+                  <Button variant="ghost" size="sm" className="text-gold hover:text-gold-dark cursor-pointer">
                     Consultar
                   </Button>
                 </div>
