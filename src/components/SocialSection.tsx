@@ -37,7 +37,7 @@ const SocialSection = () => {
         <div className="max-w-3xl mx-auto mb-20">
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-cream-dark flex flex-col items-center justify-center gap-6 group hover:shadow-md transition-all duration-300">
             <img 
-              src="/logo-colaboracion.png.png" 
+              src="/logo-colaboracion.png." 
               alt="Colaboración Fundación Juegaterapia y P&G" 
               className="max-h-32 w-auto object-contain"
             />
