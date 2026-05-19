@@ -40,18 +40,18 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* 🎯 LOGOTIPO RECTANGULAR NATURAL (Sin círculos que lo corten) */}
+          {/* 🎯 LOGOTIPO CON MEDIDAS Y PROPORCIONES ORIGINALES (Sin cortes) */}
           <Link href="/" className="flex items-center gap-4 group">
-            <div className="relative flex items-center">
-              {/* Contenedor rectangular adaptado a la forma del logo de la montaña y la torre */}
-              <div className="h-12 w-auto max-w-[120px] flex items-center justify-start overflow-hidden">
-                {/* 'object-cover' y 'object-top' junto con 'scale-[1.2]' permiten encuadrar el isotipo, 
-                  haciendo foco en la silueta superior y recortando limpiamente las letras verdes inferiores.
+            <div className="flex items-center">
+              {/* Contenedor flexible que respeta la altura del menú y el ancho natural de la imagen */}
+              <div className="h-11 w-auto flex items-center justify-start">
+                {/* 'object-contain' asegura que todo el logotipo sea visible al 100% sin recortar nada.
+                  Se elimina el escalado y desplazamientos anteriores para respetar el diseño original.
                 */}
                 <img 
                   src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                   alt="Isotipo Promoción y Gestión Inmobiliaria"
-                  className="h-full w-full object-cover object-top scale-[1.2] origin-top transition-transform duration-300 group-hover:scale-[1.25]"
+                  className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -128,12 +128,12 @@ function Header() {
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
                 <div className="flex items-center gap-3 mb-12">
-                  {/* Logotipo en versión móvil optimizado también en formato libre rectangular */}
-                  <div className="h-10 w-auto max-w-[80px] flex items-center overflow-hidden">
+                  {/* Logotipo en versión móvil con proporciones íntegras */}
+                  <div className="h-9 w-auto flex items-center">
                     <img 
                       src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                       alt="Logo"
-                      className="h-full w-full object-cover object-top scale-[1.2] origin-top"
+                      className="h-full w-auto object-contain"
                     />
                   </div>
                   <div>
