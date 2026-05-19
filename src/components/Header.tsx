@@ -26,7 +26,7 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Mensaje optimizado para la consulta general desde el botón del teléfono
+  // Enlace a WhatsApp optimizado para el botón de teléfono superior derecho
   const whatsappConsultaUrl = "https://wa.me/34616385515?text=%C2%A1Hola%21%20Estaba%20viendo%20vuestra%20p%C3%A1gina%20web%20y%20ten%C3%ADa%20una%20consulta.%20%C2%BFMe%20podr%C3%ADais%20ayudar%3F%20Gracias.";
 
   return (
@@ -40,28 +40,23 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* 🎯 LOGOTIPO ADAPTADO (Muestra solo el isotipo gráfico y limpia el fondo blanco) */}
+          {/* 🎯 LOGOTIPO PNG TRANSPARENTE (Muestra solo el isotipo de la montaña y la torre sin las letras de abajo) */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden ${
-                isScrolled ? "bg-transparent" : "bg-white/90 backdrop-blur-sm p-1 shadow-sm"
-              }`}>
+              {/* Contenedor circular limpio para encuadrar tu nuevo PNG transparente */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden">
+                {/* 'objectPosition: "top"' junto con 'scale-110' hace el encuadre perfecto 
+                  para ocultar el texto verde inferior de la imagen original.
+                */}
                 <img 
-                  src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg" 
+                  src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                   alt="Isotipo Promoción y Gestión Inmobiliaria"
                   className="w-full h-full object-cover object-top scale-110"
-                  style={{ mixBlendMode: "multiply" }} 
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    if (!target.src.includes('logotipo-inmobiliaria.jpg')) {
-                      target.src = "/logotipo-inmobiliaria.jpg";
-                    }
-                  }}
                 />
               </div>
             </div>
 
-            {/* Bloque de texto corporativo al lado del isotipo */}
+            {/* Texto corporativo premium al lado del isotipo */}
             <div className="hidden sm:block">
               <p className={`font-display text-lg font-semibold leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
@@ -94,7 +89,7 @@ function Header() {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* 📞 TELÉFONO ACTUALIZADO: Ahora redirige a WhatsApp con mensaje personalizado */}
+            {/* 📞 Botón del teléfono que ahora redirige al WhatsApp con tu mensaje personalizado */}
             <a
               href={whatsappConsultaUrl}
               target="_blank"
@@ -133,12 +128,11 @@ function Header() {
             <SheetContent side="right" className="w-80 bg-cream border-l-forest/20">
               <div className="flex flex-col h-full py-8">
                 <div className="flex items-center gap-3 mb-12">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden shadow-sm">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center p-0.5 overflow-hidden">
                     <img 
-                      src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg" 
+                      src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                       alt="Logo"
                       className="w-full h-full object-cover object-top scale-110"
-                      style={{ mixBlendMode: "multiply" }}
                     />
                   </div>
                   <div>
@@ -165,7 +159,7 @@ function Header() {
                 </nav>
 
                 <div className="pt-8 border-t border-forest/10">
-                  {/* Enlace de WhatsApp también actualizado en el menú móvil */}
+                  {/* WhatsApp integrado también para la versión móvil */}
                   <a
                     href={whatsappConsultaUrl}
                     target="_blank"
