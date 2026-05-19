@@ -61,10 +61,18 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  <Button variant="gold" className="group/btn gap-2">
-                    Quiero vender mi propiedad
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Button>
+                  {/* 🌟 ENLACE DE WHATSAPP DIRECTO PARA CAPTACIÓN */}
+                  <a 
+                    href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button variant="gold" className="group/btn gap-2 cursor-pointer">
+                      Quiero vender mi propiedad
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -110,10 +118,18 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  <Button variant="outline" className="group/btn gap-2">
-                    Buscar mi hogar ideal
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Button>
+                  {/* 🌟 ENLACE EXTERNO A IDEALISTA PARA COMPRADORES */}
+                  <a 
+                    href="https://www.idealista.com/pro/promocion-y-gestion-inmobiliaria/venta-viviendas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button variant="outline" className="group/btn gap-2 cursor-pointer">
+                      Buscar mi hogar ideal
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
