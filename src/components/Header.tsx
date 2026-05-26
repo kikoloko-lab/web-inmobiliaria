@@ -38,10 +38,10 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* Logo y Texto Principal */}
+          {/* Logo y Texto Principal - Ajuste de alineación aplicado */}
           <Link href="/" className="flex items-center gap-4 group select-none">
-            {/* Contenedor del logo grande y alineado */}
-            <div className="flex items-center h-16">
+            {/* Contenedor corregido: 'self-center' y '-mt-1' para cuadrar la altura del icono con el texto */}
+            <div className="flex items-center h-16 self-center -mt-1">
               <img 
                 src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                 alt="Logo P&G"
@@ -49,14 +49,14 @@ function Header() {
               />
             </div>
 
-            {/* Texto alineado verticalmente con el logo */}
+            {/* Texto ajustado para alineación vertical absoluta */}
             <div className="hidden sm:flex flex-col justify-center gap-0">
-              <p className={`font-display text-xl font-bold transition-colors duration-300 ${
+              <p className={`font-display text-xl font-bold leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest" : "text-white"
               }`}>
                 Promocion y Gestion
               </p>
-              <p className={`text-[12px] tracking-[0.25em] uppercase transition-colors duration-300 ${
+              <p className={`text-[12px] tracking-[0.25em] uppercase leading-tight transition-colors duration-300 ${
                 isScrolled ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
