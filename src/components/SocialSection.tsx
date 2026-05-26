@@ -20,47 +20,49 @@ const SocialSection = () => {
   return (
     <section 
       id="social" 
-      className="relative py-24 lg:py-32 text-forest overflow-hidden"
-      style={{ 
-        backgroundImage: "url('/02_Accion social fondo.png')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center' 
-      }}
+      className="relative py-24 text-forest"
     >
-      {/* Capa de opacidad para asegurar legibilidad sobre el fondo */}
-      <div className="absolute inset-0 bg-white/60 z-0" />
+      {/* FONDO: Asegúrate de que 02_Accion social fondo.png esté en /public */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{ 
+          backgroundImage: "url('/02_Accion social fondo.png')", 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          opacity: 0.15 // Ajusta la visibilidad aquí
+        }} 
+      />
 
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
         
         {/* ENCABEZADO */}
-        <div className="text-center mb-12">
-          <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
+        <div className="text-center mb-6">
+          <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-2 block">
             Valores con Propósito
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
+          <h2 className="font-display text-3xl md:text-4xl font-light text-forest mb-4">
             Nuestro <span className="italic font-semibold">compromiso social</span>
           </h2>
         </div>
 
-        {/* CONTENEDOR DE LOGOS: Color crema, más pequeño y subido */}
-        <div className="max-w-md mx-auto mb-20 -mt-10">
-          <div className="bg-cream rounded-xl p-4 shadow-sm border border-forest/10 flex items-center justify-center min-h-[80px]">
+        {/* CONTENEDOR CREMA: Más pequeño y subido (margen negativo) */}
+        <div className="max-w-sm mx-auto mb-16 -mt-2">
+          <div className="bg-cream rounded-xl p-3 shadow-sm border border-forest/10 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
               alt="Alianza PYGI y Juegaterapia" 
-              className="max-h-12 w-auto object-contain block mx-auto"
+              className="h-10 w-auto object-contain"
             />
           </div>
         </div>
 
         {/* 3. BLOQUE DE CONTENIDOS */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
-          {/* COLUMNAS DE RECICLAJE (Mantenidas igual) */}
-          {/* ... */}
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* ... (Tus columnas de fichas igual que antes) ... */}
         </div>
 
         {/* 4. CIERRE */}
-        <div className="mt-20 text-center max-w-md mx-auto">
+        <div className="mt-16 text-center max-w-md mx-auto">
           <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
           <p className="text-xs text-forest-light italic">"Pequeños gestos que transforman entornos y regalan sonrisas."</p>
         </div>
