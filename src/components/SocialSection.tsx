@@ -5,37 +5,38 @@ import { Button } from "@/components/ui/button";
 import { Download, Leaf, Heart } from "lucide-react";
 
 const SocialSection = () => {
+  // ... (tus arrays de fichas aquí)
+
   return (
     <section 
       id="social" 
       className="relative py-24 text-forest"
       style={{ 
-        backgroundImage: "url('/02_Accion social fondo.png')", 
+        backgroundImage: `url('${encodeURI('/02_Accion social fondo.png')}')`, 
         backgroundSize: 'cover', 
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        width: '100%'
+        backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Contenedor principal con fondo blanco semitransparente para legibilidad */}
-      <div className="container mx-auto px-4 bg-white/70 backdrop-blur-[2px] rounded-3xl py-12">
+      {/* Capa base para asegurar que el fondo sea visible */}
+      <div className="absolute inset-0 z-0 bg-white/70" />
+
+      <div className="container relative z-10 mx-auto px-4">
         
         {/* ENCABEZADO */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
           <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-2 block">
             Valores con Propósito
           </span>
           <h2 className="font-display text-4xl font-light text-forest mb-4">
             Nuestro <span className="italic font-semibold">compromiso social</span>
           </h2>
-          <p className="text-forest-light max-w-2xl mx-auto font-light">
-            En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar.
-          </p>
         </div>
 
         {/* RECTÁNGULO DE LOGOS: Subido y más pequeño */}
-        <div className="max-w-md mx-auto mb-16 -mt-8">
-          <div className="bg-cream p-4 rounded-xl shadow-md border border-forest/10 flex items-center justify-center">
+        {/* He subido el contenedor con -mt-16 para que se pegue al título */}
+        <div className="max-w-md mx-auto mb-16 -mt-16 relative">
+          <div className="bg-cream p-4 rounded-xl shadow-lg border border-forest/10 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
               alt="Alianza PYGI y Juegaterapia" 
@@ -44,8 +45,10 @@ const SocialSection = () => {
           </div>
         </div>
 
-        {/* SECCIÓN DE FICHAS (Añade aquí tu lógica de mapas de fichas) */}
-        
+        {/* BLOQUE DE CONTENIDOS */}
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* ... tus columnas ... */}
+        </div>
       </div>
     </section>
   );
