@@ -22,24 +22,20 @@ const SocialSection = () => {
       id="social" 
       className="relative py-24 text-forest overflow-hidden"
     >
-      {/* 1. CAPA DE IMAGEN DE FONDO */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{ 
-          backgroundImage: "url('/fondo-social.png')", 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+      {/* 1. IMAGEN DE FONDO (Etiqueta HTML infalible) */}
+      <img 
+        src="/fondo-social.png" 
+        alt="Fondo de compromiso social"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       />
       
-      {/* 2. CAPA OVERLAY (Blanco semitransparente para que el texto se lea bien) */}
-      <div className="absolute inset-0 z-0 bg-white/70 backdrop-blur-[2px]" />
+      {/* 2. CAPA OVERLAY (Filtro blanco para que el texto se pueda leer) */}
+      <div className="absolute inset-0 z-10 bg-white bg-opacity-70 backdrop-blur-[2px]" />
 
-      <div className="container relative z-10 mx-auto px-4 lg:px-8">
+      {/* 3. CONTENIDO PRINCIPAL */}
+      <div className="container relative z-20 mx-auto px-4 lg:px-8">
         
         {/* ENCABEZADO */}
-        {/* Se ha reducido el margin-bottom para que el logo se acerque más */}
         <div className="text-center mb-6">
           <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block drop-shadow-sm">
             Valores con Propósito
@@ -53,8 +49,7 @@ const SocialSection = () => {
         </div>
 
         {/* RECTÁNGULO DE LOGOS */}
-        {/* Subido con margen negativo severo (-mt-4) y ancho ajustado (w-72) */}
-        <div className="flex justify-center -mt-4 mb-16 relative z-20">
+        <div className="flex justify-center -mt-4 mb-16 relative">
           <div className="bg-cream px-6 py-4 rounded-xl shadow-md border border-forest/10 w-72 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
@@ -64,7 +59,7 @@ const SocialSection = () => {
           </div>
         </div>
 
-        {/* 3. BLOQUE DE CONTENIDOS */}
+        {/* BLOQUE DE CONTENIDOS (Fichas) */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* COLUMNA PAPEL */}
           <div>
@@ -76,7 +71,7 @@ const SocialSection = () => {
             </div>
             <div className="space-y-6">
               {fichasPapel.map((ficha, idx) => (
-                <div key={idx} className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-forest/10 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
+                <div key={idx} className="bg-white/90 p-6 rounded-2xl shadow-sm border border-forest/10 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
                   <div>
                     <h4 className="font-semibold text-forest text-sm">{ficha.title}</h4>
                     <p className="text-forest-light text-xs mt-1">{ficha.desc}</p>
@@ -101,7 +96,7 @@ const SocialSection = () => {
             </div>
             <div className="space-y-6">
               {fichasPlastico.map((ficha, idx) => (
-                <div key={idx} className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-gold/20 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
+                <div key={idx} className="bg-white/90 p-6 rounded-2xl shadow-sm border border-gold/20 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
                   <div>
                     <h4 className="font-semibold text-forest text-sm">{ficha.title}</h4>
                     <p className="text-forest-light text-xs mt-1">{ficha.desc}</p>
@@ -117,10 +112,10 @@ const SocialSection = () => {
           </div>
         </div>
 
-        {/* 4. CIERRE */}
-        <div className="mt-20 text-center max-w-md mx-auto">
+        {/* CIERRE */}
+        <div className="mt-20 text-center max-w-md mx-auto relative">
           <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
-          <p className="text-xs text-forest-light italic bg-white/50 inline-block px-4 py-2 rounded-full backdrop-blur-sm">
+          <p className="text-xs text-forest-light italic bg-white/70 inline-block px-4 py-2 rounded-full shadow-sm">
             "Pequeños gestos que transforman entornos y regalan sonrisas."
           </p>
         </div>
