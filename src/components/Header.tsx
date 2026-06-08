@@ -4,18 +4,28 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, ChevronDown } from "lucide-react";
 
+// Enlaces normales de navegación
 const navLinks = [
   { href: "#vender", label: "Vender con Nosotros" },
   { href: "#equipo", label: "El equipo" },
   { href: "#contacto", label: "Contacto" },
-  { href: "/compromiso-social", label: "Acción Social" },
+];
+
+// Subenlaces del nuevo desplegable de Acción Social
+const socialSubLinks = [
+  { href: "/compromiso-social", label: "Juegaterapia" },
+  { href: "#cultura-flora", label: "Cultura de la flora" },
+  { href: "#negocios-hoyo", label: "Negocios en Hoyo" },
 ];
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Estados para controlar la apertura de los desplegables
+  const [isMobileSubOpen, setIsMobileSubOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +79,29 @@ function Header() {
                 {link.label}
               </Link>
             ))}
+
+            {/* 🌟 DESPLEGABLE DESKTOP: Acción Social */}
+            <div className="relative group/dropdown py-2">
+              <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors ${isScrolled ? "text-forest" : "text-white"}`}>
+                Acción Social
+                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
+              </button>
+              
+              {/* Contenedor del menú flotante al pasar el ratón */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-52 opacity-0 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:pointer-events-auto transition-all duration-300">
+                <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2 overflow-hidden">
+                  {socialSubLinks.map((subLink) => (
+                    <Link
+                      key={subLink.href}
+                      href={subLink.href}
+                      className="block px-4 py-2.5 text-sm font-medium text-forest hover:bg-cream hover:text-gold-dark transition-colors"
+                    >
+                      {subLink.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Botones Derecha */}
@@ -80,16 +113,19 @@ function Header() {
           </div>
 
           {/* Menú Móvil */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <Sheet open={isOpen} onOpenChange={(open) => {
+            setIsOpen(open);
+            if (!open) setIsMobileSubOpen(false); // Resetea el acordeón al cerrar
+          }}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className={isScrolled ? "text-forest" : "text-white"}>
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
             
-            <SheetContent side="right" className="bg-white p-6 w-[300px] sm:w-[350px]">
+            <SheetContent side="right" className="bg-white p-6 w-[300px] sm:w-[350px] overflow-y-auto">
               
-              {/* 🌟 CABECERA CORPORATIVA PARA EL MENÚ MÓVIL (Añadido para el jefe) */}
+              {/* Cabecera Corporativa Móvil */}
               <div className="flex flex-col items-center justify-center pt-6 pb-5 border-b border-forest/10 mb-6 text-center select-none">
                 <img 
                   src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
@@ -116,9 +152,34 @@ function Header() {
                     {link.label}
                   </Link>
                 ))}
+
+                {/* 🌟 ACORDEÓN MÓVIL: Acción Social */}
+                <div className="flex flex-col">
+                  <button 
+                    onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
+                    className="flex items-center justify-between text-lg font-medium text-forest hover:text-gold transition-colors w-full text-left"
+                  >
+                    <span>Acción Social</span>
+                    <ChevronDown className={`w-5 h-5 text-forest-light transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  {/* Submenú Móvil */}
+                  <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${isMobileSubOpen ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0"}`}>
+                    {socialSubLinks.map((subLink) => (
+                      <Link
+                        key={subLink.href}
+                        href={subLink.href}
+                        onClick={() => setIsOpen(false)}
+                        className="text-base font-medium text-forest-light hover:text-gold transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {/* Detalle extra: Teléfono directo al final del menú móvil */}
+              {/* Teléfono directo al final */}
               <div className="mt-8 pt-6 border-t border-forest/5 pl-2">
                 <a 
                   href={whatsappConsultaUrl} 
