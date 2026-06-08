@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image'; // 🌟 Importamos el componente nativo de Next.js
 import { Button } from "@/components/ui/button";
 import { Download, Leaf, Heart } from "lucide-react";
 
@@ -20,14 +21,23 @@ const SocialSection = () => {
   return (
     <section 
       id="social" 
-      className="relative py-24 text-forest overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/fondo-social.png')" }} // 🌟 Solución definitiva para Next.js
+      className="relative py-24 text-forest overflow-hidden"
     >
-      {/* 🌟 CAPA OVERLAY: He bajado la opacidad a un 50% (bg-white/50) para que tu fondo sea mucho más visible sin romper la lectura */}
-      <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] z-0" />
+      {/* 🌟 CONTENEDOR DE FONDO ABSOLUTO (Utiliza el motor de Next.js para renderizar la imagen por debajo de todo) */}
+      <div className="absolute inset-0 -z-10 w-full h-full">
+        <Image
+          src="/fondo-social.png" // 👈 Recuerda verificar que este archivo exista en /public/fondo-social.png en la raíz
+          alt="Fondo de compromiso social"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Capa de contraste blanca (Overlay) para asegurar que el texto sea perfectamente legible */}
+        <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]" />
+      </div>
       
       {/* CONTENIDO PRINCIPAL */}
-      <div className="container relative z-10 mx-auto px-4 lg:px-8">
+      <div className="container relative mx-auto px-4 lg:px-8">
         
         {/* ENCABEZADO */}
         <div className="text-center mb-6">
@@ -37,7 +47,7 @@ const SocialSection = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
             Nuestro <span className="italic font-semibold">compromiso social</span>
           </h2>
-          <p className="text-forest-light max-w-2xl mx-auto text-base md:text-lg leading-relaxed font-semibold mb-8">
+          <p className="text-forest-light max-w-2xl mx-auto text-base md:text-lg leading-relaxed font-normal mb-8">
             En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños.
           </p>
         </div>
