@@ -16,10 +16,10 @@ export function TeamSection() {
     {
       id: "elena",
       name: "Elena",
-      image: "/02_ele.jpeg",
+      image: "/fotonuevaelena.jpg", // 🌟 Imagen modificada aquí
       role: "Consultora Inmobiliaria",
-      subrole: "", 
-      description: "Elena aporta una sensibilidad especial para entender las necesidades de cada familia antes incluso de que las expresen. Su empatía y capacidad de escucha activa hacen que la búsqueda de una vivienda se convierta en una experiencia tranquila, guiada y totalmente personalizada.",
+      subrole: "Grado en Turismo", // 🌟 Subrol modificado aquí
+      description: "Elena aporta una sensibilidad especial para entender las necesidades de cada familia antes incluso de que las expresen. Su empatía y capacidad de escucha activa hacen que la búsqueda de una vivienda se convierta en una experiencia tranquila, guiada y totalmente personalizada. Además, ofrece una atención multilingüe fluida, dominando el español, inglés, francés e italiano.", // 🌟 Descripción extendida aquí
     },
     {
       id: "carmen",
@@ -165,16 +165,16 @@ export function TeamSection() {
 
             <div>
               {/* 🌟 ENLACE OPTIMIZADO PARA AGENDAR UNA CITA */}
-<a 
-  href="https://wa.me/34616385515?text=%C2%A1Hola%21%20He%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20vosotros%20para%20recibir%20asesoramiento%20inmobiliario.%20%C2%BFCu%C3%A1ndo%20tendr%C3%ADais%20disponibilidad%3F%20Muchas%20gracias."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-block"
->
-  <Button variant="gold" className="cursor-pointer">
-    Agenda una cita con nosotros
-  </Button>
-</a>
+              <a 
+                href="https://wa.me/34616385515?text=%C2%A1Hola%21%20He%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20vosotros%20para%20recibir%20asesoramiento%20inmobiliario.%20%C2%BFCu%C3%A1ndo%20tendr%C3%ADais%20disponibilidad%3F%20Muchas%20gracias."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button variant="gold" className="cursor-pointer">
+                  Agenda una cita con nosotros
+                </Button>
+              </a>
             </div>
           </div>
 
