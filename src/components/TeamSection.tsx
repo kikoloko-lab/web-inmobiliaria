@@ -16,7 +16,7 @@ export function TeamSection() {
     {
       id: "elena",
       name: "Elena",
-      image: "/fotonuevaelena.jpg", // 🌟 Imagen modificada aquí
+      image: "/fotonuevaelena.jpeg", // 🌟 Imagen modificada aquí
       role: "Consultora Inmobiliaria",
       subrole: "Grado en Turismo", // 🌟 Subrol modificado aquí
       description: "Elena aporta una sensibilidad especial para entender las necesidades de cada familia antes incluso de que las expresen. Su empatía y capacidad de escucha activa hacen que la búsqueda de una vivienda se convierta en una experiencia tranquila, guiada y totalmente personalizada. Además, ofrece una atención multilingüe fluida, dominando el español, inglés, francés e italiano.", // 🌟 Descripción extendida aquí
