@@ -6,25 +6,25 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, ChevronDown } from "lucide-react";
 
-// Enlaces normales de navegación
+// 🌟 RUTAS CORREGIDAS CON /# PARA QUE FUNCIONEN DESDE CUALQUIER PÁGINA
 const navLinks = [
-  { href: "#vender", label: "Vender con Nosotros" },
-  { href: "#equipo", label: "El equipo" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#vender", label: "Vender con Nosotros" },
+  { href: "/#equipo", label: "El equipo" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
-// Subenlaces del nuevo desplegable de Acción Social
+// Subenlaces del desplegable de Acción Social
 const socialSubLinks = [
   { href: "/compromiso-social", label: "Juegaterapia" },
-  { href: "#cultura-flora", label: "Cultura de la flora" },
-  { href: "#negocios-hoyo", label: "Negocios en Hoyo" },
+  { href: "/#cultura-flora", label: "Cultura de la flora" },
+  { href: "/#negocios-hoyo", label: "Negocios en Hoyo" },
 ];
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
-  // Estados para controlar la apertura de los desplegables
+  // Estado para controlar el acordeón en móvil
   const [isMobileSubOpen, setIsMobileSubOpen] = useState(false);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* Logo y Texto Principal - Alineación Desktop */}
+          {/* Logo y Texto Principal */}
           <Link href="/" className="flex items-center gap-4 group select-none">
             <div className="flex items-center h-16 mt-2 relative">
               <img 
@@ -80,14 +80,13 @@ function Header() {
               </Link>
             ))}
 
-            {/* 🌟 DESPLEGABLE DESKTOP: Acción Social */}
+            {/* DESPLEGABLE DESKTOP: Acción Social */}
             <div className="relative group/dropdown py-2">
               <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors ${isScrolled ? "text-forest" : "text-white"}`}>
                 Acción Social
                 <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
               </button>
               
-              {/* Contenedor del menú flotante al pasar el ratón */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-52 opacity-0 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:pointer-events-auto transition-all duration-300">
                 <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2 overflow-hidden">
                   {socialSubLinks.map((subLink) => (
@@ -109,13 +108,16 @@ function Header() {
             <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium ${isScrolled ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4" /> +34 616 385 515
             </a>
-            <Button variant="gold">Quiero vender mi propiedad</Button>
+            {/* 🌟 Botón "Quiero vender mi propiedad" ahora también te redirige correctamente */}
+            <Link href="/#vender">
+              <Button variant="gold" className="cursor-pointer">Quiero vender mi propiedad</Button>
+            </Link>
           </div>
 
           {/* Menú Móvil */}
           <Sheet open={isOpen} onOpenChange={(open) => {
             setIsOpen(open);
-            if (!open) setIsMobileSubOpen(false); // Resetea el acordeón al cerrar
+            if (!open) setIsMobileSubOpen(false);
           }}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className={isScrolled ? "text-forest" : "text-white"}>
@@ -153,7 +155,7 @@ function Header() {
                   </Link>
                 ))}
 
-                {/* 🌟 ACORDEÓN MÓVIL: Acción Social */}
+                {/* ACORDEÓN MÓVIL: Acción Social */}
                 <div className="flex flex-col">
                   <button 
                     onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
@@ -163,7 +165,6 @@ function Header() {
                     <ChevronDown className={`w-5 h-5 text-forest-light transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
                   </button>
                   
-                  {/* Submenú Móvil */}
                   <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${isMobileSubOpen ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0"}`}>
                     {socialSubLinks.map((subLink) => (
                       <Link
