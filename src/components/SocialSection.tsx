@@ -20,12 +20,13 @@ const SocialSection = () => {
   return (
     <section 
       id="social" 
-      className="relative py-24 text-forest overflow-hidden bg-[url('/fondo-social.png')] bg-cover bg-center bg-no-repeat"
+      className="relative py-24 text-forest overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/fondo-social.png')" }} // 🌟 Solución definitiva para Next.js
     >
-      {/* 🌟 CAPA OVERLAY: Filtro blanco usando la sintaxis moderna alpha de Tailwind (bg-white/75) para perfecta legibilidad */}
-      <div className="absolute inset-0 bg-white/75 backdrop-blur-[1px] z-0" />
+      {/* 🌟 CAPA OVERLAY: He bajado la opacidad a un 50% (bg-white/50) para que tu fondo sea mucho más visible sin romper la lectura */}
+      <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] z-0" />
       
-      {/* CONTENIDO PRINCIPAL (z-10 para asegurar que se posiciona por encima del fondo y el overlay) */}
+      {/* CONTENIDO PRINCIPAL */}
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
         
         {/* ENCABEZADO */}
@@ -36,7 +37,7 @@ const SocialSection = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
             Nuestro <span className="italic font-semibold">compromiso social</span>
           </h2>
-          <p className="text-forest-light max-w-2xl mx-auto text-base md:text-lg leading-relaxed font-light mb-8">
+          <p className="text-forest-light max-w-2xl mx-auto text-base md:text-lg leading-relaxed font-semibold mb-8">
             En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños.
           </p>
         </div>
