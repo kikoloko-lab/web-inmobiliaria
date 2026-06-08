@@ -55,7 +55,7 @@ export function PropertyShowcase() {
             </h2>
           </div>
           
-          {/* 🌟 ENLACE DE IDEALISTA APLICADO AQUÍ */}
+          {/* Enlace general de cabecera */}
           <a
             href="https://www.idealista.com/pro/promocion-y-gestion-inmobiliaria/venta-viviendas/"
             target="_blank"
@@ -92,12 +92,19 @@ export function PropertyShowcase() {
                   </Badge>
                 )}
 
-                {/* View Button */}
+                {/* 🌟 BOTÓN DE VER DETALLES ENLAZADO A TU PRO DE IDEALISTA (MÓVIL Y DESKTOP) */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <Button variant="secondary" size="sm" className="gap-2">
-                    <Eye className="w-4 h-4" />
-                    <span className="font-medium">Ver detalles</span>
-                  </Button>
+                  <a
+                    href="https://www.idealista.com/pro/promocion-y-gestion-inmobiliaria/venta-viviendas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button variant="secondary" size="sm" className="gap-2 cursor-pointer shadow-md">
+                      <Eye className="w-4 h-4" />
+                      <span className="font-medium">Ver detalles</span>
+                    </Button>
+                  </a>
                 </div>
               </div>
 
