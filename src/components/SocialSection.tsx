@@ -20,20 +20,13 @@ const SocialSection = () => {
   return (
     <section 
       id="social" 
-      className="relative py-24 text-forest overflow-hidden"
+      className="relative py-24 text-forest overflow-hidden bg-[url('/fondo-social.png')] bg-cover bg-center bg-no-repeat"
     >
-      {/* 1. IMAGEN DE FONDO (Etiqueta HTML infalible) */}
-      <img 
-        src="/fondo-social.png" 
-        alt="Fondo de compromiso social"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
+      {/* 🌟 CAPA OVERLAY: Filtro blanco usando la sintaxis moderna alpha de Tailwind (bg-white/75) para perfecta legibilidad */}
+      <div className="absolute inset-0 bg-white/75 backdrop-blur-[1px] z-0" />
       
-      {/* 2. CAPA OVERLAY (Filtro blanco para que el texto se pueda leer) */}
-      <div className="absolute inset-0 z-10 bg-white bg-opacity-70 backdrop-blur-[2px]" />
-
-      {/* 3. CONTENIDO PRINCIPAL */}
-      <div className="container relative z-20 mx-auto px-4 lg:px-8">
+      {/* CONTENIDO PRINCIPAL (z-10 para asegurar que se posiciona por encima del fondo y el overlay) */}
+      <div className="container relative z-10 mx-auto px-4 lg:px-8">
         
         {/* ENCABEZADO */}
         <div className="text-center mb-6">
@@ -49,7 +42,7 @@ const SocialSection = () => {
         </div>
 
         {/* RECTÁNGULO DE LOGOS */}
-        <div className="flex justify-center -mt-4 mb-16 relative">
+        <div className="flex justify-center -mt-4 mb-16">
           <div className="bg-cream px-6 py-4 rounded-xl shadow-md border border-forest/10 w-72 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
@@ -113,9 +106,9 @@ const SocialSection = () => {
         </div>
 
         {/* CIERRE */}
-        <div className="mt-20 text-center max-w-md mx-auto relative">
+        <div className="mt-20 text-center max-w-md mx-auto">
           <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
-          <p className="text-xs text-forest-light italic bg-white/70 inline-block px-4 py-2 rounded-full shadow-sm">
+          <p className="text-xs text-forest-light italic bg-white/80 inline-block px-4 py-2 rounded-full shadow-sm">
             "Pequeños gestos que transforman entornos y regalan sonrisas."
           </p>
         </div>
