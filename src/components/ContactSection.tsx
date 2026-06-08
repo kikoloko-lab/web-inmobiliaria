@@ -1,24 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Send, Download } from "lucide-react";
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <section id="contacto" className="py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
@@ -55,7 +42,7 @@ export function ContactSection() {
                 </div>
               </a>
 
-              {/* Email Actualizado */}
+              {/* Email */}
               <a
                 href="mailto:contacto@pygi.es"
                 className="flex items-center gap-4 text-forest hover:text-gold transition-colors group"
@@ -69,7 +56,7 @@ export function ContactSection() {
                 </div>
               </a>
 
-              {/* Ubicación Doble Actualizada */}
+              {/* Ubicación Doble */}
               <div className="flex items-start gap-4 text-forest group">
                 <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-gold" />
@@ -106,23 +93,32 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Side - Form */}
+          {/* Right Side - Form (🌟 MODIFICADO AQUÍ PARA ENVIAR CORREOS REALES) */}
           <div className="bg-cream rounded-2xl p-8 lg:p-10">
             <h3 className="font-display text-2xl font-semibold text-forest mb-6">
               Envíanos un mensaje
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              action="https://formsubmit.co/contacto@pygi.es" 
+              method="POST" 
+              className="space-y-6"
+            >
+              {/* Opciones ocultas de control para FormSubmit */}
+              <input type="hidden" name="_subject" value="¡Nuevo mensaje desde la Web PYGI!" />
+              <input type="hidden" name="_captcha" value="false" />
+              {/* Si quieres que redirija a tu web principal tras enviar, descomenta la línea de abajo: */}
+              {/* <input type="hidden" name="_next" value="https://pygi.es" /> */}
+
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-forest mb-2">
                   Nombre
                 </label>
                 <Input
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="Tu nombre"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="bg-white border-cream-dark focus:border-gold"
                   required
                 />
@@ -134,10 +130,9 @@ export function ContactSection() {
                 </label>
                 <Input
                   id="phone"
+                  name="phone"
                   type="tel"
                   placeholder="Tu teléfono"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="bg-white border-cream-dark focus:border-gold"
                   required
                 />
@@ -149,15 +144,14 @@ export function ContactSection() {
                 </label>
                 <Textarea
                   id="message"
+                  name="message"
                   placeholder="Cuéntanos sobre tu proyecto..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="bg-white border-cream-dark focus:border-gold min-h-[120px]"
                   required
                 />
               </div>
 
-              <Button type="submit" variant="gold" size="lg" className="w-full gap-2">
+              <Button type="submit" variant="gold" size="lg" className="w-full gap-2 cursor-pointer">
                 <Send className="w-4 h-4" />
                 Enviar mensaje
               </Button>
