@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react"; // 🌟 Añadido el icono Download
 
 export function HeroSection() {
   return (
@@ -61,7 +61,7 @@ export function HeroSection() {
               </Button>
             </a>
             
-            {/* 🌟 BOTÓN RODEADO: Ahora te redirige suavemente al apartado inferior */}
+            {/* BOTÓN DE PROPIEDADES */}
             <Link href="#propiedades" className="w-full sm:w-auto block">
               <Button variant="outline" size="lg" className="text-base px-8 border-white/50 text-white hover:bg-white/10 hover:text-white hover:border-white w-full cursor-pointer">
                 Ver propiedades exclusivas
@@ -87,7 +87,19 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* 🌟 NUEVO BOTÓN: Descarga de Guía (Esquina inferior izquierda) */}
+      <div className="absolute bottom-8 left-4 lg:left-8 z-10 hidden sm:block">
+        <a
+          href="/guia_valoracion_2026.pdf"
+          download="Guia_Valoracion_Inmobiliaria_2026.pdf"
+          className="inline-flex items-center gap-2 bg-[#d7b56d] hover:bg-[#c9a75d] text-[#1c3c2e] px-4 py-2.5 rounded-full text-xs md:text-sm font-medium transition-colors shadow-lg cursor-pointer"
+        >
+          <Download className="w-4 h-4" />
+          <span>Guia: Valorar tu casa 2026</span>
+        </a>
+      </div>
+
+      {/* Scroll Indicator (Centro) */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <a
           href="#por-que-nosotros"
