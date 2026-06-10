@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // 🌟 Importante: Para saber en qué página estamos
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, ChevronDown } from "lucide-react";
@@ -23,8 +23,8 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileSubOpen, setIsMobileSubOpen] = useState(false);
   
-  const pathname = usePathname(); // 🌟 Detecta la ruta actual
-  const isHome = pathname === "/"; // 🌟 Verifica si es la página de inicio
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,9 +34,7 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🌟 Si NO estamos en la home, el header DEBE estar activo (fondo blanco y letras oscuras)
   const isHeaderActive = !isHome || isScrolled;
-
   const whatsappConsultaUrl = "https://wa.me/34616385515?text=%C2%A1Hola%21";
 
   return (
@@ -50,22 +48,24 @@ function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-4 group select-none">
-            <div className="flex items-center h-16 mt-2 relative">
+          {/* Logo y Nombre Adaptado a Móviles */}
+          <Link href="/" className="flex items-center gap-2 sm:gap-4 group select-none">
+            <div className="flex items-center h-12 sm:h-16 mt-1 sm:mt-2 relative">
               <img 
                 src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                 alt="Logo P&G"
                 className="h-full w-auto object-contain"
               />
             </div>
-            <div className="hidden sm:flex flex-col justify-center">
-              <p className={`font-display text-xl font-bold leading-tight transition-colors duration-300 ${
+            
+            {/* 🌟 AQUÍ ESTÁ EL CAMBIO: Ya no se oculta en móviles (`flex` en vez de `hidden sm:flex`) */}
+            <div className="flex flex-col justify-center">
+              <p className={`font-display text-sm sm:text-xl font-bold leading-tight transition-colors duration-300 ${
                 isHeaderActive ? "text-forest" : "text-white"
               }`}>
-                Promocion y Gestion
+                Promoción y Gestión
               </p>
-              <p className={`text-[12px] tracking-[0.25em] uppercase leading-tight transition-colors duration-300 ${
+              <p className={`text-[9px] sm:text-[12px] tracking-[0.2em] sm:tracking-[0.25em] uppercase leading-tight transition-colors duration-300 ${
                 isHeaderActive ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
@@ -98,7 +98,7 @@ function Header() {
             </div>
           </div>
 
-          {/* Botones Derecha */}
+          {/* Botones Desktop Derecha */}
           <div className="hidden lg:flex items-center gap-4">
             <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
