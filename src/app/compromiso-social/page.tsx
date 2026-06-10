@@ -55,56 +55,55 @@ export default function CompromisoSocialPage() {
     <div className="bg-cream min-h-screen text-forest selection:bg-forest selection:text-white">
       <Header />
       
-      {/* 🌟 Ajustamos el main para permitir que el banner sea full-bleed */}
-      <main className="pb-24">
+      <main className="pt-32 pb-24">
         
-        {/* 📸 1. SECCIÓN HERO CON IMAGEN DE FONDO REALZADA */}
-        <div className="relative w-full bg-emerald-950 pt-40 pb-24 px-4 mb-20 overflow-hidden text-center flex items-center justify-center min-h-[55vh]">
-          
-          {/* Tu imagen de fondo (Recuerda meter "fondo-social.png" en la carpeta /public) */}
-          <img 
-            src="/fondo-social.png" 
-            alt="Fondo Compromiso Social" 
-            className="absolute inset-0 w-full h-full object-cover opacity-45 select-none pointer-events-none"
-          />
-          
-          {/* Capa de degradado oscuro superior para que tu Header blanco sea 100% legible */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-emerald-950/20" />
-          
-          {/* Contenido del Manifiesto Adaptado */}
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <span className="text-gold text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-4 block drop-shadow-sm">
-              Valores con Propósito
-            </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 drop-shadow-md">
-              Nuestro <span className="italic font-semibold">compromiso social</span>
-            </h1>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
-            <p className="text-lg md:text-xl text-white/95 leading-relaxed font-light italic max-w-3xl mx-auto drop-shadow-sm">
-              "En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. 
-              Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños."
-            </p>
-          </div>
+        {/* 1. SECCIÓN HERO / MANIFIESTO CORPORATIVO (Limpio y elegante en fondo crema) */}
+        <div className="max-w-4xl mx-auto text-center mb-16 px-4">
+          <span className="text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4 block">
+            Valores con Propósito
+          </span>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-forest mb-8">
+            Nuestro <span className="italic font-semibold">compromiso social</span>
+          </h1>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
+          <p className="text-lg md:text-xl text-forest-light leading-relaxed font-light italic max-w-3xl mx-auto">
+            "En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. 
+            Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños."
+          </p>
         </div>
 
-        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL */}
-        <section className="max-w-4xl mx-auto mb-24 px-4 relative">
-          <div className="w-full relative aspect-[16/7] bg-white rounded-3xl shadow-sm border border-cream-dark transition-all duration-500 hover:shadow-md overflow-hidden">
-            <img 
-              src="/logo-colaboracion.png" 
-              alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
-              className="w-full h-full object-cover block mx-auto rounded-3xl"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                if (!target.src.includes('logo-colaboracion.png.png')) {
-                  target.src = "/logo-colaboracion.png.png";
-                }
-              }}
-            />
+        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL (Con fondo en las zonas laterales coloreadas en azul) */}
+        <section className="relative w-full bg-emerald-950 py-14 mb-24 overflow-hidden shadow-inner">
+          
+          {/* Imagen de fondo aplicada exclusivamente a los laterales de esta sección */}
+          <img 
+            src="/fondo-social.png" 
+            alt="Fondo Decorativo Compromiso" 
+            className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
+          />
+          
+          {/* Capa de brillo sutil para amalgamar el patrón */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
+
+          {/* Tarjeta contenedora del logo (Se mantiene centrada y limpia sobre el fondo) */}
+          <div className="max-w-4xl mx-auto px-4 relative z-10">
+            <div className="w-full relative aspect-[16/7] bg-white rounded-3xl shadow-md border border-cream-dark transition-all duration-500 hover:shadow-xl overflow-hidden">
+              <img 
+                src="/logo-colaboracion.png" 
+                alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
+                className="w-full h-full object-cover block mx-auto rounded-3xl"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.includes('logo-colaboracion.png.png')) {
+                    target.src = "/logo-colaboracion.png.png";
+                  }
+                }}
+              />
+            </div>
           </div>
         </section>
 
-        {/* 3. GRID DE MATERIALES DIDÁCTICOS */}
+        {/* 3. GRID DE MATERIALES DIDÁCTICOS (Limpio y legible sobre fondo crema) */}
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
             
