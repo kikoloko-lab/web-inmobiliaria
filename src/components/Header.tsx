@@ -58,7 +58,6 @@ function Header() {
               />
             </div>
             
-            {/* 🌟 AQUÍ ESTÁ EL CAMBIO: Ya no se oculta en móviles (`flex` en vez de `hidden sm:flex`) */}
             <div className="flex flex-col justify-center">
               <p className={`font-display text-sm sm:text-xl font-bold leading-tight transition-colors duration-300 ${
                 isHeaderActive ? "text-forest" : "text-white"
@@ -120,12 +119,44 @@ function Header() {
                 <img src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" alt="Logo" className="h-14 w-auto mb-2"/>
                 <h2 className="font-display text-base font-bold text-forest">Promoción y Gestión</h2>
               </div>
+              
               <div className="flex flex-col gap-5">
                 {navLinks.map((link) => (
                   <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
                     {link.label}
                   </Link>
                 ))}
+
+                {/* 🌟 ADAPTACIÓN CLAVE: Sección de Acción Social Desplegable para Móvil */}
+                <div className="flex flex-col">
+                  <button 
+                    onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
+                    className="flex items-center justify-between text-lg font-medium text-forest w-full text-left py-1 cursor-pointer"
+                  >
+                    <span>Acción Social</span>
+                    <ChevronDown className={`w-5 h-5 text-forest/60 transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  {/* Subenlaces del desplegable móvil */}
+                  <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${
+                    isMobileSubOpen ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                  }`}>
+                    {socialSubLinks.map((subLink) => (
+                      <Link 
+                        key={subLink.href} 
+                        href={subLink.href} 
+                        onClick={() => {
+                          setIsOpen(false); // Cierra el menú lateral completo
+                          setIsMobileSubOpen(false); // Resetea el desplegable interno
+                        }} 
+                        className="text-base font-medium text-forest-light hover:text-gold transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </SheetContent>
           </Sheet>
