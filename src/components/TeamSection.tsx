@@ -11,31 +11,31 @@ export function TeamSection() {
       image: "/image.png",
       role: "Consultora Inmobiliaria",
       subrole: "Graduada en Derecho",
-      description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y redes sociales. Se encarga de que cada propiedad brille en el mercado y de conectar de forma cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra.",
+      description: "Claudia combines an extraordinary energy with a native mastery of digital strategies and social media. She ensures each property shines in the market and connects closely and dynamically with the new generations of buyers looking for their home in the Sierra.",
     },
     {
       id: "elena",
       name: "Elena",
-      image: "/fotonuevaelena.jpeg", // 🌟 Imagen modificada aquí
+      image: "/fotonuevaelena.jpeg", // 🌟 Tu cambio guardado
       role: "Consultora Inmobiliaria",
-      subrole: "Grado en Turismo", // 🌟 Subrol modificado aquí
-      description: "Elena aporta una sensibilidad especial para entender las necesidades de cada familia antes incluso de que las expresen. Su empatía y capacidad de escucha activa hacen que la búsqueda de una vivienda se convierta en una experiencia tranquila, guiada y totalmente personalizada. Además, ofrece una atención multilingüe fluida, dominando el español, inglés, francés e italiano.", // 🌟 Descripción extendida aquí
-    },
-    {
-      id: "carmen",
-      name: "Carmen",
-      image: "/03_varmen (1).jpeg",
-      role: "Fundadora",
-      subrole: "Abogada en ejercicio",
-      description: "Carmen, fundadora con integridad y compromiso, lidera un equipo donde cada cliente es una prioridad, no un número. Su conocimiento profundo del mercado de Hoyo de Manzanares y la Sierra de Guadarrama es fruto de más de 15 años de dedicación exclusiva a esta zona.",
+      subrole: "Grado en Turismo", // 🌟 Tu cambio guardado
+      description: "Elena brings a special sensitivity to understanding the needs of each family even before they express them. Her empathy and active listening skills turn the home search into a calm, guided, and fully personalized experience. Additionally, she offers fluent multilingual care, mastering Spanish, English, French, and Italian.", // 🌟 Tu cambio guardado
     },
     {
       id: "luis",
       name: "Luis",
       image: "/04_luis.jpeg",
-      role: "Gestión Patrimonial",
-      subrole: "Arquitecto Superior con 33 años de experiencia",
-      description: "Luis es el pilar técnico y legal del equipo. Con una sólida trayectoria en la gestión patrimonial y análisis financiero, aporta la rigurosidad, seguridad y el marco legal impecable que nuestros clientes necesitan para tomar decisiones patrimoniales con absoluta tranquilidad.",
+      role: "Fundador", // 🌟 Rol principal actualizado
+      subrole: "Gestión Patrimonial · Arquitecto Superior", // 🌟 Subrol optimizado
+      description: "Como fundador de Promoción y Gestión Inmobiliaria, Luis lidera la firma aportando una visión estratégica respaldada por sus más de 33 años de experiencia como Arquitecto Superior. Especializado en la gestión patrimonial y el análisis técnico-financiero, su liderazgo garantiza que cada operación se evalúe con la máxima rigurosidad y solidez, convirtiendo las decisiones patrimoniales de nuestros clientes en un valor seguro.",
+    },
+    {
+      id: "carmen",
+      name: "Carmen",
+      image: "/03_varmen (1).jpeg",
+      role: "Directora Legal", // 🌟 Rol principal enfocado al ámbito jurídico
+      subrole: "Abogada en ejercicio",
+      description: "Carmen es el pilar y la salvaguarda jurídica de nuestro equipo. Como abogada en ejercicio con más de 15 años de dedicación exclusiva en Hoyo de Manzanares y la Sierra de Guadarrama, su rol principal es aportar un conocimiento legal exhaustivo en cada transacción. Su implicación asegura que cada contrato y proceso se desarrolle bajo un marco de absoluta transparencia, protección y total seguridad jurídica.",
     },
   ];
 
