@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientBody from "./ClientBody";
 import Script from "next/script";
+import Header from "@/components/Header"; // 🌟 1. IMPORTANTE: Importamos el Header aquí.
+// Nota: Si tu componente Header no está en esa ruta exacta, cambia el "@components/Header" por la tuya (por ejemplo: "../components/Header")
 
 export const metadata: Metadata = {
   title: "Promocion y Gestion Inmobiliaria | Hoyo de Manzanares",
@@ -30,7 +32,15 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="antialiased">
-        <ClientBody>{children}</ClientBody>
+        <ClientBody>
+          
+          {/* 🌟 2. Añadimos el Header aquí dentro */}
+          <Header /> 
+          
+          {/* Aquí Next.js cargará la página en la que estés (la Home, Quiénes Somos, etc.) */}
+          {children}
+
+        </ClientBody>
       </body>
     </html>
   );
