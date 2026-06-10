@@ -6,14 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, ChevronDown } from "lucide-react";
 
-// 🌟 RUTAS CORREGIDAS CON /# PARA QUE FUNCIONEN DESDE CUALQUIER PÁGINA
+// 🌟 MENÚ OPTIMIZADO: Eliminados duplicados e integrado "Quiénes somos"
 const navLinks = [
   { href: "/#vender", label: "Vender con Nosotros" },
-  { href: "/#equipo", label: "El equipo" },
-  { href: "/#contacto", label: "Contacto" },
+  { href: "/quienes-somos", label: "Quiénes somos" },
 ];
 
-// Subenlaces del desplegable de Acción Social
 const socialSubLinks = [
   { href: "/compromiso-social", label: "Juegaterapia" },
   { href: "/#cultura-flora", label: "Cultura de la flora" },
@@ -23,8 +21,6 @@ const socialSubLinks = [
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Estado para controlar el acordeón en móvil
   const [isMobileSubOpen, setIsMobileSubOpen] = useState(false);
 
   useEffect(() => {
@@ -75,14 +71,14 @@ function Header() {
           {/* Menú Desktop */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={`text-sm font-medium ${isScrolled ? "text-forest" : "text-white"}`}>
+              <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors hover:text-gold ${isScrolled ? "text-forest" : "text-white"}`}>
                 {link.label}
               </Link>
             ))}
 
-            {/* DESPLEGABLE DESKTOP: Acción Social */}
+            {/* Desplegable Acción Social */}
             <div className="relative group/dropdown py-2">
-              <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors ${isScrolled ? "text-forest" : "text-white"}`}>
+              <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors hover:text-gold ${isScrolled ? "text-forest" : "text-white"}`}>
                 Acción Social
                 <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
               </button>
@@ -105,10 +101,9 @@ function Header() {
 
           {/* Botones Derecha */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium ${isScrolled ? "text-forest" : "text-white"}`}>
-              <Phone className="w-4 h-4" /> +34 616 385 515
+            <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isScrolled ? "text-forest" : "text-white"}`}>
+              <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
             </a>
-            {/* 🌟 Botón "Quiero vender mi propiedad" ahora también te redirige correctamente */}
             <Link href="/#vender">
               <Button variant="gold" className="cursor-pointer">Quiero vender mi propiedad</Button>
             </Link>
@@ -126,23 +121,17 @@ function Header() {
             </SheetTrigger>
             
             <SheetContent side="right" className="bg-white p-6 w-[300px] sm:w-[350px] overflow-y-auto">
-              
-              {/* Cabecera Corporativa Móvil */}
-              <div className="flex flex-col items-center justify-center pt-6 pb-5 border-b border-forest/10 mb-6 text-center select-none">
+              <div className="flex flex-col items-center justify-center pt-6 pb-5 border-b border-forest/10 mb-6 text-center">
                 <img 
                   src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-                  alt="Logo Promoción y Gestión" 
+                  alt="Logo" 
                   className="h-14 w-auto object-contain mb-2"
                 />
                 <h2 className="font-display text-base font-bold text-forest leading-tight">
                   Promoción y Gestión
-                  <span className="block text-[11px] tracking-[0.2em] font-medium text-forest-light uppercase mt-0.5">
-                    Inmobiliaria
-                  </span>
                 </h2>
               </div>
 
-              {/* Enlaces de Navegación Móvil */}
               <div className="flex flex-col gap-5 pl-2">
                 {navLinks.map((link) => (
                   <Link 
@@ -155,7 +144,7 @@ function Header() {
                   </Link>
                 ))}
 
-                {/* ACORDEÓN MÓVIL: Acción Social */}
+                {/* Acordeón Móvil Acción Social */}
                 <div className="flex flex-col">
                   <button 
                     onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
@@ -180,17 +169,11 @@ function Header() {
                 </div>
               </div>
 
-              {/* Teléfono directo al final */}
               <div className="mt-8 pt-6 border-t border-forest/5 pl-2">
-                <a 
-                  href={whatsappConsultaUrl} 
-                  target="_blank" 
-                  className="flex items-center gap-2 text-sm font-medium text-forest-light"
-                >
+                <a href={whatsappConsultaUrl} target="_blank" className="flex items-center gap-2 text-sm font-medium text-forest-light">
                   <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
                 </a>
               </div>
-
             </SheetContent>
           </Sheet>
         </nav>
