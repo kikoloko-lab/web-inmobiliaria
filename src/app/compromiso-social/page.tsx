@@ -52,42 +52,43 @@ export default function CompromisoSocialPage() {
   ];
 
   return (
-    <div className="bg-cream min-h-screen text-forest selection:bg-forest selection:text-white">
-      <Header />
+    <div className="bg-emerald-950 min-h-screen text-white relative selection:bg-gold selection:text-emerald-950">
       
-      <main className="pt-32 pb-24">
+      {/* 🌌 FONDO GLOBAL DE LA PÁGINA (Cubre todo de arriba a abajo de forma fija) */}
+      <div className="fixed inset-0 z-0 select-none pointer-events-none">
+        <img 
+          src="/fondo-social.png" 
+          alt="Fondo Estrellas Compromiso Social" 
+          className="w-full h-full object-cover opacity-35"
+        />
+        {/* Capa de degradado para suavizar el fondo y asegurar legibilidad */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-emerald-950/80" />
+      </div>
+
+      {/* Contenido por encima del fondo */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Header />
         
-        {/* 1. SECCIÓN HERO / MANIFIESTO CORPORATIVO (Limpio y elegante en fondo crema) */}
-        <div className="max-w-4xl mx-auto text-center mb-16 px-4">
-          <span className="text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4 block">
-            Valores con Propósito
-          </span>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-forest mb-8">
-            Nuestro <span className="italic font-semibold">compromiso social</span>
-          </h1>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
-          <p className="text-lg md:text-xl text-forest-light leading-relaxed font-light italic max-w-3xl mx-auto">
-            "En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. 
-            Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños."
-          </p>
-        </div>
-
-        {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL (Con fondo en las zonas laterales coloreadas en azul) */}
-        <section className="relative w-full bg-emerald-950 py-14 mb-24 overflow-hidden shadow-inner">
+        <main className="pt-40 pb-24 flex-grow">
           
-          {/* Imagen de fondo aplicada exclusivamente a los laterales de esta sección */}
-          <img 
-            src="/fondo-social.png" 
-            alt="Fondo Decorativo Compromiso" 
-            className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
-          />
-          
-          {/* Capa de brillo sutil para amalgamar el patrón */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
+          {/* 1. SECCIÓN HERO / MANIFIESTO (Textos adaptados a blanco) */}
+          <div className="max-w-4xl mx-auto text-center mb-16 px-4">
+            <span className="text-gold text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-4 block drop-shadow-sm">
+              Valores con Propósito
+            </span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 drop-shadow-md">
+              Nuestro <span className="italic font-semibold">compromiso social</span>
+            </h1>
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light italic max-w-3xl mx-auto drop-shadow-sm">
+              "En Promoción y Gestión Inmobiliaria creemos que cuidar el entorno es cuidar nuestro hogar. 
+              Junto a Juegaterapia, convertimos el aprendizaje en un juego para los más pequeños."
+            </p>
+          </div>
 
-          {/* Tarjeta contenedora del logo (Se mantiene centrada y limpia sobre el fondo) */}
-          <div className="max-w-4xl mx-auto px-4 relative z-10">
-            <div className="w-full relative aspect-[16/7] bg-white rounded-3xl shadow-md border border-cream-dark transition-all duration-500 hover:shadow-xl overflow-hidden">
+          {/* 2. BANNER DE COLABORACIÓN INSTITUCIONAL */}
+          <section className="max-w-4xl mx-auto mb-24 px-4">
+            <div className="w-full relative aspect-[16/7] bg-white rounded-3xl shadow-2xl border border-white/10 transition-all duration-500 hover:shadow-gold/10 overflow-hidden">
               <img 
                 src="/logo-colaboracion.png" 
                 alt="Alianza Promoción y Gestión Inmobiliaria y Juegaterapia" 
@@ -100,95 +101,95 @@ export default function CompromisoSocialPage() {
                 }}
               />
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* 3. GRID DE MATERIALES DIDÁCTICOS (Limpio y legible sobre fondo crema) */}
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
-            
-            {/* COLUMNA PAPEL */}
-            <div>
-              <div className="flex items-center gap-3 pb-4 border-b border-forest/10 mb-8">
-                <div className="w-8 h-8 rounded-full bg-forest flex items-center justify-center shadow-sm">
-                  <Leaf className="w-4 h-4 text-gold" />
-                </div>
-                <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-forest">
-                  Reciclaje Papel
-                </h2>
-              </div>
-
-              <div className="space-y-6">
-                {papelFichas.map((ficha, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
-                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
-                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="flex flex-col justify-between flex-1">
-                      <div>
-                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
-                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
-                      </div>
-                      <a href={ficha.file} download className="block w-full sm:w-fit">
-                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
-                          <Download className="w-3.5 h-3.5" />
-                          Descargar PDF
-                        </Button>
-                      </a>
-                    </div>
+          {/* 3. GRID DE MATERIALES DIDÁCTICOS */}
+          <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
+              
+              {/* COLUMNA PAPEL */}
+              <div>
+                <div className="flex items-center gap-3 pb-4 border-b border-white/10 mb-8">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shadow-sm">
+                    <Leaf className="w-4 h-4 text-gold" />
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* COLUMNA PLÁSTICO */}
-            <div>
-              <div className="flex items-center gap-3 pb-4 border-b border-gold/20 mb-8">
-                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shadow-sm">
-                  <Leaf className="w-4 h-4 text-gold-dark" />
+                  <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-white">
+                    Reciclaje Papel
+                  </h2>
                 </div>
-                <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-gold-dark">
-                  Reciclaje Plástico
-                </h2>
-              </div>
 
-              <div className="space-y-6">
-                {plasticoFichas.map((ficha, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300 group">
-                    <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
-                      <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="flex flex-col justify-between flex-1">
-                      <div>
-                        <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
-                        <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
+                <div className="space-y-6">
+                  {papelFichas.map((ficha, i) => (
+                    <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-white/5 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                      <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
+                        <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
                       </div>
-                      <a href={ficha.file} download className="block w-full sm:w-fit">
-                        <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
-                          <Download className="w-3.5 h-3.5" />
-                          Descargar PDF
-                        </Button>
-                      </a>
+                      <div className="flex flex-col justify-between flex-1">
+                        <div>
+                          <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
+                          <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
+                        </div>
+                        <a href={ficha.file} download className="block w-full sm:w-fit">
+                          <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
+                            <Download className="w-3.5 h-3.5" />
+                            Descargar PDF
+                          </Button>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
+              {/* COLUMNA PLÁSTICO */}
+              <div>
+                <div className="flex items-center gap-3 pb-4 border-b border-white/10 mb-8">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shadow-sm">
+                    <Leaf className="w-4 h-4 text-gold" />
+                  </div>
+                  <h2 className="font-display text-2xl font-medium tracking-wide uppercase text-white">
+                    Reciclaje Plástico
+                  </h2>
+                </div>
+
+                <div className="space-y-6">
+                  {plasticoFichas.map((ficha, i) => (
+                    <div key={i} className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-white/5 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                      <div className="w-full sm:w-24 h-32 bg-cream rounded-xl flex-shrink-0 overflow-hidden shadow-inner border border-cream-dark relative">
+                        <img src={ficha.thumb} alt={ficha.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div className="flex flex-col justify-between flex-1">
+                        <div>
+                          <h3 className="font-sans font-semibold text-forest text-lg mb-1">{ficha.title}</h3>
+                          <p className="text-xs text-forest-light leading-relaxed mb-4">{ficha.desc}</p>
+                        </div>
+                        <a href={ficha.file} download className="block w-full sm:w-fit">
+                          <Button variant="gold" size="sm" className="w-full sm:w-auto gap-2 text-xs cursor-pointer">
+                            <Download className="w-3.5 h-3.5" />
+                            Descargar PDF
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
-
           </div>
-        </div>
 
-        {/* 4. CIERRE AFECTIVO */}
-        <div className="mt-24 text-center max-w-md mx-auto px-4 relative z-10">
-          <Heart className="w-5 h-5 text-gold mx-auto mb-3" />
-          <p className="text-xs text-forest-light italic">
-            "Pequeños gestos que transforman entornos y regalan sonrisas."
-          </p>
-        </div>
+          {/* 4. CIERRE AFECTIVO */}
+          <div className="mt-24 text-center max-w-md mx-auto px-4">
+            <Heart className="w-5 h-5 text-gold mx-auto mb-3 animate-pulse" />
+            <p className="text-xs text-white/70 italic">
+              "Pequeños gestos que transforman entornos y regalan sonrisas."
+            </p>
+          </div>
 
-      </main>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
