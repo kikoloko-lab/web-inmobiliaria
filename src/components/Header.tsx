@@ -115,9 +115,12 @@ function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-white p-6 w-[300px]">
-              <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6">
+              
+              {/* 🌟 AQUÍ ESTÁ EL CAMBIO: Añadida la línea de 'Inmobiliaria' al logo del menú móvil */}
+              <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
                 <img src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" alt="Logo" className="h-14 w-auto mb-2"/>
-                <h2 className="font-display text-base font-bold text-forest">Promoción y Gestión</h2>
+                <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium mt-1">Inmobiliaria</p>
               </div>
               
               <div className="flex flex-col gap-5">
@@ -127,7 +130,7 @@ function Header() {
                   </Link>
                 ))}
 
-                {/* 🌟 ADAPTACIÓN CLAVE: Sección de Acción Social Desplegable para Móvil */}
+                {/* Sección de Acción Social Desplegable para Móvil */}
                 <div className="flex flex-col">
                   <button 
                     onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
@@ -146,8 +149,8 @@ function Header() {
                         key={subLink.href} 
                         href={subLink.href} 
                         onClick={() => {
-                          setIsOpen(false); // Cierra el menú lateral completo
-                          setIsMobileSubOpen(false); // Resetea el desplegable interno
+                          setIsOpen(false);
+                          setIsMobileSubOpen(false);
                         }} 
                         className="text-base font-medium text-forest-light hover:text-gold transition-colors"
                       >
