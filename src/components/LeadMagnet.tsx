@@ -12,7 +12,7 @@ export function LeadMagnet() {
     // (Si prefieres que salga al instante, puedes cambiar el 8000 por 0).
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 8000);
+    }, 0);
 
     return () => clearTimeout(timer);
   }, []);
