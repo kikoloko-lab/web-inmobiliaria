@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -85,18 +85,6 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* 🌟 RECONFIGURADO: Enlace de descarga directa nativa (Visible en móvil y PC siempre) */}
-      <div className="absolute bottom-8 left-4 lg:left-8 z-10 block">
-        <a
-          href="/guia_valoracion_2026.pdf"
-          download="Guia_Valoracion_Inmobiliaria_2026.pdf"
-          className="inline-flex items-center gap-2 bg-[#d7b56d] hover:bg-[#c9a75d] text-[#1c3c2e] px-4 py-2.5 rounded-full text-xs md:text-sm font-medium transition-colors shadow-lg cursor-pointer decoration-none"
-        >
-          <Download className="w-4 h-4" />
-          <span>Guia: Valorar tu casa 2026</span>
-        </a>
       </div>
 
       {/* Scroll Indicator (Centro) */}
