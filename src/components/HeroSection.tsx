@@ -1,10 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Download } from "lucide-react"; // 🌟 Añadido el icono Download
+import { ChevronDown, Download } from "lucide-react";
+import { DownloadModal } from "./DownloadModal"; // 🌟 Importamos el nuevo modal
 
 export function HeroSection() {
+  // 🌟 Estado para controlar si el modal está abierto o cerrado
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -87,16 +92,15 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* 🌟 NUEVO BOTÓN: Descarga de Guía (Esquina inferior izquierda) */}
-      <div className="absolute bottom-8 left-4 lg:left-8 z-10 hidden sm:block">
-        <a
-          href="/guia_valoracion_2026.pdf"
-          download="Guia_Valoracion_Inmobiliaria_2026.pdf"
-          className="inline-flex items-center gap-2 bg-[#d7b56d] hover:bg-[#c9a75d] text-[#1c3c2e] px-4 py-2.5 rounded-full text-xs md:text-sm font-medium transition-colors shadow-lg cursor-pointer"
+      {/* 🌟 BOTÓN MODIFICADO: Ahora abre el modal al hacer clic y se ve tanto en móvil como en PC */}
+      <div className="absolute bottom-8 left-4 lg:left-8 z-10 block">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="inline-flex items-center gap-2 bg-[#d7b56d] hover:bg-[#c9a75d] text-[#1c3c2e] px-4 py-2.5 rounded-full text-xs md:text-sm font-medium transition-colors shadow-lg cursor-pointer border-none"
         >
           <Download className="w-4 h-4" />
           <span>Guia: Valorar tu casa 2026</span>
-        </a>
+        </button>
       </div>
 
       {/* Scroll Indicator (Centro) */}
@@ -109,6 +113,9 @@ export function HeroSection() {
           <ChevronDown className="w-5 h-5 animate-bounce" />
         </a>
       </div>
+
+      {/* 🌟 INYECCIÓN DEL MODAL */}
+      <DownloadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
