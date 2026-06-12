@@ -1,11 +1,52 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Send, Download } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Download, Loader2 } from "lucide-react";
 
 export function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Recogemos los datos del formulario de forma automática
+    const formData = new FormData(e.currentTarget);
+    const datosFormulario = {
+      nombre: formData.get("name"),
+      telefono: formData.get("phone"),
+      mensaje: formData.get("message"),
+    };
+
+    try {
+      // Hacemos la petición a nuestra API interna
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosFormulario),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.");
+        e.currentTarget.reset(); // Limpia el formulario automáticamente
+      } else {
+        alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      }
+    } catch (error) {
+      console.error("Error en el envío:", error);
+      alert("Error de conexión con el servidor.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contacto" className="py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
@@ -93,23 +134,13 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Side - Form (🌟 MODIFICADO AQUÍ PARA ENVIAR CORREOS REALES) */}
+          {/* Right Side - Form */}
           <div className="bg-cream rounded-2xl p-8 lg:p-10">
             <h3 className="font-display text-2xl font-semibold text-forest mb-6">
               Envíanos un mensaje
             </h3>
 
-            <form 
-              action="https://formsubmit.co/contacto@pygi.es" 
-              method="POST" 
-              className="space-y-6"
-            >
-              {/* Opciones ocultas de control para FormSubmit */}
-              <input type="hidden" name="_subject" value="¡Nuevo mensaje desde la Web PYGI!" />
-              <input type="hidden" name="_captcha" value="false" />
-              {/* Si quieres que redirija a tu web principal tras enviar, descomenta la línea de abajo: */}
-              {/* <input type="hidden" name="_next" value="https://pygi.es" /> */}
-
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-forest mb-2">
                   Nombre
@@ -151,9 +182,24 @@ export function ContactSection() {
                 />
               </div>
 
-              <Button type="submit" variant="gold" size="lg" className="w-full gap-2 cursor-pointer">
-                <Send className="w-4 h-4" />
-                Enviar mensaje
+              <Button 
+                type="submit" 
+                variant="gold" 
+                size="lg" 
+                className="w-full gap-2 cursor-pointer"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    Enviar mensaje
+                  </>
+                )}
               </Button>
 
               <p className="text-xs text-forest-light text-center">
