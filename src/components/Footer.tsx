@@ -26,16 +26,29 @@ function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            {/* 🌟 CONTENEDOR ESTILO HEADER (Protege el fondo blanco y formato horizontal) */}
-            <div className="relative h-16 w-full max-w-[240px] bg-white px-4 py-2 rounded-xl flex items-center justify-center mb-6 shadow-md">
-              <Image
-                src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg"
-                alt="Promoción y Gestión Inmobiliaria"
-                width={220}
-                height={55}
-                className="object-contain max-h-full max-w-full"
-                priority
-              />
+            
+            {/* 🌟 ENLACE DE MARCA: LOGO A LA IZQUIERDA Y TEXTO A LA DERECHA */}
+            <div className="flex items-center gap-4 mb-6">
+              {/* Contenedor del Logo PNG Transparente */}
+              <div className="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                <Image
+                  src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png"
+                  alt="Logo Promoción y Gestión"
+                  width={64}
+                  height={64}
+                  className="object-contain w-full h-full"
+                  priority
+                />
+              </div>
+              {/* Texto corporativo al lado estilo Header */}
+              <div>
+                <p className="font-display text-lg font-semibold leading-tight text-white">
+                  Promoción y Gestión
+                </p>
+                <p className="text-xs tracking-widest uppercase text-gold mt-1">
+                  Inmobiliaria
+                </p>
+              </div>
             </div>
 
             {/* TEXTO ADAPTADO DE IDEALISTA */}
