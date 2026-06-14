@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Languages } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -25,19 +26,23 @@ function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
-                <span className="font-display text-xl font-bold text-gold">P&G</span>
-              </div>
-              <div>
-                <p className="font-display text-lg font-semibold">Promoción y Gestión</p>
-                <p className="text-xs tracking-widest uppercase text-white/60">Inmobiliaria</p>
-              </div>
+            {/* 🌟 CONTENEDOR ESTILO HEADER (Protege el fondo blanco y formato horizontal) */}
+            <div className="relative h-16 w-full max-w-[240px] bg-white px-4 py-2 rounded-xl flex items-center justify-center mb-6 shadow-md">
+              <Image
+                src="/logotipo inmobiliara promocion y gestion inmobiliaria.jpg"
+                alt="Promoción y Gestión Inmobiliaria"
+                width={220}
+                height={55}
+                className="object-contain max-h-full max-w-full"
+                priority
+              />
             </div>
-            {/* 🌟 TEXTO ADAPTADO DE IDEALISTA */}
+
+            {/* TEXTO ADAPTADO DE IDEALISTA */}
             <p className="text-white/70 text-sm leading-relaxed mb-6">
               Somos arquitectos y abogados con más de 30 años de experiencia. Resolvemos directamente cualquier trámite técnico y legal: herencias, catastro, registro y financiación.
             </p>
+            
             {/* Social Links */}
             <div className="flex items-center gap-3 mb-6">
               <a
@@ -65,9 +70,9 @@ function Footer() {
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
-            {/* 🌟 IDIOMAS DE LA FICHA DE IDEALISTA */}
+            {/* IDIOMAS DE LA FICHA DE IDEALISTA */}
             <div className="flex items-center gap-2 text-xs text-white/50">
-              <Languages className="w-3..5 h-3.5 text-gold" />
+              <Languages className="w-3.5 h-3.5 text-gold" />
               <span>Español · English · Français · Italiano</span>
             </div>
           </div>
@@ -110,7 +115,7 @@ function Footer() {
                 <Mail className="w-4 h-4 text-gold" />
                 contacto@pygi.es
               </a>
-              {/* 🌟 DIRECCIÓN POSTAL EXACTA DE IDEALISTA */}
+              {/* DIRECCIÓN POSTAL EXACTA DE IDEALISTA */}
               <div className="flex items-start gap-3 text-white/70 text-sm">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                 <span>Paseo Mayor 15<br />28240 Hoyo de Manzanares, Madrid</span>
