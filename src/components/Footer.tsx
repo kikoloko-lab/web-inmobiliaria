@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Languages } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const navLinks = [
@@ -34,12 +34,12 @@ function Footer() {
                 <p className="text-xs tracking-widest uppercase text-white/60">Inmobiliaria</p>
               </div>
             </div>
+            {/* 🌟 TEXTO ADAPTADO DE IDEALISTA */}
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Especialistas en Hoyo de Manzanares y alrededores.
-              Profesionalidad, cercanía y éxito.
+              Somos arquitectos y abogados con más de 30 años de experiencia. Resolvemos directamente cualquier trámite técnico y legal: herencias, catastro, registro y financiación.
             </p>
             {/* Social Links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-6">
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -64,6 +64,11 @@ function Footer() {
               >
                 <Linkedin className="w-4 h-4" />
               </a>
+            </div>
+            {/* 🌟 IDIOMAS DE LA FICHA DE IDEALISTA */}
+            <div className="flex items-center gap-2 text-xs text-white/50">
+              <Languages className="w-3..5 h-3.5 text-gold" />
+              <span>Español · English · Français · Italiano</span>
             </div>
           </div>
 
@@ -98,7 +103,6 @@ function Footer() {
                 <Phone className="w-4 h-4 text-gold" />
                 +34 616 385 515
               </a>
-              {/* 🌟 CORREO ACTUALIZADO */}
               <a
                 href="mailto:contacto@pygi.es"
                 className="flex items-center gap-3 text-white/70 hover:text-gold transition-colors text-sm"
@@ -106,9 +110,10 @@ function Footer() {
                 <Mail className="w-4 h-4 text-gold" />
                 contacto@pygi.es
               </a>
+              {/* 🌟 DIRECCIÓN POSTAL EXACTA DE IDEALISTA */}
               <div className="flex items-start gap-3 text-white/70 text-sm">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
-                <span>Hoyo de Manzanares<br />28240 Madrid</span>
+                <span>Paseo Mayor 15<br />28240 Hoyo de Manzanares, Madrid</span>
               </div>
             </div>
           </div>
@@ -118,7 +123,6 @@ function Footer() {
             <h4 className="font-display text-lg font-semibold mb-6 text-gold">
               Horario
             </h4>
-            {/* 🌟 NUEVOS HORARIOS CONFIGURADOS */}
             <div className="space-y-2 text-sm text-white/70">
               <p>Lunes - Viernes</p>
               <p className="text-white">10:00 - 14:00 y 17:00 - 20:00</p>
