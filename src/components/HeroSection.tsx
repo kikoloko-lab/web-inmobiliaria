@@ -33,18 +33,16 @@ export function HeroSection() {
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold" />
           </div>
 
-          {/* Main Headline */}
+          {/* 🌟 ES LOGAN POTENTE DE IDEALISTA */}
           <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight mb-6">
-            Tu hogar en la Sierra,
+            ¡Venda su casa
             <br />
-            <span className="font-semibold italic text-gold">gestionado con alma.</span>
+            <span className="font-semibold italic text-gold">con quien las hace!</span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto mb-10">
-            En Promocion y Gestion Inmobiliaria unimos la exclusividad de Hoyo de Manzanares
-            con el trato humano que mereces.
-            <span className="font-medium text-gold-light"> Carmen y Elena te acompañan a casa.</span>
+          {/* 🌟 SUBTÍTULO CON VALOR DIFERENCIAL */}
+          <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+            Somos <span className="font-medium text-gold-light">arquitectos y abogados</span> con más de 30 años de experiencia. Valoramos su vivienda gratuitamente y gestionamos con seguridad jurídica y técnica todo el proceso.
           </p>
 
           {/* CTA Buttons */}
@@ -69,19 +67,19 @@ export function HeroSection() {
             </Link>
           </div>
 
-          {/* Trust indicators */}
+          {/* 🌟 PÍLDORAS DE CONFIANZA ACTUALIZADAS */}
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-white/70 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
-              <span>+15 años en la Sierra</span>
+              <span>Arquitectos y Abogados</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
-              <span>Especialistas en Hoyo de Manzanares</span>
+              <span>+30 años de experiencia técnica y legal</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
-              <span>Trato personalizado</span>
+              <span>Valoración gratuita de su vivienda</span>
             </div>
           </div>
         </div>
@@ -93,7 +91,7 @@ export function HeroSection() {
           href="#por-que-nosotros"
           className="flex flex-col items-center gap-2 text-white/60 hover:text-gold transition-colors group"
         >
-          <span className="text-xs tracking-widest uppercase">Descubre mas</span>
+          <span className="text-xs tracking-widest uppercase">Descubre más</span>
           <ChevronDown className="w-5 h-5 animate-bounce" />
         </a>
       </div>
