@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
     // 1. Enviar el correo al CLIENTE con su regalo
     await resend.emails.send({
-      from: 'Web Inmobiliaria <onboarding@resend.dev>', 
+      from: 'Promoción y Gestión Inmobiliaria <contacto@pygi.es>', // 🌟 Cambiado a tu dominio oficial
       to: email,
       subject: '🎁 Aquí tienes tu Guía Exclusiva - PYGI',
       html: `
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
     // 2. Avisarte a TI (contacto@pygi.es) de que tienes un nuevo interesado
     await resend.emails.send({
-      from: 'Web Inmobiliaria <onboarding@resend.dev>', 
+      from: 'Web PYGI <contacto@pygi.es>', // 🌟 Cambiado a tu dominio oficial
       to: 'contacto@pygi.es',
       subject: '🔥 ¡Nuevo Lead! Alguien ha descargado la guía',
       html: `
