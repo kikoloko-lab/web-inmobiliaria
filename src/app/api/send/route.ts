@@ -5,11 +5,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    // Cambiamos 'email' por 'mensaje' para que coincida con tu formulario
     const { nombre, telefono, mensaje } = await request.json();
 
     const data = await resend.emails.send({
-      from: 'Web Inmobiliaria <onboarding@resend.dev>', 
+      from: 'Web PYGI <contacto@pygi.es>', // 🌟 Cambiado a tu dominio oficial
       to: 'contacto@pygi.es',
       subject: '🔥 ¡Nuevo mensaje desde la Web PYGI!',
       html: `
