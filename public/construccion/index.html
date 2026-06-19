@@ -3,99 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios de Construcción y Reformas Profesionales</title>
+    <title>CONSTRUCCIÓN Y REFORMAS | Promoción y Gestión INMOBILIARIA PYGI.ES</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                pygi: {
+                  green: '#1A531A', // Verde corporativo elegante de PYGI
+                  gold: '#D4AF37',  // Dorado/Amarillo corporativo de los botones
+                  black: '#333333', // Texto principal oscuro
+                  grey: '#777777',  // Texto secundario gris
+                  lightgrey: '#F5F5F5' // Fondo secciones claras
+                }
+              },
+              fontFamily: {
+                sans: ['"Inter"', 'sans-serif'], // Fuente limpia estilo PYGI
+              }
+            }
+          }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Ajuste fino para la fuente predeterminada */
+        body { font-family: 'Inter', sans-serif; color: #333333; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-white">
 
-    <header class="relative bg-slate-900 text-white py-24 px-6 overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200');"></div>
-        <div class="relative max-w-5xl mx-auto text-center">
-            <span class="bg-amber-500 text-slate-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Servicios Profesionales</span>
-            <h1 class="text-4xl md:text-6xl font-black mt-4 tracking-tight">CONSTRUCCIONES Y REFORMAS</h1>
-            <p class="text-lg md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto font-light">
-                Hacemos realidad tus proyectos con la máxima garantía, plazos cerrados y presupuestos a tu medida.
-            </p>
-            <div class="mt-10">
-                <a href="tel:+34600000000" class="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-lg shadow-lg transition-all text-lg transform hover:-translate-y-1">
-                    <i class="fa-solid fa-phone"></i> Solicitar Presupuesto Gratis
+    <nav class="bg-white shadow-sm border-b border-gray-100 py-3 px-4 md:px-10 sticky top-0 z-50">
+        <div class="max-w-[1500px] mx-auto flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center gap-2">
+                <img src="https://pygi.es/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo_inmobiliaria.127e268f.png&w=96&q=75" alt="Logo PYGI" class="h-10 md:h-12 w-auto">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-extrabold text-pygi-green leading-tight">Promoción y Gestión</span>
+                    <span class="text-xs text-pygi-grey uppercase tracking-widest -mt-1">INMOBILIARIA</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center gap-6 text-sm">
+                <div class="hidden md:flex items-center gap-2 text-pygi-grey">
+                    <i class="fa-solid fa-phone text-pygi-green text-lg"></i>
+                    <span>+34 616 385 515</span>
+                </div>
+                <a href="tel:+34616385515" class="bg-pygi-gold hover:bg-opacity-90 text-black text-xs md:text-sm font-semibold px-4 py-3 md:px-6 md:py-3 rounded-md shadow-sm transition-all whitespace-nowrap">
+                    Solicitar Presupuesto Construcción
                 </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-white pt-16 pb-24 px-4 md:px-10 overflow-hidden">
+        <div class="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="relative z-10 text-left">
+                <span class="text-pygi-green font-semibold uppercase text-xs tracking-widest bg-pygi-green bg-opacity-10 px-3 py-1 rounded-full">Servicios Profesionales de Construcción</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-6 tracking-tight text-pygi-black">REFORMAS INTEGRALES Y <span class="text-pygi-green">OBRA NUEVA</span></h1>
+                <p class="text-lg md:text-xl text-pygi-grey mt-8 leading-relaxed font-light">
+                    En Promoción y Gestión INMOBILIARIA PYGI ejecutamos tus proyectos de edificación con la misma <span class="font-medium text-pygi-black">transparencia y profesionalidad</span> que aplicamos en el sector inmobiliario. Garantizamos plazos cerrados y acabados de primera calidad.
+                </p>
+                <div class="mt-12 flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+34616385515" class="inline-flex items-center justify-center gap-3 bg-pygi-gold hover:bg-opacity-90 text-black font-bold px-10 py-5 rounded-lg shadow-lg transition-all text-lg transform hover:-translate-y-1">
+                        <i class="fa-solid fa-phone-alt"></i> Contactar Técnico Pygi
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000" alt="Obra de construcción" class="rounded-2xl shadow-xl w-full object-cover h-[400px] md:h-[500px]">
+                <div class="absolute -bottom-6 -left-6 bg-pygi-green text-white p-6 rounded-xl shadow-lg flex items-center gap-4">
+                    <i class="fa-solid fa-check-circle text-4xl text-white"></i>
+                    <div>
+                        <p class="text-3xl font-bold">100%</p>
+                        <p class="text-xs uppercase tracking-widest text-opacity-80">Garantía de Plazos</p>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="max-w-6xl mx-auto py-16 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 text-xl mb-6">
-                    <i class="fa-solid fa-hard-hat"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Personal Cualificado</h3>
-                <p class="text-slate-600 mt-3">Equipo técnico y operarios con años de experiencia en el sector.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 text-xl mb-6">
-                    <i class="fa-solid fa-clock"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Plazos Garantizados</h3>
-                <p class="text-slate-600 mt-3">Cumplimos estrictamente las fechas de entrega acordadas por contrato.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 text-xl mb-6">
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Presupuesto Cerrado</h3>
-                <p class="text-slate-600 mt-3">Sin sorpresas de última hora ni costes ocultos durante la obra.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-slate-100 py-16 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-extrabold text-center text-slate-900 tracking-tight">¿Qué podemos hacer por ti?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                <div class="flex gap-4 items-start p-4 bg-white rounded-lg">
-                    <i class="fa-solid fa-check text-amber-500 text-xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900">Reformas Integrales</h4>
-                        <p class="text-slate-600 text-sm mt-1">Viviendas, locales comerciales y oficinas con acabados de alta calidad.</p>
+    <section class="bg-pygi-lightgrey py-20 px-4 md:px-10">
+        <div class="max-w-[1300px] mx-auto text-center">
+            <h2 class="text-3xl font-bold text-pygi-black tracking-tight">Compromiso Pygi en cada Obra</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
+                    <div class="w-16 h-16 bg-white rounded-xl shadow-inner flex items-center justify-center text-pygi-green text-3xl mb-8 border border-gray-100 mx-auto">
+                        <i class="fa-solid fa-hard-hat"></i>
                     </div>
+                    <h3 class="text-xl font-semibold text-pygi-black">Técnicos Senior</h3>
+                    <p class="text-pygi-grey mt-4 leading-relaxed text-sm">Equipo formado por arquitectos técnicos y operarios especializados con amplia trayectoria.</p>
                 </div>
-                <div class="flex gap-4 items-start p-4 bg-white rounded-lg">
-                    <i class="fa-solid fa-check text-amber-500 text-xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900">Obra Nueva y Ampliaciones</h4>
-                        <p class="text-slate-600 text-sm mt-1">Construcción desde los cimientos y ampliaciones estructurales.</p>
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
+                    <div class="w-16 h-16 bg-white rounded-xl shadow-inner flex items-center justify-center text-pygi-green text-3xl mb-8 border border-gray-100 mx-auto">
+                        <i class="fa-solid fa-calendar-day"></i>
                     </div>
+                    <h3 class="text-xl font-semibold text-pygi-black">Fechas Cerradas</h3>
+                    <p class="text-pygi-grey mt-4 leading-relaxed text-sm">Nos tomamos en serio tu tiempo. Cumplimos estrictamente el calendario de obra acordado.</p>
                 </div>
-                <div class="flex gap-4 items-start p-4 bg-white rounded-lg">
-                    <i class="fa-solid fa-check text-amber-500 text-xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900">Fachadas y Tejados</h4>
-                        <p class="text-slate-600 text-sm mt-1">Rehabilitación, aislamiento térmico y reparación de humedades.</p>
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
+                    <div class="w-16 h-16 bg-white rounded-xl shadow-inner flex items-center justify-center text-pygi-green text-3xl mb-8 border border-gray-100 mx-auto">
+                        <i class="fa-solid fa-file-signature"></i>
                     </div>
-                </div>
-                <div class="flex gap-4 items-start p-4 bg-white rounded-lg">
-                    <i class="fa-solid fa-check text-amber-500 text-xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900">Estructuras de Hormigón</h4>
-                        <p class="text-slate-600 text-sm mt-1">Cimentaciones, muros y forjados con máxima seguridad técnica.</p>
-                    </div>
+                    <h3 class="text-xl font-semibold text-pygi-black">Presupuesto Sin Sorpresas</h3>
+                    <p class="text-pygi-grey mt-4 leading-relaxed text-sm">Todo detallado en contrato antes del inicio. Precios fijos y transparentes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center border-t border-slate-800">
-        <div class="max-w-4xl mx-auto">
-            <p class="text-white font-bold text-lg">¿Tienes un proyecto en mente?</p>
-            <p class="text-sm mt-2">Contáctanos para concertar una visita técnica y preparar tu estudio.</p>
-            <div class="flex flex-wrap justify-center gap-6 mt-6 text-sm">
-                <span><i class="fa-solid fa-envelope text-amber-500 mr-2"></i> info@tuempresa.com</span>
-                <span><i class="fa-solid fa-location-dot text-amber-500 mr-2"></i> España</span>
+    <section class="bg-white py-20 px-4 md:px-10">
+        <div class="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-extrabold text-pygi-black tracking-tight leading-tight">Expertos en transformar <br><span class="text-pygi-green">tus espacios</span></h2>
+                <p class="text-pygi-grey mt-6 leading-relaxed">Combinamos diseño funcional con ejecución técnica impecable para todo tipo de proyectos.</p>
+                <a href="tel:+34616385515" class="inline-flex items-center justify-center gap-3 bg-pygi-green hover:bg-opacity-95 text-white font-bold mt-10 px-8 py-4 rounded-lg shadow-md transition-all text-sm">
+                    Solicitar Estudio Gratuito
+                </a>
             </div>
-            <p class="text-xs text-slate-600 mt-10">&copy; 2026 Todos los derechos reservados.</p>
+            <div class="space-y-6">
+                <div class="flex gap-4 p-5 bg-pygi-lightgrey rounded-lg border border-gray-100 items-center">
+                    <i class="fa-solid fa-circle-check text-pygi-green text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-pygi-black text-sm">Reformas Integrales de Viviendas</h4>
+                        <p class="text-pygi-grey text-xs mt-1">Acabados de lujo y máxima eficiencia energética.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-5 bg-pygi-lightgrey rounded-lg border border-gray-100 items-center">
+                    <i class="fa-solid fa-circle-check text-pygi-green text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-pygi-black text-sm">Acondicionamiento de Locales Comerciales</h4>
+                        <p class="text-pygi-grey text-xs mt-1">Proyectos "llave en mano" para tu negocio.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-5 bg-pygi-lightgrey rounded-lg border border-gray-100 items-center">
+                    <i class="fa-solid fa-circle-check text-pygi-green text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-pygi-black text-sm">Obra Nueva y Estructuras</h4>
+                        <p class="text-pygi-grey text-xs mt-1">Cimentaciones profesionales y edificación segura.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-5 bg-pygi-lightgrey rounded-lg border border-gray-100 items-center">
+                    <i class="fa-solid fa-circle-check text-pygi-green text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-pygi-black text-sm">Mantenimiento y Rehabilitación</h4>
+                        <p class="text-pygi-grey text-xs mt-1">Fachadas, tejados y soluciones de humedades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-pygi-black text-white py-16 px-4 md:px-10 border-t border-gray-800">
+        <div class="max-w-[1300px] mx-auto text-center md:text-left grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            <div class="flex flex-col items-center md:items-start text-white gap-3">
+                 <img src="https://pygi.es/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo_inmobiliaria.127e268f.png&w=96&q=75" alt="Logo PYGI" class="h-10 w-auto">
+                 <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-extrabold text-white leading-tight">Promoción y Gestión</span>
+                    <span class="text-xs text-pygi-grey text-opacity-80 uppercase tracking-widest -mt-1">INMOBILIARIA</span>
+                </div>
+                <p class="text-xs text-pygi-grey text-opacity-90 mt-4 leading-relaxed max-w-sm">Tu aliado de confianza en el sector inmobiliario y de construcción. Garantía de transparencia y profesionalidad en cada gestión.</p>
+            </div>
+            
+            <div class="text-sm">
+                <h5 class="text-white font-semibold uppercase tracking-widest text-xs mb-6">Información de Contacto</h5>
+                <ul class="space-y-4 text-pygi-grey text-opacity-90">
+                    <li class="flex items-center gap-3 justify-center md:justify-start">
+                        <i class="fa-solid fa-envelope text-pygi-green text-base"></i> info@pygi.es
+                    </li>
+                    <li class="flex items-center gap-3 justify-center md:justify-start">
+                        <i class="fa-solid fa-phone text-pygi-green text-base"></i> +34 616 385 515
+                    </li>
+                    <li class="flex items-center gap-3 justify-center md:justify-start">
+                        <i class="fa-solid fa-map-marker-alt text-pygi-green text-base"></i> España
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="text-sm">
+                <h5 class="text-white font-semibold uppercase tracking-widest text-xs mb-6">Recursos Útiles</h5>
+                <ul class="space-y-4 text-pygi-grey text-opacity-90">
+                    <li><a href="/" class="hover:text-white transition-all text-xs">Visitar Web Principal</a></li>
+                    <li><a href="#" class="hover:text-white transition-all text-xs">Aviso Legal</a></li>
+                    <li><a href="#" class="hover:text-white transition-all text-xs">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1300px] mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-xs text-pygi-grey text-opacity-70">
+            &copy; 2026 Promoción y Gestión INMOBILIARIA PYGI.ES. Todos los derechos reservados.
         </div>
     </footer>
 
