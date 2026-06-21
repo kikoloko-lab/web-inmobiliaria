@@ -80,7 +80,6 @@ function Header() {
               </Link>
             ))}
 
-          </nav>
             <div className="relative group/dropdown py-2">
               <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
                 Acción Social
@@ -103,7 +102,7 @@ function Header() {
             <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
             </a>
-            {/* 🌟 ENLACE ACTUALIZADO AL FORMULARIO DE GOOGLE FORMS 🌟 */}
+            {/* ENLACE ACTUALIZADO AL FORMULARIO DE GOOGLE FORMS */}
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDMotf6BxNoKg3koHJWufazwnmlL7pAIVDfYUuzvyGR3Nhuw/viewform?usp=header" target="_blank" rel="noopener noreferrer">
               <Button variant="gold" className="cursor-pointer">Quiero vender mi propiedad</Button>
             </a>
