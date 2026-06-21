@@ -80,6 +80,7 @@ function Header() {
               </Link>
             ))}
 
+          </nav>
             <div className="relative group/dropdown py-2">
               <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
                 Acción Social
@@ -102,9 +103,10 @@ function Header() {
             <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
             </a>
-            <Link href="/#vender">
+            {/* 🌟 ENLACE ACTUALIZADO AL FORMULARIO DE GOOGLE FORMS 🌟 */}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDMotf6BxNoKg3koHJWufazwnmlL7pAIVDfYUuzvyGR3Nhuw/viewform?usp=header" target="_blank" rel="noopener noreferrer">
               <Button variant="gold" className="cursor-pointer">Quiero vender mi propiedad</Button>
-            </Link>
+            </a>
           </div>
 
           {/* Menú Móvil */}
@@ -116,7 +118,6 @@ function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-white p-6 w-[300px]">
               
-              {/* 🌟 AQUÍ ESTÁ EL CAMBIO: Añadida la línea de 'Inmobiliaria' al logo del menú móvil */}
               <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
                 <img src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" alt="Logo" className="h-14 w-auto mb-2"/>
                 <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
