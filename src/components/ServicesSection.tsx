@@ -13,7 +13,7 @@ export function ServicesSection() {
             Nuestros Servicios
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
-            Como podemos <span className="italic font-semibold">ayudarte</span>
+            Cómo podemos <span className="italic font-semibold">ayudarte</span>
           </h2>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
         </div>
@@ -41,18 +41,18 @@ export function ServicesSection() {
                     Vender tu propiedad
                   </h3>
                   <p className="text-forest-light leading-relaxed mb-6">
-                    Buscas al comprador ideal? Carmen se encarga de que tu propiedad
-                    destaque en el mercado con integridad y resultados rapidos.
-                    Valoracion profesional, marketing exclusivo y acompañamiento
+                    ¿Buscas al comprador ideal? Carmen se encarga de que tu propiedad
+                    destaque en el mercado con integridad y resultados rápidos.
+                    Valoración profesional, marketing exclusivo y acompañamiento
                     en cada paso del proceso.
                   </p>
 
                   <ul className="space-y-3 mb-8">
                     {[
-                      "Valoracion gratuita y sin compromiso",
+                      "Valoración gratuita y sin compromiso",
                       "Estrategia de marketing personalizada",
-                      "Gestion integral de documentacion",
-                      "Negociacion profesional",
+                      "Gestión integral de documentación",
+                      "Negociación profesional",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3 text-sm text-forest">
                         <div className="w-1.5 h-1.5 rounded-full bg-gold" />
@@ -61,9 +61,9 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  {/* 🌟 ENLACE DE WHATSAPP DIRECTO PARA CAPTACIÓN */}
+                  {/* 🌟 ENLACE ACTUALIZADO AL FORMULARIO DE GOOGLE FORMS */}
                   <a 
-                    href="https://wa.me/34616385515?text=%C2%A1Hola%21%20Estoy%20interesado%20en%20vender%20mi%20propiedad%20y%20me%20gustar%C3%ADa%20recibir%20una%20valoraci%C3%B3n.%20%C2%BFPodr%C3%ADamos%20agendar%20una%20cita%20para%20hablar%20sobre%20mi%20inmueble%20en%20Hoyo%20de%20Manzanares%20o%20alrededores%3F%20Gracias."
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfDMotf6BxNoKg3koHJWufazwnmlL7pAIVDfYUuzvyGR3Nhuw/viewform?usp=header"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block"
@@ -84,7 +84,7 @@ export function ServicesSection() {
             <div className="absolute inset-0">
               <img
                 src="https://s1.rea.global/img/400x320-fit/realtor_global/es/d16e9505a5e508f343ceaa629341049d.jpg"
-                alt="Vista aerea de Hoyo de Manzanares"
+                alt="Vista aérea de la zona residencial"
                 className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
               />
             </div>
@@ -98,16 +98,17 @@ export function ServicesSection() {
                   <h3 className="font-display text-2xl lg:text-3xl font-semibold text-forest mb-4">
                     Encontrar tu hogar
                   </h3>
+                  {/* 🌟 TEXTO ACTUALIZADO: ENFOQUE NACIONAL SIN LIMITACIÓN */}
                   <p className="text-forest-light leading-relaxed mb-6">
                     Encontramos tu refugio. Elena entiende tus necesidades antes
-                    incluso de que las digas. Tu casa en Hoyo te esta esperando.
+                    incluso de que las digas. Tu nuevo hogar te está esperando.
                     Acceso a propiedades exclusivas y asesoramiento personalizado.
                   </p>
 
                   <ul className="space-y-3 mb-8">
                     {[
                       "Acceso a propiedades exclusivas",
-                      "Busqueda personalizada segun tus necesidades",
+                      "Búsqueda personalizada según tus necesidades",
                       "Visitas acompañadas y asesoradas",
                       "Apoyo en todo el proceso de compra",
                     ].map((item) => (
