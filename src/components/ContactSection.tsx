@@ -61,9 +61,10 @@ export function ContactSection() {
             </h2>
             <div className="w-24 h-px bg-gradient-to-r from-gold to-transparent mb-8" />
 
+            {/* 🌟 TEXTO ACTUALIZADO: ENFOQUE MADRID Y ESPAÑA */}
             <p className="text-forest-light leading-relaxed mb-10">
               Estamos aquí para ayudarte en cada paso. Ya sea que quieras vender,
-              comprar o simplemente conocer el mercado de Hoyo de Manzanares,
+              comprar o conocer el mercado inmobiliario en <span className="font-medium text-gold-dark">Madrid y en toda España</span>, 
               estaremos encantadas de atenderte.
             </p>
 
@@ -97,7 +98,7 @@ export function ContactSection() {
                 </div>
               </a>
 
-              {/* Ubicación Doble */}
+              {/* Ubicación (Oficinas Físicas locales se mantienen) */}
               <div className="flex items-start gap-4 text-forest group">
                 <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-gold" />
@@ -123,8 +124,9 @@ export function ContactSection() {
                   <h4 className="font-display text-lg font-semibold text-forest mb-2">
                     Guía Exclusiva Gratuita
                   </h4>
+                  {/* 🌟 TÍTULO DE GUÍA ACTUALIZADO */}
                   <p className="text-sm text-forest-light mb-4">
-                    Cómo valorar tu casa en Hoyo de Manzanares en 2026
+                    Cómo valorar tu casa con éxito en el mercado actual
                   </p>
                   <Button variant="gold" size="sm">
                     Descargar guía
