@@ -99,6 +99,9 @@ function Header() {
 
           {/* Botones Desktop Derecha */}
           <div className="hidden lg:flex items-center gap-4">
+            {/* 🌟 TRADUCTOR AUTOMÁTICO EN ESCRITORIO */}
+            <div id="google_translate_element" className="flex items-center" />
+
             <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
             </a>
@@ -109,60 +112,65 @@ function Header() {
           </div>
 
           {/* Menú Móvil */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className={isHeaderActive ? "text-forest" : "text-white"}>
-                <Menu className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-white p-6 w-[300px]">
-              
-              <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
-                <img src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" alt="Logo" className="h-14 w-auto mb-2"/>
-                <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium mt-1">Inmobiliaria</p>
-              </div>
-              
-              <div className="flex flex-col gap-5">
-                {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
-                    {link.label}
-                  </Link>
-                ))}
+          <div className="flex items-center gap-4 lg:hidden">
+            {/* 🌟 TRADUCTOR AUTOMÁTICO EN MÓVIL (FUERA DEL MENÚ LATERAL PARA ACCESO RÁPIDO) */}
+            <div id="google_translate_element" className="scale-90" />
 
-                {/* Sección de Acción Social Desplegable para Móvil */}
-                <div className="flex flex-col">
-                  <button 
-                    onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
-                    className="flex items-center justify-between text-lg font-medium text-forest w-full text-left py-1 cursor-pointer"
-                  >
-                    <span>Acción Social</span>
-                    <ChevronDown className={`w-5 h-5 text-forest/60 transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  
-                  {/* Subenlaces del desplegable móvil */}
-                  <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${
-                    isMobileSubOpen ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-                  }`}>
-                    {socialSubLinks.map((subLink) => (
-                      <Link 
-                        key={subLink.href} 
-                        href={subLink.href} 
-                        onClick={() => {
-                          setIsOpen(false);
-                          setIsMobileSubOpen(false);
-                        }} 
-                        className="text-base font-medium text-forest-light hover:text-gold transition-colors"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
-                  </div>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className={isHeaderActive ? "text-forest" : "text-white"}>
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-white p-6 w-[300px]">
+                
+                <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
+                  <img src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" alt="Logo" className="h-14 w-auto mb-2"/>
+                  <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium mt-1">Inmobiliaria</p>
                 </div>
+                
+                <div className="flex flex-col gap-5">
+                  {navLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
+                      {link.label}
+                    </Link>
+                  ))}
 
-              </div>
-            </SheetContent>
-          </Sheet>
+                  {/* Sección de Acción Social Desplegable para Móvil */}
+                  <div className="flex flex-col">
+                    <button 
+                      onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
+                      className="flex items-center justify-between text-lg font-medium text-forest w-full text-left py-1 cursor-pointer"
+                    >
+                      <span>Acción Social</span>
+                      <ChevronDown className={`w-5 h-5 text-forest/60 transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    
+                    {/* Subenlaces del desplegable móvil */}
+                    <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${
+                      isMobileSubOpen ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                    }`}>
+                      {socialSubLinks.map((subLink) => (
+                        <Link 
+                          key={subLink.href} 
+                          href={subLink.href} 
+                          onClick={() => {
+                            setIsOpen(false);
+                            setIsMobileSubOpen(false);
+                          }} 
+                          className="text-base font-medium text-forest-light hover:text-gold transition-colors"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </nav>
       </div>
     </header>
