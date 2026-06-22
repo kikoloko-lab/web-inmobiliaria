@@ -24,11 +24,11 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Decorative element */}
+          {/* Decorative element - ACTUALIZADO A ENFOQUE NACIONAL */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold" />
             <span className="text-gold text-sm font-medium tracking-[0.3em] uppercase">
-              Hoyo de Manzanares
+              Madrid • España
             </span>
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold" />
           </div>
@@ -40,9 +40,9 @@ export function HeroSection() {
             <span className="font-semibold italic text-gold">con quien las hace!</span>
           </h1>
 
-          {/* 🌟 SUBTÍTULO CON VALOR DIFERENCIAL */}
+          {/* 🌟 SUBTÍTULO CON VALOR DIFERENCIAL - ENFOQUE MADRID Y ESPAÑA */}
           <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-            Somos <span className="font-medium text-gold-light">arquitectos y abogados</span> con más de 30 años de experiencia. Valoramos su vivienda gratuitamente y gestionamos con seguridad jurídica y técnica todo el proceso.
+            Somos <span className="font-medium text-gold-light">arquitectos y abogados</span> con más de 30 años de experiencia. Valoramos su vivienda gratuitamente y gestionamos con seguridad jurídica y técnica todo el proceso en <span className="font-medium text-gold-light">Madrid y en toda España</span>.
           </p>
 
           {/* CTA Buttons */}
@@ -75,7 +75,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
-              <span>+30 años de experiencia técnica y legal</span>
+              <span>Ámbito Nacional y Seguridad Legal</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gold" />
