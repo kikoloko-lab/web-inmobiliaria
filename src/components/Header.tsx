@@ -72,11 +72,11 @@ function Header() {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <nav className="flex items-center justify-between">
+        <nav className="flex items-center justify-between gap-2 w-full">
           
-          {/* Logo y Nombre */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-4 group select-none">
-            <div className="flex items-center h-12 sm:h-16 mt-1 sm:mt-2 relative">
+          {/* Logo y Nombre (Optimizado para no colapsar en pantallas pequeñas) */}
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-4 group select-none max-w-[55%] xs:max-w-[65%] sm:max-w-none flex-shrink-0">
+            <div className="flex items-center h-10 sm:h-16 relative flex-shrink-0">
               <img 
                 src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
                 alt="Logo P&G"
@@ -84,13 +84,13 @@ function Header() {
               />
             </div>
             
-            <div className="flex flex-col justify-center">
-              <p className={`font-display text-sm sm:text-xl font-bold leading-tight transition-colors duration-300 ${
+            <div className="flex flex-col justify-center min-w-0">
+              <p className={`font-display text-xs sm:text-xl font-bold leading-tight truncate transition-colors duration-300 ${
                 isHeaderActive ? "text-forest" : "text-white"
               }`}>
                 Promoción y Gestión
               </p>
-              <p className={`text-[9px] sm:text-[12px] tracking-[0.2em] sm:tracking-[0.25em] uppercase leading-tight transition-colors duration-300 ${
+              <p className={`text-[8px] sm:text-[12px] tracking-[0.15em] sm:tracking-[0.25em] uppercase leading-tight truncate transition-colors duration-300 ${
                 isHeaderActive ? "text-forest-light" : "text-white/80"
               }`}>
                 Inmobiliaria
@@ -124,8 +124,7 @@ function Header() {
           </div>
 
           {/* Botones Desktop Derecha */}
-          <div className="hidden lg:flex items-center gap-4">
-            
+          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
             {/* SELECTOR DE IDIOMA GLOBAL */}
             <div className="flex items-center gap-1 mr-2 text-xs font-semibold select-none">
               <button 
@@ -153,23 +152,23 @@ function Header() {
             </a>
           </div>
 
-          {/* Menú Móvil */}
-          <div className="flex items-center gap-3 lg:hidden">
+          {/* Menú Móvil (Espaciado equilibrado y protegido) */}
+          <div className="flex items-center gap-1.5 sm:gap-3 lg:hidden flex-shrink-0">
             
             {/* SELECTOR DE IDIOMA EN MÓVIL */}
-            <div className="flex items-center gap-1 text-xs font-bold mr-1 select-none">
+            <div className="flex items-center gap-0.5 text-[11px] sm:text-xs font-bold select-none">
               <button 
                 type="button"
                 onClick={() => setIdioma("es")} 
-                className={`px-1 py-0.5 ${idioma === "es" ? "text-gold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
+                className={`px-1 py-0.5 transition-colors ${idioma === "es" ? "text-gold font-extrabold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
               >
                 ES
               </button>
-              <span className={isHeaderActive ? "text-forest/20" : "text-white/20"}>/</span>
+              <span className={`text-[10px] ${isHeaderActive ? "text-forest/20" : "text-white/20"}`}>/</span>
               <button 
                 type="button"
                 onClick={() => setIdioma("en")} 
-                className={`px-1 py-0.5 ${idioma === "en" ? "text-gold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
+                className={`px-1 py-0.5 transition-colors ${idioma === "en" ? "text-gold font-extrabold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
               >
                 EN
               </button>
@@ -177,8 +176,8 @@ function Header() {
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={isHeaderActive ? "text-forest" : "text-white"}>
-                  <Menu className="w-6 h-6" />
+                <Button variant="ghost" size="icon" className={`w-9 h-9 h-auto p-0 ${isHeaderActive ? "text-forest hover:bg-forest/5" : "text-white hover:bg-white/10"}`}>
+                  <Menu className="w-5 h-5 sm:w-6 h-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="bg-white p-6 w-[300px]">
