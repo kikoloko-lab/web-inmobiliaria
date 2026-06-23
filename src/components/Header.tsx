@@ -178,7 +178,17 @@ function Header() {
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-white p-6 w-[300px]">
-                
-                <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
-                  <img src="/logotipo_inmobiliara_promocion_y
+             <SheetContent side="right" className="bg-white p-6 w-[300px]">
+  
+  <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
+    {/* 🌟 CORREGIDO: Ruta de la imagen completa y comillas cerradas */}
+    <img 
+      src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
+      alt="Logo" 
+      className="h-14 w-auto mb-2"
+    />
+    <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
+    <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium mt-1">Inmobiliaria</p>
+  </div>
+  
+  {/* El resto del menú móvil sigue igual abajo... */}
