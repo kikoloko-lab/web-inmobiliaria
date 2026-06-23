@@ -40,7 +40,7 @@ const textosTeam = {
   en: {
     tagSeccion: "Meet Us",
     tituloParte1: "The ",
-    tituloParte2: "human",
+    tituloParte2: "human factor",
     fraseMision: `"Our mission is to ensure you experience the process with the peace of mind you deserve."`,
     valores: ["Integrity", "Commitment", "Proximity"],
     ctaBotón: "Schedule an appointment with us",
