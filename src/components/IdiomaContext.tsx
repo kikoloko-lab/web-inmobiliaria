@@ -4,11 +4,13 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 type Idioma = "es" | "en";
 
-// 🌟 CORREGIDO: Añadido el cierre > y el paréntesis ( correcto para inicializarlo
-const IdiomaContext = createContext<{
+interface IdiomaContextType {
   idioma: Idioma;
   setIdioma: (lang: Idioma) => void;
-}>({ 
+}
+
+// 🌟 CORREGIDO: Declaración de tipo explícita y segura para el compilador de Next.js
+const IdiomaContext = createContext<IdiomaContextType>({ 
   idioma: "es", 
   setIdioma: () => {} 
 });
