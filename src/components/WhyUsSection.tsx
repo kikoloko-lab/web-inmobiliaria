@@ -1,36 +1,72 @@
 "use client";
 
 import { Shield, Heart, Sparkles } from "lucide-react";
+import { useIdioma } from "@/components/IdiomaContext"; // 🌟 Importamos el sistema de idioma global
 
-const pillars = [
-  {
-    icon: Shield,
-    title: "Transparencia Absoluta",
-    description: "Sin sorpresas, con claridad en cada paso. Cada detalle del proceso de venta o compra te sera explicado con total honestidad.",
+// 🌟 Diccionario con todos los textos traducidos para esta sección
+const textosWhyUs = {
+  es: {
+    tagSeccion: "Nuestra Diferencia",
+    titulo: "Por qué elegirnos",
+    pilares: [
+      {
+        title: "Transparencia Absoluta",
+        description: "Sin sorpresas, con claridad en cada paso. Cada detalle del proceso de venta o compra te será explicado con total honestidad.",
+      },
+      {
+        title: "Acompañamiento Humano",
+        description: "No somos una agencia, somos tus aliadas. Entendemos que comprar o vender una casa es una decisión de vida.",
+      },
+      {
+        title: "Gestión Impecable",
+        description: "Especialistas en resolver lo complejo con elegancia. Nos encargamos de todo para que tú solo disfrutes del resultado.",
+      }
+    ]
   },
-  {
-    icon: Heart,
-    title: "Acompañamiento Humano",
-    description: "No somos una agencia, somos tus aliadas en Hoyo. Entendemos que comprar o vender una casa es una decision de vida.",
-  },
-  {
-    icon: Sparkles,
-    title: "Gestion Impecable",
-    description: "Especialistas en resolver lo complejo con elegancia. Nos encargamos de todo para que tu solo disfrutes del resultado.",
-  },
-];
+  en: {
+    tagSeccion: "Our Difference",
+    titulo: "Why Choose Us",
+    pilares: [
+      {
+        title: "Absolute Transparency",
+        description: "No surprises, absolute clarity at every stage. Every single detail of the buying or selling process will be explained with complete honesty.",
+      },
+      {
+        title: "Human Touch",
+        description: "We are not just an agency, we are your trusted allies. We understand that buying or selling a home is a life-changing decision.",
+      },
+      {
+        title: "Impeccable Management",
+        description: "Specialists in handling complex matters with absolute elegance. We take care of everything so you can simply enjoy the result.",
+      }
+    ]
+  }
+};
 
 export function WhyUsSection() {
+  // 🌟 Conectamos con el idioma activo ("es" o "en")
+  const { idioma } = useIdioma();
+  const t = textosWhyUs[idioma];
+
+  // Mapeamos los iconos de Lucide a los pilares traducidos correspondientes
+  const iconos = [Shield, Heart, Sparkles];
+  
+  const pillars = t.pilares.map((pilar, index) => ({
+    ...pilar,
+    icon: iconos[index]
+  }));
+
   return (
     <section id="por-que-nosotros" className="py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
+        
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
           <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
-            Nuestra Diferencia
+            {t.tagSeccion}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
-            Por que elegirnos
+            {t.titulo}
           </h2>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
         </div>
