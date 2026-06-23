@@ -5,23 +5,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, ChevronDown } from "lucide-react";
+import { Menu, Phone, ChevronDown, Globe } from "lucide-react";
 
-const navLinks = [
-  { href: "/#vender", label: "Vender con Nosotros" },
-  { href: "/quienes-somos", label: "Quiénes somos" },
-];
-
-const socialSubLinks = [
-  { href: "/compromiso-social", label: "Juegaterapia" },
-  { href: "/#cultura-flora", label: "Cultura de la flora" },
-  { href: "/#negocios-hoyo", label: "Negocios en Hoyo" },
-];
+// 🌟 Un único objeto con los textos de este componente
+const textos = {
+  es: {
+    vender: "Vender con Nosotros",
+    quienes: "Quiénes somos",
+    accion: "Acción Social",
+    juega: "Juegaterapia",
+    flora: "Cultura de la flora",
+    negocios: "Negocios en Hoyo",
+    cta: "Quiero vender mi propiedad",
+  },
+  en: {
+    vender: "Sell with Us",
+    quienes: "About Us",
+    accion: "Social Action",
+    juega: "Juegaterapia",
+    flora: "Flora Culture",
+    negocios: "Local Businesses",
+    cta: "I want to sell my property",
+  }
+};
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileSubOpen, setIsMobileSubOpen] = useState(false);
+  
+  // 🌟 Estado para controlar el idioma activo ('es' o 'en')
+  const [idioma, setIdioma] = useState<"es" | "en">("es");
   
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -34,8 +48,38 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 🌟 Recuperamos el idioma que guardó el usuario en su anterior visita (si existe)
+  useEffect(() => {
+    const idiomaGuardado = localStorage.getItem("web-idioma") as "es" | "en";
+    if (idiomaGuardado) {
+      setIdioma(idiomaGuardado);
+    }
+  }, []);
+
+  // 🌟 Función para cambiar de idioma de forma segura
+  const cambiarIdioma = (nuevoIdioma: "es" | "en") => {
+    setIdioma(nuevoIdioma);
+    localStorage.setItem("web-idioma", nuevoIdioma);
+    // Esto avisa al resto de la página (por si en el futuro traduces otras secciones)
+    window.dispatchEvent(new Event("cambio-idioma"));
+  };
+
   const isHeaderActive = !isHome || isScrolled;
   const whatsappConsultaUrl = "https://wa.me/34616385515?text=%C2%A1Hola%21";
+
+  // 🌟 Atajo para no escribir tanto en el código JSX
+  const t = textos[idioma];
+
+  const navLinks = [
+    { href: "/#vender", label: t.vender },
+    { href: "/quienes-somos", label: t.quienes },
+  ];
+
+  const socialSubLinks = [
+    { href: "/compromiso-social", label: t.juega },
+    { href: "/#cultura-flora", label: t.flora },
+    { href: "/#negocios-hoyo", label: t.negocios },
+  ];
 
   return (
     <header
@@ -82,7 +126,7 @@ function Header() {
 
             <div className="relative group/dropdown py-2">
               <button className={`flex items-center gap-1 text-sm font-medium cursor-pointer transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
-                Acción Social
+                {t.accion}
                 <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-52 opacity-0 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:pointer-events-auto transition-all duration-300">
@@ -99,22 +143,51 @@ function Header() {
 
           {/* Botones Desktop Derecha */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* 🌟 TRADUCTOR AUTOMÁTICO EN ESCRITORIO */}
-            <div id="google_translate_element" className="flex items-center" />
+            
+            {/* 🌟 SELECTOR DE IDIOMA SEGURO (ES / EN) */}
+            <div className="flex items-center gap-1 mr-2 text-xs font-semibold select-none">
+              <button 
+                onClick={() => cambiarIdioma("es")} 
+                className={`cursor-pointer px-1.5 py-0.5 rounded transition-colors ${idioma === "es" ? "text-gold font-bold" : (isHeaderActive ? "text-forest/60 hover:text-forest" : "text-white/60 hover:text-white")}`}
+              >
+                ES
+              </button>
+              <span className={isHeaderActive ? "text-forest/30" : "text-white/30"}>|</span>
+              <button 
+                onClick={() => cambiarIdioma("en")} 
+                className={`cursor-pointer px-1.5 py-0.5 rounded transition-colors ${idioma === "en" ? "text-gold font-bold" : (isHeaderActive ? "text-forest/60 hover:text-forest" : "text-white/60 hover:text-white")}`}
+              >
+                EN
+              </button>
+            </div>
 
             <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
             </a>
-            {/* ENLACE ACTUALIZADO AL FORMULARIO DE GOOGLE FORMS */}
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDMotf6BxNoKg3koHJWufazwnmlL7pAIVDfYUuzvyGR3Nhuw/viewform?usp=header" target="_blank" rel="noopener noreferrer">
-              <Button variant="gold" className="cursor-pointer">Quiero vender mi propiedad</Button>
+              <Button variant="gold" className="cursor-pointer">{t.cta}</Button>
             </a>
           </div>
 
           {/* Menú Móvil */}
-          <div className="flex items-center gap-4 lg:hidden">
-            {/* 🌟 TRADUCTOR AUTOMÁTICO EN MÓVIL (FUERA DEL MENÚ LATERAL PARA ACCESO RÁPIDO) */}
-            <div id="google_translate_element" className="scale-90" />
+          <div className="flex items-center gap-3 lg:hidden">
+            
+            {/* 🌟 SELECTOR DE IDIOMA EN MÓVIL */}
+            <div className="flex items-center gap-1 text-xs font-bold mr-1 select-none">
+              <button 
+                onClick={() => cambiarIdioma("es")} 
+                className={`px-1 py-0.5 ${idioma === "es" ? "text-gold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
+              >
+                ES
+              </button>
+              <span className={isHeaderActive ? "text-forest/20" : "text-white/20"}>/</span>
+              <button 
+                onClick={() => cambiarIdioma("en")} 
+                className={`px-1 py-0.5 ${idioma === "en" ? "text-gold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
+              >
+                EN
+              </button>
+            </div>
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -143,7 +216,7 @@ function Header() {
                       onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
                       className="flex items-center justify-between text-lg font-medium text-forest w-full text-left py-1 cursor-pointer"
                     >
-                      <span>Acción Social</span>
+                      <span>{t.accion}</span>
                       <ChevronDown className={`w-5 h-5 text-forest/60 transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
                     </button>
                     
