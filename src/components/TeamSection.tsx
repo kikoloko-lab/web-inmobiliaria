@@ -2,42 +2,112 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useIdioma } from "@/components/IdiomaContext"; // 🌟 Importamos el sistema de idioma global
+
+// 🌟 Diccionario con todos los textos traducidos para el Equipo
+const textosTeam = {
+  es: {
+    tagSeccion: "Conócenos",
+    tituloParte1: "El factor ",
+    tituloParte2: "humano",
+    fraseMision: `"Nuestra misión es que vivas el proceso con la paz que mereces."`,
+    valores: ["Integridad", "Compromiso", "Cercanía"],
+    ctaBotón: "Agenda una cita con nosotros",
+    
+    miembros: {
+      claudia: {
+        role: "Consultora Inmobiliaria",
+        subrole: "Graduada en Derecho",
+        description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y las redes sociales. Se asegura de que cada propiedad brille en el mercado y conecta de manera cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra."
+      },
+      elena: {
+        role: "Consultora Inmobiliaria",
+        subrole: "Grado en Turismo",
+        description: "Elena aporta una sensibilidad especial para comprender las necesidades de cada familia incluso antes de que las expresen. Su empatía y su capacidad de escucha activa convierten la búsqueda de un hogar en una experiencia tranquila, guiada y totalmente personalizada. Además, ofrece una atención multilingüe fluida, dominando el español, inglés, francés e italiano."
+      },
+      luis: {
+        role: "Fundador",
+        subrole: "Gestión Patrimonial · Arquitecto Superior",
+        description: "Como fundador de Promoción y Gestión Inmobiliaria, Luis lidera la firma aportando una visión estratégica respaldada por sus más de 33 años de experiencia como Arquitecto Superior. Especializado en la gestión patrimonial y el análisis técnico-financiero, su liderazgo garantiza que cada operación se evalúe con la máxima rigurosidad y solidez, convirtiendo las decisiones patrimoniales de nuestros clientes en un valor seguro."
+      },
+      carmen: {
+        role: "Directora Legal",
+        subrole: "Abogada en ejercicio",
+        description: "Carmen es el pilar y la salvaguarda jurídica de nuestro equipo. Como abogada en ejercicio con más de 15 años de dedicación exclusiva en Hoyo de Manzanares y la Sierra de Guadarrama, su rol principal es aportar un conocimiento legal exhaustivo en cada transacción. Su implicación asegura que cada contrato y proceso se desarrolle bajo un marco de absoluta transparencia, protección y total seguridad jurídica."
+      }
+    }
+  },
+  en: {
+    tagSeccion: "Meet Us",
+    tituloParte1: "The ",
+    tituloParte2: "human",
+    fraseMision: `"Our mission is to ensure you experience the process with the peace of mind you deserve."`,
+    valores: ["Integrity", "Commitment", "Proximity"],
+    ctaBotón: "Schedule an appointment with us",
+    
+    miembros: {
+      claudia: {
+        role: "Real Estate Consultant",
+        subrole: "Law Graduate",
+        description: "Claudia combines extraordinary energy with native command of digital strategies and social media. She ensures every property stands out in the market and connects closely and dynamically with the new generation of buyers looking for their home in the Sierra."
+      },
+      elena: {
+        role: "Real Estate Consultant",
+        subrole: "Degree in Tourism",
+        description: "Elena brings a special sensitivity to understanding each family's needs even before they express them. Her empathy and active listening skills turn the home search into a calm, guided, and fully personalized experience. Furthermore, she offers fluent multilingual service, mastering Spanish, English, French, and Italian."
+      },
+      luis: {
+        role: "Founder",
+        subrole: "Wealth Management · Senior Architect",
+        description: "As the founder of Promoción y Gestión Inmobiliaria, Luis leads the firm by providing a strategic vision backed by his over 33 years of experience as a Senior Architect. Specializing in wealth management and technical-financial analysis, his leadership guarantees that every transaction is evaluated with the utmost precision and soundness, turning our clients' real estate assets into secure long-term value."
+      },
+      carmen: {
+        role: "Legal Director",
+        subrole: "Practicing Lawyer",
+        description: "Carmen is the pillar and legal safeguard of our team. As a practicing lawyer with more than 15 years of exclusive dedication in Hoyo de Manzanares and the Sierra de Guadarrama, her main role is to provide exhaustive legal knowledge in each transaction. Her involvement ensures that every contract and process is developed under a framework of absolute transparency, protection, and complete legal security."
+      }
+    }
+  }
+};
 
 export function TeamSection() {
+  // 🌟 Conectamos con el idioma activo ("es" o "en")
+  const { idioma } = useIdioma();
+  const t = textosTeam[idioma];
+
+  // Base estática de datos de los miembros (IDs, imágenes y nombres no cambian)
   const teamMembers = [
     {
       id: "claudia",
       name: "Claudia",
       image: "/image.png",
-      role: "Consultora Inmobiliaria",
-      subrole: "Graduada en Derecho",
-      // 🌟 Traducido al español
-      description: "Claudia combina una energía extraordinaria con un dominio nativo de las estrategias digitales y las redes sociales. Se asegura de que cada propiedad brille en el mercado y conecta de manera cercana y dinámica con las nuevas generaciones de compradores que buscan su hogar en la Sierra.",
+      role: t.miembros.claudia.role,
+      subrole: t.miembros.claudia.subrole,
+      description: t.miembros.claudia.description,
     },
     {
       id: "elena",
       name: "Elena",
       image: "/fotonuevaelena.jpeg",
-      role: "Consultora Inmobiliaria",
-      subrole: "Grado en Turismo",
-      // 🌟 Traducido al español
-      description: "Elena aporta una sensibilidad especial para comprender las necesidades de cada familia incluso antes de que las expresen. Su empatía y su capacidad de escucha activa convierten la búsqueda de un hogar en una experiencia tranquila, guiada y totalmente personalizada. Además, ofrece una atención multilingüe fluida, dominando el español, inglés, francés e italiano.",
+      role: t.miembros.elena.role,
+      subrole: t.miembros.elena.subrole,
+      description: t.miembros.elena.description,
     },
     {
       id: "luis",
       name: "Luis",
       image: "/04_luis.jpeg",
-      role: "Fundador",
-      subrole: "Gestión Patrimonial · Arquitecto Superior",
-      description: "Como fundador de Promoción y Gestión Inmobiliaria, Luis lidera la firma aportando una visión estratégica respaldada por sus más de 33 años de experiencia como Arquitecto Superior. Especializado en la gestión patrimonial y el análisis técnico-financiero, su liderazgo garantiza que cada operación se evalúe con la máxima rigurosidad y solidez, convirtiendo las decisiones patrimoniales de nuestros clientes en un valor seguro.",
+      role: t.miembros.luis.role,
+      subrole: t.miembros.luis.subrole,
+      description: t.miembros.luis.description,
     },
     {
       id: "carmen",
       name: "Carmen",
       image: "/03_varmen (1).jpeg",
-      role: "Directora Legal",
-      subrole: "Abogada en ejercicio",
-      description: "Carmen es el pilar y la salvaguarda jurídica de nuestro equipo. Como abogada en ejercicio con más de 15 años de dedicación exclusiva en Hoyo de Manzanares y la Sierra de Guadarrama, su rol principal es aportar un conocimiento legal exhaustivo en cada transacción. Su implicación asegura que cada contrato y proceso se desarrolle bajo un marco de absoluta transparencia, protección y total seguridad jurídica.",
+      role: t.miembros.carmen.role,
+      subrole: t.miembros.carmen.subrole,
+      description: t.miembros.carmen.description,
     },
   ];
 
@@ -49,17 +119,17 @@ export function TeamSection() {
           {/* 1. TEXTO DE INTRODUCCIÓN */}
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             <span className="text-gold text-sm font-medium tracking-[0.2em] uppercase mb-4 block">
-              Conócenos
+              {t.tagSeccion}
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-forest mb-6">
-              El factor <span className="italic font-semibold">humano</span>
+              {t.tituloParte1}<span className="italic font-semibold">{t.tituloParte2}</span>
             </h2>
 
             {/* Divisor */}
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-8" />
 
             <p className="font-display text-lg md:text-xl text-forest italic max-w-2xl">
-              "Nuestra misión es que vivas el proceso con la paz que mereces."
+              {t.fraseMision}
             </p>
           </div>
 
@@ -102,7 +172,7 @@ export function TeamSection() {
             <div className="hidden lg:block absolute -top-8 -left-8 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
           </div>
 
-          {/* 3. DESGLOSE INDIVIDUAL ALTERNADO (CON IDENTIFICADORES ID) */}
+          {/* 3. DESGLOSE INDIVIDUAL ALTERNADO */}
           <div className="mt-12 space-y-20 lg:space-y-28 border-t border-cream-dark pt-20">
             {teamMembers.map((member, index) => {
               const isEven = index % 2 === 0;
@@ -155,7 +225,7 @@ export function TeamSection() {
           {/* 4. VALORES CORPORATIVOS Y CTA FINAL */}
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center border-t border-cream-dark pt-16 w-full">
             <div className="grid grid-cols-3 gap-6 sm:gap-12 w-full max-w-xl justify-center mb-12">
-              {["Integridad", "Compromiso", "Cercanía"].map((value) => (
+              {t.valores.map((value) => (
                 <div key={value} className="text-center">
                   <div className="w-12 h-12 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-3">
                     <div className="w-3 h-3 rounded-full bg-gold" />
@@ -173,7 +243,7 @@ export function TeamSection() {
                 className="inline-block"
               >
                 <Button variant="gold" className="cursor-pointer">
-                  Agenda una cita con nosotros
+                  {t.ctaBotón}
                 </Button>
               </a>
             </div>
