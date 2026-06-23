@@ -3,6 +3,7 @@ import "./globals.css";
 import ClientBody from "./ClientBody";
 import Script from "next/script";
 import Header from "@/components/Header";
+import { IdiomaProvider } from "@/components/IdiomaContext"; // 🌟 1. Importamos el nuevo proveedor de idioma
 
 export const metadata: Metadata = {
   title: "Promocion y Gestion Inmobiliaria | Madrid",
@@ -29,70 +30,18 @@ export default function RootLayout({
           crossOrigin="anonymous"
           src="//unpkg.com/same-runtime/dist/index.global.js"
         />
-        {/* 🌟 CSS oculto para limpiar el diseño del widget de Google Translate */}
-        <style>{`
-          /* Oculta la barra superior azul/gris de Google */
-          .goog-te-banner-frame.skiptranslate, .goog-te-banner-frame { 
-            display: none !important; 
-          }
-          body { 
-            top: 0px !important; 
-          }
-          /* Oculta el logo "Con la tecnología de Google" */
-          .goog-logo-link, .goog-te-gadget span { 
-            display: none !important; 
-          }
-          .goog-te-gadget { 
-            color: transparent !important; 
-            font-size: 0 !important;
-          }
-          /* Estilo básico para integrarlo en el Header */
-          #google_translate_element select {
-            background-color: transparent;
-            color: inherit;
-            border: 1px solid rgba(0,0,0,0.15);
-            padding: 4px 8px;
-            border-radius: 9999px;
-            font-size: 13px;
-            cursor: pointer;
-            outline: none;
-          }
-          /* Si el header está en fondo transparente (texto blanco) cambiamos el borde del select */
-          header:not(.bg-white\/95) #google_translate_element select {
-            border-color: rgba(255,255,255,0.3);
-            color: #ffffff;
-            background-color: rgba(0,0,0,0.2);
-          }
-          header:not(.bg-white\/95) #google_translate_element select option {
-            color: #000000;
-          }
-        `}</style>
+        {/* 🌟 LIMPIEZA: Se eliminó todo el bloque de estilos de Google Translate que causaba conflictos */}
       </head>
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>
           
-          <Header /> 
-          
-          {children}
+          {/* 🌟 2. Envolvemos el Header y las páginas (children) para que compartan el mismo idioma */}
+          <IdiomaProvider>
+            <Header /> 
+            {children}
+          </IdiomaProvider>
 
         </ClientBody>
-
-        {/* 🌟 SCRIPTS OFICIALES DE GOOGLE TRANSLATE */}
-        <Script
-          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          strategy="afterInteractive"
-        />
-        <Script id="google-translate-init" strategy="afterInteractive">
-          {`
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({
-                pageLanguage: 'es',
-                includedLanguages: 'en,es',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-              }, 'google_translate_element');
-            }
-          `}
-        </Script>
       </body>
     </html>
   );
