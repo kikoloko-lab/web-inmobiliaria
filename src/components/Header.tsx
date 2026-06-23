@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, ChevronDown } from "lucide-react";
-import { useIdioma } from "@/components/IdiomaContext"; // 🌟 Conectamos con el contexto global real
+import { useIdioma } from "@/components/IdiomaContext"; 
 
 const textos = {
   es: {
@@ -34,7 +34,6 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileSubOpen, setIsMobileSubOpen] = useState(false);
   
-  // 🌟 CORREGIDO: Consumimos el estado global. Borramos el useState local y el useEffect repetido.
   const { idioma, setIdioma } = useIdioma();
   
   const pathname = usePathname();
@@ -130,6 +129,7 @@ function Header() {
             {/* SELECTOR DE IDIOMA GLOBAL */}
             <div className="flex items-center gap-1 mr-2 text-xs font-semibold select-none">
               <button 
+                type="button"
                 onClick={() => setIdioma("es")} 
                 className={`cursor-pointer px-1.5 py-0.5 rounded transition-colors ${idioma === "es" ? "text-gold font-bold" : (isHeaderActive ? "text-forest/60 hover:text-forest" : "text-white/60 hover:text-white")}`}
               >
@@ -137,6 +137,7 @@ function Header() {
               </button>
               <span className={isHeaderActive ? "text-forest/30" : "text-white/30"}>|</span>
               <button 
+                type="button"
                 onClick={() => setIdioma("en")} 
                 className={`cursor-pointer px-1.5 py-0.5 rounded transition-colors ${idioma === "en" ? "text-gold font-bold" : (isHeaderActive ? "text-forest/60 hover:text-forest" : "text-white/60 hover:text-white")}`}
               >
@@ -144,7 +145,7 @@ function Header() {
               </button>
             </div>
 
-            <a href={whatsappConsultaUrl} target="_blank" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
+            <a href={whatsappConsultaUrl} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold ${isHeaderActive ? "text-forest" : "text-white"}`}>
               <Phone className="w-4 h-4 text-gold" /> +34 616 385 515
             </a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDMotf6BxNoKg3koHJWufazwnmlL7pAIVDfYUuzvyGR3Nhuw/viewform?usp=header" target="_blank" rel="noopener noreferrer">
@@ -158,6 +159,7 @@ function Header() {
             {/* SELECTOR DE IDIOMA EN MÓVIL */}
             <div className="flex items-center gap-1 text-xs font-bold mr-1 select-none">
               <button 
+                type="button"
                 onClick={() => setIdioma("es")} 
                 className={`px-1 py-0.5 ${idioma === "es" ? "text-gold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
               >
@@ -165,6 +167,7 @@ function Header() {
               </button>
               <span className={isHeaderActive ? "text-forest/20" : "text-white/20"}>/</span>
               <button 
+                type="button"
                 onClick={() => setIdioma("en")} 
                 className={`px-1 py-0.5 ${idioma === "en" ? "text-gold" : (isHeaderActive ? "text-forest/60" : "text-white/60")}`}
               >
@@ -178,17 +181,62 @@ function Header() {
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
-             <SheetContent side="right" className="bg-white p-6 w-[300px]">
-  
-  <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
-    {/* 🌟 CORREGIDO: Ruta de la imagen completa y comillas cerradas */}
-    <img 
-      src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
-      alt="Logo" 
-      className="h-14 w-auto mb-2"
-    />
-    <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
-    <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium mt-1">Inmobiliaria</p>
-  </div>
-  
-  {/* El resto del menú móvil sigue igual abajo... */}
+              <SheetContent side="right" className="bg-white p-6 w-[300px]">
+                
+                <div className="flex flex-col items-center pt-6 pb-5 border-b mb-6 select-none">
+                  <img 
+                    src="/logotipo_inmobiliara_promocion_y_gestion_inmobiliaria-removebg-preview.png" 
+                    alt="Logo" 
+                    className="h-14 w-auto mb-2"
+                  />
+                  <h2 className="font-display text-base font-bold text-forest leading-none">Promoción y Gestión</h2>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium mt-1">Inmobiliaria</p>
+                </div>
+                
+                <div className="flex flex-col gap-5">
+                  {navLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-forest">
+                      {link.label}
+                    </Link>
+                  ))}
+
+                  <div className="flex flex-col">
+                    <button 
+                      type="button"
+                      onClick={() => setIsMobileSubOpen(!isMobileSubOpen)}
+                      className="flex items-center justify-between text-lg font-medium text-forest w-full text-left py-1 cursor-pointer"
+                    >
+                      <span>{t.accion}</span>
+                      <ChevronDown className={`w-5 h-5 text-forest/60 transition-transform duration-300 ${isMobileSubOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    
+                    <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${
+                      isMobileSubOpen ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                    }`}>
+                      {socialSubLinks.map((subLink) => (
+                        <Link 
+                          key={subLink.href} 
+                          href={subLink.href} 
+                          onClick={() => {
+                            setIsOpen(false);
+                            setIsMobileSubOpen(false);
+                          }} 
+                          className="text-base font-medium text-forest-light hover:text-gold transition-colors"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+              </SheetContent>
+            </Sheet>
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
