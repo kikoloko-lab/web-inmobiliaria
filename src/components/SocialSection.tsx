@@ -16,14 +16,14 @@ const textos = {
     seccionPlastico: "Reciclaje Plástico",
     cita: "\"Pequeños gestos que transforman entornos y regalan sonrisas.\"",
     fichasPapel: [
-      { title: 'Papel: Versión Color', desc: 'Ficha educativa completa con los colores de Juegaterapia.' },
-      { title: 'Papel: Para Colorear', desc: 'Versión en blanco y negro ideal para pintar en casa.' },
-      { title: 'Guía: Qué sí y qué no', desc: 'Manual rápido para resolver dudas frecuentes sobre el contenedor azul.' }
+      { title: 'Papel: Versión Color', file: '/00_PAPEL a color.pdf', desc: 'Ficha educativa completa con los colores de Juegaterapia.' },
+      { title: 'Papel: Para Colorear', file: '/00_PAPEL blanco y negro.pdf', desc: 'Versión en blanco y negro ideal para pintar en casa.' },
+      { title: 'Guía: Qué sí y qué no', file: '/01_GUIA_PAPEL.pdf', desc: 'Manual rápido para resolver dudas frecuentes sobre el contenedor azul.' }
     ],
     fichasPlastico: [
-      { title: 'Plástico: Versión Color', desc: 'Ficha didáctica para aprender sobre el contenedor amarillo.' },
-      { title: 'Plástico: Para Colorear', desc: 'Divertida ficha para colorear mientras aprenden a reciclar.' },
-      { title: 'Guía: Qué sí y qué no', desc: 'Manual práctico para identificar correctamente envases y bricks.' }
+      { title: 'Plástico: Versión Color', file: '/00_PLASTICO a color.pdf', desc: 'Ficha didáctica para aprender sobre el contenedor amarillo.' },
+      { title: 'Plástico: Para Colorear', file: '/00_PLASTICO blanco y negro.pdf', desc: 'Divertida ficha para colorear mientras aprenden a reciclar.' },
+      { title: 'Guía: Qué sí y qué no', file: '/01_GUIA_PLASTICO.pdf', desc: 'Manual práctico para identificar correctamente envases y bricks.' }
     ]
   },
   en: {
@@ -35,35 +35,23 @@ const textos = {
     seccionPlastico: "Plastic Recycling",
     cita: "\"Small gestures that transform environments and bring smiles.\"",
     fichasPapel: [
-      { title: 'Paper: Color Version', desc: 'Complete educational sheet featuring Juegaterapia colors.' },
-      { title: 'Paper: Coloring Sheet', desc: 'Black and white version ideal for painting at home.' },
-      { title: 'Guide: Do\'s and Don\'ts', desc: 'Quick guide to resolve common questions about the blue container.' }
+      { title: 'Paper: Color Version', file: '/00_PAPEL a color.pdf', desc: 'Complete educational sheet featuring Juegaterapia colors.' },
+      { title: 'Paper: Coloring Sheet', file: '/00_PAPEL blanco y negro.pdf', desc: 'Black and white version ideal for painting at home.' },
+      { title: 'Guide: Do\'s and Don\'ts', file: '/01_GUIA_PAPEL.pdf', desc: 'Quick guide to resolve common questions about the blue container.' }
     ],
     fichasPlastico: [
-      { title: 'Plastic: Color Version', desc: 'Didactic sheet to learn all about the yellow container.' },
-      { title: 'Plastic: Coloring Sheet', desc: 'Fun sheet for coloring while learning how to recycle.' },
-      { title: 'Guide: Do\'s and Don\'ts', desc: 'Practical manual to properly identify containers and cartons.' }
+      { title: 'Plastic: Color Version', file: '/00_PLASTICO a color.pdf', desc: 'Didactic sheet to learn all about the yellow container.' },
+      { title: 'Plastic: Coloring Sheet', file: '/00_PLASTICO blanco y negro.pdf', desc: 'Fun sheet for coloring while learning how to recycle.' },
+      { title: 'Guide: Do\'s and Don\'ts', file: '/01_GUIA_PLASTICO.pdf', desc: 'Practical manual to properly identify containers and cartons.' }
     ]
   }
 };
 
 const SocialSection = () => {
   const { idioma } = useIdioma();
-  const t = textos[idioma || "es"];
-
-  // Mapeamos los archivos físicos locales con sus respectivos textos dinámicos traducidos
-  const archivosPapel = ['/00_PAPEL a color.pdf', '/00_PAPEL blanco y negro.pdf', '/01_GUIA_PAPEL.pdf'];
-  const archivosPlastico = ['/00_PLASTICO a color.pdf', '/00_PLASTICO blanco y negro.pdf', '/01_GUIA_PLASTICO.pdf'];
-
-  const fichasPapelCombinadas = t.fichasPapel.map((ficha, idx) => ({
-    ...ficha,
-    file: archivosPapel[idx]
-  }));
-
-  const fichasPlasticoCombinadas = t.fichasPlastico.map((ficha, idx) => ({
-    ...ficha,
-    file: archivosPlastico[idx]
-  }));
+  
+  // Forzamos "es" como fallback inmediato por seguridad en la desestructuración
+  const t = textos[idioma || "es"] || textos.es;
 
   return (
     <section 
@@ -79,7 +67,6 @@ const SocialSection = () => {
           priority
           className="object-cover object-center"
         />
-        {/* Capa de contraste blanca (Overlay) */}
         <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]" />
       </div>
       
@@ -104,7 +91,7 @@ const SocialSection = () => {
           <div className="bg-cream px-6 py-4 rounded-xl shadow-md border border-forest/10 w-72 flex items-center justify-center">
             <img 
               src="/logo-colaboracion.png" 
-              alt="Alianza PYGI and Juegaterapia" 
+              alt="Alianza PYGI" 
               className="h-12 w-auto object-contain block mx-auto"
             />
           </div>
@@ -112,17 +99,20 @@ const SocialSection = () => {
 
         {/* BLOQUE DE CONTENIDOS (Fichas) */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+          
           {/* COLUMNA PAPEL */}
           <div>
             <div className="flex items-center gap-3 pb-4 border-b border-forest/20 mb-8">
               <div className="w-8 h-8 rounded-full bg-forest flex items-center justify-center shadow-sm">
                 <Leaf className="w-4 h-4 text-white" />
               </div>
-              <h3 className="font-display text-2xl font-medium text-forest uppercase tracking-wider">{t.seccionPapel}</h3>
+              <h3 className="font-display text-2xl font-medium text-forest uppercase tracking-wider">
+                {t.seccionPapel}
+              </h3>
             </div>
             <div className="space-y-6">
-              {fichasPapelCombinadas.map((ficha, idx) => (
-                <div key={idx} className="bg-white/90 p-6 rounded-2xl shadow-sm border border-forest/10 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
+              {t.fichasPapel.map((ficha, idx) => (
+                <div key={`papel-${idx}`} className="bg-white/90 p-6 rounded-2xl shadow-sm border border-forest/10 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
                   <div>
                     <h4 className="font-semibold text-forest text-sm">{ficha.title}</h4>
                     <p className="text-forest-light text-xs mt-1">{ficha.desc}</p>
@@ -143,11 +133,13 @@ const SocialSection = () => {
               <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center shadow-sm">
                 <Leaf className="w-4 h-4 text-forest" />
               </div>
-              <h3 className="font-display text-2xl font-medium text-gold-dark uppercase tracking-wider">{t.seccionPlastico}</h3>
+              <h3 className="font-display text-2xl font-medium text-gold-dark uppercase tracking-wider">
+                {t.seccionPlastico}
+              </h3>
             </div>
             <div className="space-y-6">
-              {fichasPlasticoCombinadas.map((ficha, idx) => (
-                <div key={idx} className="bg-white/90 p-6 rounded-2xl shadow-sm border border-gold/20 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
+              {t.fichasPlastico.map((ficha, idx) => (
+                <div key={`plastico-${idx}`} className="bg-white/90 p-6 rounded-2xl shadow-sm border border-gold/20 flex justify-between items-center gap-4 hover:shadow-md transition-shadow">
                   <div>
                     <h4 className="font-semibold text-forest text-sm">{ficha.title}</h4>
                     <p className="text-forest-light text-xs mt-1">{ficha.desc}</p>
@@ -161,6 +153,7 @@ const SocialSection = () => {
               ))}
             </div>
           </div>
+
         </div>
 
         {/* CIERRE */}
